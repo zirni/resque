@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>stats.erb</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            stats.erb
+        </h1>
+        <ul class="files">
+            <li>lib/resque/server/views/stats.erb</li>
+            <li>Last modified: Fri Sep 11 00:12:48 -0700 2009</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+<% @subtabs = %w( resque redis keys ) %>
+</p>
+<p>
+<% if params[:key] %>
+</p>
+<p>
+<%= partial :key %>
+</p>
+<p>
+<% elsif params[:id] == &#8220;resque&#8221; %>
+</p>
+<pre>
+  &lt;h1&gt;&lt;%= resque %&gt;&lt;/h1&gt;
+  &lt;table&gt;
+  &lt;% for key, value in resque.info.to_a.sort_by { |i| i[0].to_s } %&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;%= key %&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;%= value %&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;% end %&gt;
+  &lt;/table&gt;
+</pre>
+<p>
+<% elsif params[:id] == &#8216;redis&#8217; %>
+</p>
+<pre>
+  &lt;h1&gt;&lt;%= resque.redis %&gt;&lt;/h1&gt;
+  &lt;table&gt;
+  &lt;% for key, value in resque.redis.info.to_a.sort_by { |i| i[0].to_s } %&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;%= key %&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;%= value %&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;% end %&gt;
+  &lt;/table&gt;
+</pre>
+<p>
+<% elsif params[:id] == &#8216;keys&#8217; %>
+</p>
+<pre>
+  &lt;h1&gt;Keys owned by &lt;%= resque %&gt;&lt;/h1&gt;
+  &lt;h2&gt;(All keys are actually prefixed with &quot;resque:&quot;)&lt;/h2&gt;
+  &lt;table&gt;
+    &lt;tr&gt;
+      &lt;th&gt;key&lt;/th&gt;
+      &lt;th&gt;type&lt;/th&gt;
+      &lt;th&gt;size&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;% for key in resque.keys.sort %&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;a href=&quot;/stats/keys/&lt;%= key %&gt;&quot;&gt;&lt;%= key %&gt;&lt;/a&gt;
+      &lt;/td&gt;
+      &lt;td&gt;&lt;%= resque.redis.type key %&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;%= redis_get_size key %&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;% end %&gt;
+  &lt;/table&gt;
+</pre>
+<p>
+<% else %>
+</p>
+<p>
+<% end %>
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TODO.md</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+    <script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            TODO.md
+        </h1>
+        <ul class="files">
+            <li>TODO.md</li>
+            <li>Last modified: Mon Nov 02 13:02:54 -0800 2009</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <h2>Little Stuff</h2>
+
+<p>[ ] Show stale workers in red with a warning icon in the Sinatra app</p>
+
+<h2>Big Stuff</h2>
+
+<h3>async</h3>
+
+<p>I want the <code>async</code> helper to be first class. Something like this:</p>
+
+<pre><code>class Repository &lt; ActiveRecord::Base
+    include Resque::AsyncHelper
+end
+</code></pre>
+
+<p>This adds an <code>async</code> instance method and a <code>perform</code> class method.</p>
+
+<p>The <code>async</code> method looks like this:</p>
+
+<pre><code>def async(method, *args)
+  Resque.enqueue(self.class, id, method, *args)
+end
+</code></pre>
+
+<p>The <code>perform</code> method looks like this:</p>
+
+<pre><code>def self.perform(id, method, *args)
+  find(id).send(method, *args)
+end
+</code></pre>
+
+<p>Of course, you can define your own <code>self.perform</code> and have it still
+work beautifully. We might override ours in GitHub to look like this:</p>
+
+<pre><code>def self.perform(id, method, *args)
+  return unless repo = cached_by_id(id)
+  repo.send(method, *args)
+end
+</code></pre>
+
+<p>Then: <code>@repo.async(:update_disk_usage)</code> issues a job equivalent to:</p>
+
+<pre><code>Resque.enqueue(Repository, 44, :update_disk_usage)
+</code></pre>
+
+<p>Booyah.</p>
+
+<h3>gem install</h3>
+
+<p><code>gem install resque</code> should pull in yajl, redis, sinatra, rake, and rack</p>
+
+<p>Do it like Unicorn does it.</p>
+
+<h3>Parent / Child => Master / Workers</h3>
+
+<p>On an ideal setup (REE + Linux) you'll have 2N Resque processes
+running at any time: N parents and N children.</p>
+
+<p>We can cut this number down to N+1 by moving from a parent / child
+architecture to a master / workers architecture.</p>
+<script type="text/javascript">$(function() {
+  $('a').each(function() { $(this).attr('target', '_blank') })
+})</script>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+    </div>
+  </body>
+</html>

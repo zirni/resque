@@ -1,0 +1,1960 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Resque::Worker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+    <script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            Resque::Worker 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/resque/worker_rb.html">lib/resque/worker.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+A <a href="../Resque.html">Resque</a> <a href="Worker.html">Worker</a>
+processes jobs. On platforms that support fork(2), the worker will fork off
+a child to process each job. This ensures a clean slate when beginning the
+next job and cuts down on gradual memory growth as well as low level
+failures.
+</p>
+<p>
+It also ensures workers are always listening to signals from you, their
+master, and can react accordingly.
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>#</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000105">==</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>A</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000055">all</a>,</li>
+                
+                <li><a href="#M000059">attach</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>D</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000093">done_working</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>E</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000083">enable_gc_optimizations</a>,</li>
+                
+                <li><a href="#M000060">exists?</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>F</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000096">failed</a>,</li>
+                
+                <li><a href="#M000097">failed!</a>,</li>
+                
+                <li><a href="#M000058">find</a>,</li>
+                
+                <li><a href="#M000078">fork</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>H</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000109">hostname</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>I</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000108">id</a>,</li>
+                
+                <li><a href="#M000103">idle?</a>,</li>
+                
+                <li><a href="#M000106">inspect</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>J</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000100">job</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>K</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000088">kill_child</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>L</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000111">log</a>,</li>
+                
+                <li><a href="#M000112">log!</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>N</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000062">new</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>P</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000073">process</a>,</li>
+                
+                <li><a href="#M000094">processed</a>,</li>
+                
+                <li><a href="#M000095">processed!</a>,</li>
+                
+                <li><a href="#M000101">processing</a>,</li>
+                
+                <li><a href="#M000089">prune_dead_workers</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>Q</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000077">queues</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>R</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000085">register_signal_handlers</a>,</li>
+                
+                <li><a href="#M000090">register_worker</a>,</li>
+                
+                <li><a href="#M000076">reserve</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>S</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000086">shutdown</a>,</li>
+                
+                <li><a href="#M000087">shutdown!</a>,</li>
+                
+                <li><a href="#M000098">started</a>,</li>
+                
+                <li><a href="#M000099">started!</a>,</li>
+                
+                <li><a href="#M000082">startup</a>,</li>
+                
+                <li><a href="#M000104">state</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>T</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000107">to_s</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>U</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000091">unregister_worker</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>V</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000063">validate_queues</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>W</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000068">work</a>,</li>
+                
+                <li><a href="#M000110">worker_pids</a>,</li>
+                
+                <li><a href="#M000056">working</a>,</li>
+                
+                <li><a href="#M000102">working?</a>,</li>
+                
+                <li><a href="#M000092">working_on</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+        
+        <li>
+            
+            <a href="Stat.html">Resque::Stat</a>
+            
+            START:includes
+        </li>
+        
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Attributes</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>verbose</td>
+            <td class='attr-desc'><p>
+Whether the worker should log basic info to STDOUT
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>very_verbose</td>
+            <td class='attr-desc'><p>
+Whether the worker should log lots of info to STDOUT
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>cant_fork</td>
+            <td class='attr-desc'><p>
+Boolean indicating whether this worker can or can not fork. Automatically
+set if a fork(2) fails.
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [W]
+            </td>
+            <td class='attr-name'>to_s</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+    </table>
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000055">
+                    
+                    <a name="M000055"></a><b>all</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns an array of all worker objects.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000055_source')" id="l_M000055_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L26" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000055_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 26</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">all</span>
+      <span class="ruby-identifier">redis</span>.<span class="ruby-identifier">smembers</span>(<span class="ruby-identifier">:workers</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">id</span><span class="ruby-operator">|</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">id</span>) }
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000059">
+                    
+                    <a name="M000059"></a><b>attach</b>(worker_id)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Alias of `find`
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000059_source')" id="l_M000059_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L54" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000059_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 54</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">worker_id</span>)
+      <span class="ruby-identifier">find</span>(<span class="ruby-identifier">worker_id</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000060">
+                    
+                    <a name="M000060"></a><b>exists?</b>(worker_id)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Given a string worker id, return a boolean indicating whether the worker
+exists
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000060_source')" id="l_M000060_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L60" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000060_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 60</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">worker_id</span>)
+      <span class="ruby-identifier">redis</span>.<span class="ruby-identifier">sismember</span>(<span class="ruby-identifier">:workers</span>, <span class="ruby-identifier">worker_id</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000058">
+                    
+                    <a name="M000058"></a><b>find</b>(worker_id)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns a single worker object. Accepts a string id.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000058_source')" id="l_M000058_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L42" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000058_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 42</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">worker_id</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">exists?</span> <span class="ruby-identifier">worker_id</span>
+        <span class="ruby-identifier">queues</span> = <span class="ruby-identifier">worker_id</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">':'</span>)[<span class="ruby-value">-1</span>].<span class="ruby-identifier">split</span>(<span class="ruby-value str">','</span>)
+        <span class="ruby-identifier">worker</span> = <span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">queues</span>)
+        <span class="ruby-identifier">worker</span>.<span class="ruby-identifier">to_s</span> = <span class="ruby-identifier">worker_id</span>
+        <span class="ruby-identifier">worker</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000062">
+                    
+                    <a name="M000062"></a><b>new</b>(*queues)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Workers should be initialized with an array of string queue names. The
+order is important: a <a href="Worker.html">Worker</a> will check the first
+queue given for a job. If none is found, it will check the second queue
+name given. If a job is found, it will be processed. Upon completion, the
+<a href="Worker.html">Worker</a> will again check the first queue given,
+and so forth. In this way the queue list passed to a <a
+href="Worker.html">Worker</a> on startup defines the priorities of queues.
+</p>
+<p>
+If passed a single &#8220;*&#8221;, this <a href="Worker.html">Worker</a>
+will operate on all queues in alphabetical order. Queues can be dynamically
+added or removed without needing to restart workers using this method.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000062_source')" id="l_M000062_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L75" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000062_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 75</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">queues</span>)
+      <span class="ruby-ivar">@queues</span> = <span class="ruby-identifier">queues</span>
+      <span class="ruby-identifier">validate_queues</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000056">
+                    
+                    <a name="M000056"></a><b>working</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns an array of all worker objects currently processing jobs.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000056_source')" id="l_M000056_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L32" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000056_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 32</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">working</span>
+      <span class="ruby-identifier">names</span> = <span class="ruby-identifier">all</span>
+      <span class="ruby-keyword kw">return</span> [] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">names</span>.<span class="ruby-identifier">any?</span>
+      <span class="ruby-identifier">names</span>.<span class="ruby-identifier">map!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;worker:#{name}&quot;</span> }
+      <span class="ruby-identifier">redis</span>.<span class="ruby-identifier">mapped_mget</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">names</span>).<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">find</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-value str">&quot;worker:&quot;</span>, <span class="ruby-value str">''</span>)
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000105">
+                    
+                    <a name="M000105"></a><b>==</b>(other)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Is this worker the same as another worker?
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000105_source')" id="l_M000105_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L363" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000105_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 363</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
+      <span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000093">
+                    
+                    <a name="M000093"></a><b>done_working</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Called when we are done working - clears our `<a
+href="Worker.html#M000092">working_on</a>` state and tells Redis we
+processed a job.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000093_source')" id="l_M000093_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L303" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000093_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 303</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">done_working</span>
+      <span class="ruby-identifier">processed!</span>
+      <span class="ruby-identifier">redis</span>.<span class="ruby-identifier">del</span>(<span class="ruby-node">&quot;worker:#{self}&quot;</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000083">
+                    
+                    <a name="M000083"></a><b>enable_gc_optimizations</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Enables GC Optimizations if you&#8217;re running REE. <a
+href="http://www.rubyenterpriseedition.com/faq.html#adapt_apps_for_cow">www.rubyenterpriseedition.com/faq.html#adapt_apps_for_cow</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000083_source')" id="l_M000083_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L208" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000083_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 208</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">enable_gc_optimizations</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-constant">GC</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:copy_on_write_friendly=</span>)
+        <span class="ruby-constant">GC</span>.<span class="ruby-identifier">copy_on_write_friendly</span> = <span class="ruby-keyword kw">true</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000096">
+                    
+                    <a name="M000096"></a><b>failed</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+How many failed jobs has this worker seen? Returns an int.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000096_source')" id="l_M000096_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L320" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000096_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 320</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">failed</span>
+      <span class="ruby-constant">Stat</span>[<span class="ruby-node">&quot;failed:#{self}&quot;</span>]
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000097">
+                    
+                    <a name="M000097"></a><b>failed!</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Tells Redis we&#8217;ve failed a job.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000097_source')" id="l_M000097_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L325" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000097_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 325</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">failed!</span>
+      <span class="ruby-constant">Stat</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;failed&quot;</span>
+      <span class="ruby-constant">Stat</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;failed:#{self}&quot;</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000078">
+                    
+                    <a name="M000078"></a><b>fork</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Not every platform supports fork. Here we do our magic to determine if
+yours does.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000078_source')" id="l_M000078_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L185" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000078_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 185</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fork</span>
+      <span class="ruby-ivar">@cant_fork</span> = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$TESTING</span>
+
+      <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@cant_fork</span>
+
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">fork</span>
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">NotImplementedError</span>
+        <span class="ruby-ivar">@cant_fork</span> = <span class="ruby-keyword kw">true</span>
+        <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000109">
+                    
+                    <a name="M000109"></a><b>hostname</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+chomp&#8217;d hostname of this machine
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000109_source')" id="l_M000109_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L379" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000109_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 379</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">hostname</span>
+      <span class="ruby-ivar">@hostname</span> <span class="ruby-operator">||=</span> <span class="ruby-value">`hostname`</span>.<span class="ruby-identifier">chomp</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000108">
+                    
+                    <a name="M000108"></a><b>id</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Alias for <a href="Worker.html#M000107">to_s</a>
+</p>
+
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000103">
+                    
+                    <a name="M000103"></a><b>idle?</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Boolean - true if idle, false if not
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000103_source')" id="l_M000103_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L352" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000103_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 352</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">idle?</span>
+      <span class="ruby-identifier">state</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:idle</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000106">
+                    
+                    <a name="M000106"></a><b>inspect</b>()
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000106_source')" id="l_M000106_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L367" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000106_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 367</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inspect</span>
+      <span class="ruby-node">&quot;#&lt;Worker #{to_s}&gt;&quot;</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000100">
+                    
+                    <a name="M000100"></a><b>job</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns a hash explaining the <a href="Job.html">Job</a> we&#8217;re
+currently processing, if any.
+</p>
+
+                </div>
+                
+                
+                <div class="aka">
+                    This method is also aliased as
+                    
+                    <a href="Worker.html#M000101">processing</a>
+                    
+                </div>
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000100_source')" id="l_M000100_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L341" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000100_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 341</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">job</span>
+      <span class="ruby-identifier">decode</span>(<span class="ruby-identifier">redis</span>.<span class="ruby-identifier">get</span>(<span class="ruby-node">&quot;worker:#{self}&quot;</span>)) <span class="ruby-operator">||</span> {}
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000088">
+                    
+                    <a name="M000088"></a><b>kill_child</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Kills the forked child immediately, without remorse. The job it is
+processing will not be completed.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000088_source')" id="l_M000088_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L245" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000088_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 245</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">kill_child</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@child</span>
+        <span class="ruby-identifier">log!</span> <span class="ruby-node">&quot;Killing child at #{@child}&quot;</span>
+        <span class="ruby-constant">Process</span>.<span class="ruby-identifier">kill</span>(<span class="ruby-value str">&quot;KILL&quot;</span>, <span class="ruby-ivar">@child</span>) <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000111">
+                    
+                    <a name="M000111"></a><b>log</b>(message)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Log a message to STDOUT if we are verbose or very_verbose.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000111_source')" id="l_M000111_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L392" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000111_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 392</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">log</span>(<span class="ruby-identifier">message</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">verbose</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;*** #{message}&quot;</span>
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">very_verbose</span>
+        <span class="ruby-identifier">time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-value str">'%I:%M:%S %Y-%m-%d'</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;** [#{time}] #$$: #{message}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000112">
+                    
+                    <a name="M000112"></a><b>log!</b>(message)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Logs a very verbose message to STDOUT.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000112_source')" id="l_M000112_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L402" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000112_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 402</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">log!</span>(<span class="ruby-identifier">message</span>)
+      <span class="ruby-identifier">log</span> <span class="ruby-identifier">message</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">very_verbose</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000073">
+                    
+                    <a name="M000073"></a><b>process</b>(job = nil)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Processes a single job. If none is given, it will try to produce one.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000073_source')" id="l_M000073_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L144" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000073_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 144</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">process</span>(<span class="ruby-identifier">job</span> = <span class="ruby-keyword kw">nil</span>)
+      <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">job</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">reserve</span>
+
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-identifier">working_on</span> <span class="ruby-identifier">job</span>
+        <span class="ruby-identifier">job</span>.<span class="ruby-identifier">perform</span>
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Object</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-identifier">log</span> <span class="ruby-node">&quot;#{job.inspect} failed: #{e.inspect}&quot;</span>
+        <span class="ruby-identifier">job</span>.<span class="ruby-identifier">fail</span>(<span class="ruby-identifier">e</span>)
+        <span class="ruby-identifier">failed!</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">log</span> <span class="ruby-node">&quot;done: #{job.inspect}&quot;</span>
+      <span class="ruby-keyword kw">ensure</span>
+        <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">job</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+        <span class="ruby-identifier">done_working</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000094">
+                    
+                    <a name="M000094"></a><b>processed</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+How many jobs has this worker processed? Returns an int.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000094_source')" id="l_M000094_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L309" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000094_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 309</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">processed</span>
+      <span class="ruby-constant">Stat</span>[<span class="ruby-node">&quot;processed:#{self}&quot;</span>]
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000095">
+                    
+                    <a name="M000095"></a><b>processed!</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Tell Redis we&#8217;ve processed a job.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000095_source')" id="l_M000095_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L314" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000095_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 314</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">processed!</span>
+      <span class="ruby-constant">Stat</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;processed&quot;</span>
+      <span class="ruby-constant">Stat</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;processed:#{self}&quot;</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000101">
+                    
+                    <a name="M000101"></a><b>processing</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Alias for <a href="Worker.html#M000100">job</a>
+</p>
+
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000089">
+                    
+                    <a name="M000089"></a><b>prune_dead_workers</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Looks for any workers which should be running on this server and, if
+they&#8217;re not, removes them from Redis.
+</p>
+<p>
+This is a form of garbage collection. If a server is killed by a hard
+shutdown, power failure, or something else beyond our control, the <a
+href="../Resque.html">Resque</a> workers will not die gracefully and
+therefor will leave stale state information in Redis.
+</p>
+<p>
+By checking the current Redis state against the actual environment, we can
+determine if Redis is old and clean it up a bit.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000089_source')" id="l_M000089_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L262" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000089_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 262</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">prune_dead_workers</span>
+      <span class="ruby-constant">Worker</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">worker</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">host</span>, <span class="ruby-identifier">pid</span>, <span class="ruby-identifier">queues</span> = <span class="ruby-identifier">worker</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">':'</span>)
+        <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">host</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">hostname</span>
+        <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">worker_pids</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">pid</span>)
+        <span class="ruby-identifier">log!</span> <span class="ruby-node">&quot;Pruning dead worker: #{worker}&quot;</span>
+        <span class="ruby-identifier">worker</span>.<span class="ruby-identifier">unregister_worker</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000077">
+                    
+                    <a name="M000077"></a><b>queues</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns a list of queues to use when searching for a job. A splat
+(&#8220;*&#8221;) means you want every queue (in alpha order) - this can be
+useful for dynamically adding new queues.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000077_source')" id="l_M000077_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L179" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000077_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 179</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">queues</span>
+      <span class="ruby-ivar">@queues</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;*&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Resque</span>.<span class="ruby-identifier">queues</span>.<span class="ruby-identifier">sort</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@queues</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000085">
+                    
+                    <a name="M000085"></a><b>register_signal_handlers</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Registers the various signal handlers a worker responds to.
+</p>
+<p>
+TERM: Shutdown immediately, stop processing jobs.
+</p>
+<pre>
+ INT: Shutdown immediately, stop processing jobs.
+</pre>
+<p>
+QUIT: Shutdown after the current job has finished processing. USR1: Kill
+the forked child immediately, continue processing jobs.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000085_source')" id="l_M000085_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L220" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000085_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 220</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">register_signal_handlers</span>
+      <span class="ruby-identifier">trap</span>(<span class="ruby-value str">'TERM'</span>) { <span class="ruby-identifier">shutdown!</span>  }
+      <span class="ruby-identifier">trap</span>(<span class="ruby-value str">'INT'</span>)  { <span class="ruby-identifier">shutdown!</span>  }
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">defined?</span> <span class="ruby-constant">JRUBY_VERSION</span>
+        <span class="ruby-identifier">trap</span>(<span class="ruby-value str">'QUIT'</span>) { <span class="ruby-identifier">shutdown</span>   }
+        <span class="ruby-identifier">trap</span>(<span class="ruby-value str">'USR1'</span>) { <span class="ruby-identifier">kill_child</span> }
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">log!</span> <span class="ruby-value str">&quot;Registered signals&quot;</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000090">
+                    
+                    <a name="M000090"></a><b>register_worker</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Registers ourself as a worker. Useful when entering the worker lifecycle on
+startup.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000090_source')" id="l_M000090_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L274" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000090_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 274</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">register_worker</span>
+      <span class="ruby-identifier">redis</span>.<span class="ruby-identifier">sadd</span>(<span class="ruby-identifier">:workers</span>, <span class="ruby-keyword kw">self</span>)
+      <span class="ruby-identifier">started!</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000076">
+                    
+                    <a name="M000076"></a><b>reserve</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Attempts to grab a job off one of the provided queues. Returns nil if no
+job can be found.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000076_source')" id="l_M000076_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L164" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000076_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 164</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reserve</span>
+      <span class="ruby-identifier">queues</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">queue</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">log!</span> <span class="ruby-node">&quot;Checking #{queue}&quot;</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">job</span> = <span class="ruby-constant">Resque</span><span class="ruby-operator">::</span><span class="ruby-constant">Job</span>.<span class="ruby-identifier">reserve</span>(<span class="ruby-identifier">queue</span>)
+          <span class="ruby-identifier">log!</span> <span class="ruby-node">&quot;Found job on #{queue}&quot;</span>
+          <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">job</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000086">
+                    
+                    <a name="M000086"></a><b>shutdown</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Schedule this worker for shutdown. Will finish processing the current job.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000086_source')" id="l_M000086_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L232" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000086_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 232</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">shutdown</span>
+      <span class="ruby-identifier">log</span> <span class="ruby-value str">'Exiting...'</span>
+      <span class="ruby-ivar">@shutdown</span> = <span class="ruby-keyword kw">true</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000087">
+                    
+                    <a name="M000087"></a><b>shutdown!</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Kill the child and shutdown immediately.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000087_source')" id="l_M000087_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L238" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000087_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 238</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">shutdown!</span>
+      <span class="ruby-identifier">shutdown</span>
+      <span class="ruby-identifier">kill_child</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000098">
+                    
+                    <a name="M000098"></a><b>started</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+What time did this worker start? Returns an instance of `Time`
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000098_source')" id="l_M000098_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L331" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000098_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 331</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">started</span>
+      <span class="ruby-identifier">redis</span>.<span class="ruby-identifier">get</span> <span class="ruby-node">&quot;worker:#{self}:started&quot;</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000099">
+                    
+                    <a name="M000099"></a><b>started!</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Tell Redis we&#8217;ve started
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000099_source')" id="l_M000099_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L336" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000099_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 336</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">started!</span>
+      <span class="ruby-identifier">redis</span>.<span class="ruby-identifier">set</span>(<span class="ruby-node">&quot;worker:#{self}:started&quot;</span>, <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000082">
+                    
+                    <a name="M000082"></a><b>startup</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Runs all the methods needed when a worker begins its lifecycle.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000082_source')" id="l_M000082_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L199" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000082_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 199</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">startup</span>
+      <span class="ruby-identifier">enable_gc_optimizations</span>
+      <span class="ruby-identifier">register_signal_handlers</span>
+      <span class="ruby-identifier">prune_dead_workers</span>
+      <span class="ruby-identifier">register_worker</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000104">
+                    
+                    <a name="M000104"></a><b>state</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns a symbol representing the current worker state, which can be either
+:working or :idle
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000104_source')" id="l_M000104_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L358" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000104_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 358</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">state</span>
+      <span class="ruby-identifier">redis</span>.<span class="ruby-identifier">exists</span>(<span class="ruby-node">&quot;worker:#{self}&quot;</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">:working</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">:idle</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000107">
+                    
+                    <a name="M000107"></a><b>to_s</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+The string representation is the same as the id for this worker instance.
+Can be used with `<a href="Worker.html#M000058">Worker.find</a>`.
+</p>
+
+                </div>
+                
+                
+                <div class="aka">
+                    This method is also aliased as
+                    
+                    <a href="Worker.html#M000108">id</a>
+                    
+                </div>
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000107_source')" id="l_M000107_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L373" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000107_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 373</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+      <span class="ruby-ivar">@to_s</span> <span class="ruby-operator">||=</span> <span class="ruby-node">&quot;#{hostname}:#{Process.pid}:#{@queues.join(',')}&quot;</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000091">
+                    
+                    <a name="M000091"></a><b>unregister_worker</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Unregisters ourself as a worker. Useful when shutting down.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000091_source')" id="l_M000091_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L280" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000091_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 280</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unregister_worker</span>
+      <span class="ruby-identifier">done_working</span>
+
+      <span class="ruby-identifier">redis</span>.<span class="ruby-identifier">srem</span>(<span class="ruby-identifier">:workers</span>, <span class="ruby-keyword kw">self</span>)
+      <span class="ruby-identifier">redis</span>.<span class="ruby-identifier">del</span>(<span class="ruby-node">&quot;worker:#{self}:started&quot;</span>)
+
+      <span class="ruby-constant">Stat</span>.<span class="ruby-identifier">clear</span>(<span class="ruby-node">&quot;processed:#{self}&quot;</span>)
+      <span class="ruby-constant">Stat</span>.<span class="ruby-identifier">clear</span>(<span class="ruby-node">&quot;failed:#{self}&quot;</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000063">
+                    
+                    <a name="M000063"></a><b>validate_queues</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+A worker must be given a queue, otherwise it won&#8217;t know what to do
+with itself.
+</p>
+<p>
+You probably never need to call this.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000063_source')" id="l_M000063_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L84" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000063_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 84</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validate_queues</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@queues</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@queues</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoQueueError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;Please give each worker at least one queue.&quot;</span>)
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000068">
+                    
+                    <a name="M000068"></a><b>work</b>(interval = 5, &amp;block)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+This is the main workhorse method. Called on a <a
+href="Worker.html">Worker</a> instance, it begins the worker life cycle.
+</p>
+<p>
+The following events occur during a worker&#8217;s life cycle:
+</p>
+<ol>
+<li>startup: Signals are registered, dead workers are pruned,
+
+<pre>
+         and this worker is registered.
+</pre>
+</li>
+<li>work loop: Jobs are pulled from a queue and processed
+
+</li>
+<li>teardown: This worker is unregistered.
+
+</li>
+</ol>
+<p>
+Can be passed an integered representing the polling frequency. The default
+is 5 seconds, but for a semi-active site you may want to use a smaller
+value.
+</p>
+<p>
+Also accepts a block which will be passed the job as soon as it has
+completed processing. Useful for testing.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000068_source')" id="l_M000068_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L106" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000068_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 106</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">work</span>(<span class="ruby-identifier">interval</span> = <span class="ruby-value">5</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-identifier">$0</span> = <span class="ruby-value str">&quot;resque: Starting&quot;</span>
+      <span class="ruby-identifier">startup</span>
+
+      <span class="ruby-identifier">loop</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@shutdown</span>
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">job</span> = <span class="ruby-identifier">reserve</span>
+          <span class="ruby-identifier">log</span> <span class="ruby-node">&quot;got: #{job.inspect}&quot;</span>
+
+          <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@child</span> = <span class="ruby-identifier">fork</span>
+            <span class="ruby-identifier">procline</span> = <span class="ruby-node">&quot;resque: Forked #{@child} at #{Time.now.to_i}&quot;</span>
+            <span class="ruby-identifier">$0</span> = <span class="ruby-identifier">procline</span>
+            <span class="ruby-identifier">log!</span> <span class="ruby-identifier">procline</span>
+            <span class="ruby-constant">Process</span>.<span class="ruby-identifier">wait</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">procline</span> = <span class="ruby-node">&quot;resque: Processing #{job.queue} since #{Time.now.to_i}&quot;</span>
+            <span class="ruby-identifier">$0</span> = <span class="ruby-identifier">procline</span>
+            <span class="ruby-identifier">log!</span> <span class="ruby-identifier">procline</span>
+            <span class="ruby-identifier">process</span>(<span class="ruby-identifier">job</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+            <span class="ruby-identifier">exit!</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@cant_fork</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-ivar">@child</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">interval</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">log!</span> <span class="ruby-node">&quot;Sleeping for #{interval.to_i}&quot;</span>
+          <span class="ruby-identifier">$0</span> = <span class="ruby-node">&quot;resque: Waiting for #{@queues.join(',')}&quot;</span>
+          <span class="ruby-identifier">sleep</span> <span class="ruby-identifier">interval</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">ensure</span>
+      <span class="ruby-identifier">unregister_worker</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000110">
+                    
+                    <a name="M000110"></a><b>worker_pids</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns an array of string pids of all the other workers on this machine.
+Useful when pruning dead workers on startup.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000110_source')" id="l_M000110_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L385" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000110_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 385</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">worker_pids</span>
+      <span class="ruby-value">`ps -e -o pid,command | grep [r]esque`</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;\n&quot;</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">line</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">' '</span>)[<span class="ruby-value">0</span>]
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000102">
+                    
+                    <a name="M000102"></a><b>working?</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Boolean - true if working, false if not
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000102_source')" id="l_M000102_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L347" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000102_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 347</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">working?</span>
+      <span class="ruby-identifier">state</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:working</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000092">
+                    
+                    <a name="M000092"></a><b>working_on</b>(job)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Given a job, tells Redis we&#8217;re working on it. Useful for seeing what
+workers are doing and when.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000092_source')" id="l_M000092_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L292" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000092_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 292</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">working_on</span>(<span class="ruby-identifier">job</span>)
+      <span class="ruby-identifier">job</span>.<span class="ruby-identifier">worker</span> = <span class="ruby-keyword kw">self</span>
+      <span class="ruby-identifier">data</span> = <span class="ruby-identifier">encode</span> \
+        <span class="ruby-identifier">:queue</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">job</span>.<span class="ruby-identifier">queue</span>,
+        <span class="ruby-identifier">:run_at</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_s</span>,
+        <span class="ruby-identifier">:payload</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">job</span>.<span class="ruby-identifier">payload</span>
+      <span class="ruby-identifier">redis</span>.<span class="ruby-identifier">set</span>(<span class="ruby-node">&quot;worker:#{self}&quot;</span>, <span class="ruby-identifier">data</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

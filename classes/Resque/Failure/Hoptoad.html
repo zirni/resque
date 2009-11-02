@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Resque::Failure::Hoptoad</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            Resque::Failure::Hoptoad 
+            
+                <span class="parent">&lt; 
+                    
+                    Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/lib/resque/failure/hoptoad_rb.html">lib/resque/failure/hoptoad.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+A <a href="../Failure.html">Failure</a> backend that sends exceptions
+raised by jobs to <a href="Hoptoad.html">Hoptoad</a>.
+</p>
+<p>
+To use it, put this code in an initializer, Rake task, or wherever:
+</p>
+<pre>
+  Resque::Failure::Hoptoad.configure do |config|
+    config.api_key = 'blah'
+    config.secure = true
+    config.subdomain = 'your_hoptoad_subdomain'
+  end
+</pre>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>A</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000013">api_key</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>C</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000008">configure</a>,</li>
+                
+                <li><a href="#M000007">count</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>S</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000009">save</a>,</li>
+                
+                <li><a href="#M000010">send_to_hoptoad</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>U</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000006">url</a>,</li>
+                
+                <li><a href="#M000012">use_ssl?</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Attributes</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>secure</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>api_key</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>subdomain</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+    </table>
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000008">
+                    
+                    <a name="M000008"></a><b>configure</b>()
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000008_source')" id="l_M000008_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/ba8a25169e8b3a879275d25b6f0a2bc55a3a21dd/lib/resque/failure/hoptoad.rb#L29" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000008_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 29</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">configure</span>
+        <span class="ruby-keyword kw">yield</span> <span class="ruby-keyword kw">self</span>
+        <span class="ruby-constant">Resque</span><span class="ruby-operator">::</span><span class="ruby-constant">Failure</span>.<span class="ruby-identifier">backend</span> = <span class="ruby-keyword kw">self</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000007">
+                    
+                    <a name="M000007"></a><b>count</b>()
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000007_source')" id="l_M000007_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/ba8a25169e8b3a879275d25b6f0a2bc55a3a21dd/lib/resque/failure/hoptoad.rb#L23" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000007_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 23</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">count</span>
+        <span class="ruby-comment cmt"># We can't get the total # of errors from Hoptoad so we fake it</span>
+        <span class="ruby-comment cmt"># by asking Resque how many errors it has seen.</span>
+        <span class="ruby-constant">Stat</span>[<span class="ruby-identifier">:failed</span>]
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000006">
+                    
+                    <a name="M000006"></a><b>url</b>()
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000006_source')" id="l_M000006_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/ba8a25169e8b3a879275d25b6f0a2bc55a3a21dd/lib/resque/failure/hoptoad.rb#L19" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000006_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 19</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">url</span>
+        <span class="ruby-node">&quot;http://#{subdomain}.hoptoadapp.com/&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">subdomain</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000013">
+                    
+                    <a name="M000013"></a><b>api_key</b>()
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000013_source')" id="l_M000013_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/ba8a25169e8b3a879275d25b6f0a2bc55a3a21dd/lib/resque/failure/hoptoad.rb#L83" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000013_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 83</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">api_key</span>
+        <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">api_key</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000009">
+                    
+                    <a name="M000009"></a><b>save</b>()
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000009_source')" id="l_M000009_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/ba8a25169e8b3a879275d25b6f0a2bc55a3a21dd/lib/resque/failure/hoptoad.rb#L34" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000009_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 34</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">save</span>
+        <span class="ruby-identifier">data</span> = {
+          <span class="ruby-identifier">:api_key</span>       =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">api_key</span>,
+          <span class="ruby-identifier">:error_class</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">exception</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>,
+          <span class="ruby-identifier">:error_message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{exception.class.name}: #{exception.message}&quot;</span>,
+          <span class="ruby-identifier">:backtrace</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">exception</span>.<span class="ruby-identifier">backtrace</span>,
+          <span class="ruby-identifier">:environment</span>   =<span class="ruby-operator">&gt;</span> {},
+          <span class="ruby-identifier">:session</span>       =<span class="ruby-operator">&gt;</span> {},
+          <span class="ruby-identifier">:request</span>       =<span class="ruby-operator">&gt;</span> {
+            <span class="ruby-identifier">:params</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:worker</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">worker</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">:queue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">queue</span>.<span class="ruby-identifier">to_s</span>)
+          }
+        }
+
+        <span class="ruby-identifier">send_to_hoptoad</span>(<span class="ruby-identifier">:notice</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">data</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000010">
+                    
+                    <a name="M000010"></a><b>send_to_hoptoad</b>(data)
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000010_source')" id="l_M000010_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/ba8a25169e8b3a879275d25b6f0a2bc55a3a21dd/lib/resque/failure/hoptoad.rb#L50" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000010_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 50</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_to_hoptoad</span>(<span class="ruby-identifier">data</span>)
+        <span class="ruby-identifier">http</span> = <span class="ruby-identifier">use_ssl?</span> <span class="ruby-value">? </span><span class="ruby-operator">:</span><span class="ruby-identifier">https</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">:http</span>
+        <span class="ruby-identifier">url</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-node">&quot;#{http}://hoptoadapp.com/notices/&quot;</span>)
+
+        <span class="ruby-identifier">http</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">url</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">url</span>.<span class="ruby-identifier">port</span>)
+        <span class="ruby-identifier">headers</span> = {
+          <span class="ruby-value str">'Content-type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'application/json'</span>,
+          <span class="ruby-value str">'Accept'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'text/xml, application/xml'</span>
+        }
+
+        <span class="ruby-identifier">http</span>.<span class="ruby-identifier">read_timeout</span> = <span class="ruby-value">5</span> <span class="ruby-comment cmt"># seconds</span>
+        <span class="ruby-identifier">http</span>.<span class="ruby-identifier">open_timeout</span> = <span class="ruby-value">2</span> <span class="ruby-comment cmt"># seconds</span>
+        <span class="ruby-identifier">http</span>.<span class="ruby-identifier">use_ssl</span> = <span class="ruby-identifier">use_ssl?</span>
+
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-identifier">response</span> = <span class="ruby-identifier">http</span>.<span class="ruby-identifier">post</span>(<span class="ruby-identifier">url</span>.<span class="ruby-identifier">path</span>, <span class="ruby-constant">Resque</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">data</span>), <span class="ruby-identifier">headers</span>)
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">TimeoutError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+          <span class="ruby-identifier">log</span> <span class="ruby-value str">&quot;Timeout while contacting the Hoptoad server.&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">response</span>
+        <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPSuccess</span> <span class="ruby-keyword kw">then</span>
+          <span class="ruby-identifier">log</span> <span class="ruby-node">&quot;Hoptoad Success: #{response.class}&quot;</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">body</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-identifier">:body</span>
+          <span class="ruby-identifier">log</span> <span class="ruby-node">&quot;Hoptoad Failure: #{response.class}\n#{body}&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000012">
+                    
+                    <a name="M000012"></a><b>use_ssl?</b>()
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000012_source')" id="l_M000012_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/ba8a25169e8b3a879275d25b6f0a2bc55a3a21dd/lib/resque/failure/hoptoad.rb#L79" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000012_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 79</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">use_ssl?</span>
+        <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">secure</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>failed.erb</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            failed.erb
+        </h1>
+        <ul class="files">
+            <li>lib/resque/server/views/failed.erb</li>
+            <li>Last modified: Tue Oct 13 23:36:18 -0700 2009</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+<h1><%= size = <a
+href="../../../../../classes/Resque/Failure.html#M000019">Resque::Failure.count</a>
+%> Jobs Failed</h1> <h2>Showing <%= start = params[:start].to_i %> to <%=
+start + 20 %></h2> <table>
+</p>
+<pre>
+  &lt;tr&gt;
+    &lt;th&gt;Queue&lt;/th&gt;
+    &lt;th&gt;Worker&lt;/th&gt;
+    &lt;th&gt;Failed&lt;/th&gt;
+    &lt;th&gt;Class&lt;/th&gt;
+    &lt;th&gt;Args&lt;/th&gt;
+    &lt;th&gt;Error&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;% for job in Resque::Failure.all(start, 20) %&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;%= job['queue'] %&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href=&quot;&lt;= url(:workers, job['worker']) %&gt;&quot;&gt;&lt;%= job['worker'].split(':')[0...2].join(':') %&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;span class=&quot;time&quot;&gt;&lt;%= job['failed_at'] %&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;%= job['payload']['class'] %&gt;&lt;/td&gt;
+    &lt;td&gt;
+      &lt;a href=&quot;#&quot; class=&quot;backtrace&quot;&gt;&lt;%= Array(job['payload']['args']).size %&gt;&lt;/a&gt;
+      &lt;pre style=&quot;display:none;&quot;&gt;&lt;%=h show_args(job['payload']['args']) %&gt;&lt;/pre&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+      &lt;a href=&quot;#&quot; class=&quot;backtrace&quot;&gt;&lt;%= h(job['error']) %&gt;&lt;/a&gt;
+      &lt;pre style=&quot;display:none;&quot;&gt;&lt;%=h job['backtrace'].join(&quot;\n&quot;) %&gt;&lt;/pre&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;% end %&gt;
+  &lt;%= partial :next_more, :start =&gt; start, :size =&gt; size %&gt;
+</pre>
+<p>
+</table>
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+    </div>
+  </body>
+</html>

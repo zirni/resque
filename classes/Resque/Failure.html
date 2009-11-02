@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Resque::Failure</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+    <script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Module</span> 
+            Resque::Failure 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/resque/failure/base_rb.html">lib/resque/failure/base.rb</a></li>
+            
+            <li><a href="../../files/lib/resque/failure/hoptoad_rb.html">lib/resque/failure/hoptoad.rb</a></li>
+            
+            <li><a href="../../files/lib/resque/failure/redis_rb.html">lib/resque/failure/redis.rb</a></li>
+            
+            <li><a href="../../files/lib/resque/failure_rb.html">lib/resque/failure.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+The <a href="Failure.html">Failure</a> module provides an interface for
+working with different failure backends.
+</p>
+<p>
+You can use it to query the failure backend without knowing which specific
+backend is being used. For instance, the <a
+href="../Resque.html">Resque</a> web app uses it to display stats and other
+information.
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>A</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000020">all</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>B</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000018">backend</a>,</li>
+                
+                <li><a href="#M000017">backend=</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>C</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000019">count</a>,</li>
+                
+                <li><a href="#M000016">create</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>U</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000021">url</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Classes and Modules</div>
+    <ul>
+        
+        <li><span class="type">CLASS</span> <a href="Failure/Base.html">Resque::Failure::Base</a></li>
+        
+        <li><span class="type">CLASS</span> <a href="Failure/Hoptoad.html">Resque::Failure::Hoptoad</a></li>
+        
+        <li><span class="type">CLASS</span> <a href="Failure/Redis.html">Resque::Failure::Redis</a></li>
+        
+    </ul>
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000020">
+                    
+                    <a name="M000020"></a><b>all</b>(start = 0, count = 1)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns an array of all the failures, paginated.
+</p>
+<p>
+`start` is the int of the first item in the page, `count` is the number of
+items to return.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000020_source')" id="l_M000020_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/ee4a17c59ebb7b463c75722ee0b20a8a3faea195/lib/resque/failure.rb#L48" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000020_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure.rb, line 48</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">start</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">count</span> = <span class="ruby-value">1</span>)
+      <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">start</span>, <span class="ruby-identifier">count</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000018">
+                    
+                    <a name="M000018"></a><b>backend</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns the current backend class. If none has been set, falls back to
+`Resque::Failure::Redis`
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000018_source')" id="l_M000018_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/ee4a17c59ebb7b463c75722ee0b20a8a3faea195/lib/resque/failure.rb#L33" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000018_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure.rb, line 33</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">backend</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@backend</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@backend</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-value str">'resque/failure/redis'</span>
+      <span class="ruby-ivar">@backend</span> = <span class="ruby-constant">Failure</span><span class="ruby-operator">::</span><span class="ruby-constant">Redis</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000017">
+                    
+                    <a name="M000017"></a><b>backend=</b>(backend)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Sets the current backend. Expects a class descendent of
+`Resque::Failure::Base`.
+</p>
+<p>
+Example use:
+</p>
+<pre>
+  require 'resque/failure/hoptoad'
+  Resque::Failure.backend = Resque::Failure::Hoptoad
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000017_source')" id="l_M000017_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/ee4a17c59ebb7b463c75722ee0b20a8a3faea195/lib/resque/failure.rb#L27" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000017_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure.rb, line 27</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">backend=</span>(<span class="ruby-identifier">backend</span>)
+      <span class="ruby-ivar">@backend</span> = <span class="ruby-identifier">backend</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000019">
+                    
+                    <a name="M000019"></a><b>count</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns the int count of how many failures we have seen.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000019_source')" id="l_M000019_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/ee4a17c59ebb7b463c75722ee0b20a8a3faea195/lib/resque/failure.rb#L40" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000019_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure.rb, line 40</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">count</span>
+      <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">count</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000016">
+                    
+                    <a name="M000016"></a><b>create</b>(options = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Creates a new failure, which is delegated to the appropriate backend.
+</p>
+<p>
+Expects a hash with the following keys:
+</p>
+<pre>
+  :exception - The Exception object
+  :worker    - The Worker object who is reporting the failure
+  :queue     - The string name of the queue from which the job was pulled
+  :payload   - The job's payload
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000016_source')" id="l_M000016_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/ee4a17c59ebb7b463c75722ee0b20a8a3faea195/lib/resque/failure.rb#L16" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000016_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure.rb, line 16</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">options</span> = {})
+      <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">options</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-identifier">:exception</span>, <span class="ruby-identifier">:worker</span>, <span class="ruby-identifier">:queue</span>, <span class="ruby-identifier">:payload</span>)).<span class="ruby-identifier">save</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000021">
+                    
+                    <a name="M000021"></a><b>url</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+The string url of the backend&#8217;s web interface, if any.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000021_source')" id="l_M000021_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/ee4a17c59ebb7b463c75722ee0b20a8a3faea195/lib/resque/failure.rb#L53" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000021_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure.rb, line 53</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">url</span>
+      <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">url</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

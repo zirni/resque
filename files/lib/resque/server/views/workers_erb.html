@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>workers.erb</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            workers.erb
+        </h1>
+        <ul class="files">
+            <li>lib/resque/server/views/workers.erb</li>
+            <li>Last modified: Wed Oct 28 11:34:21 -0700 2009</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+<% if params[:id] &amp;&amp; worker = <a
+href="../../../../../classes/Resque/Worker.html#M000058">Resque::Worker.find</a>(params[:id])
+%>
+</p>
+<pre>
+  &lt;h1&gt;Worker &lt;%= worker %&gt;&lt;/h1&gt;
+  &lt;table&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&amp;nbsp;&lt;/th&gt;
+      &lt;th&gt;Host&lt;/th&gt;
+      &lt;th&gt;Pid&lt;/th&gt;
+      &lt;th&gt;Started&lt;/th&gt;
+      &lt;th&gt;Queues&lt;/th&gt;
+      &lt;th&gt;Processed&lt;/th&gt;
+      &lt;th&gt;Failed&lt;/th&gt;
+      &lt;th&gt;Processing&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;&lt;%=u state = worker.state %&gt;.png&quot; alt=&quot;&lt;%= state %&gt;&quot; title=&quot;&lt;%= state %&gt;&quot;&gt;&lt;/td&gt;
+
+      &lt;% host, pid, queues = worker.to_s.split(':') %&gt;
+      &lt;td&gt;&lt;%= host %&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;%= pid %&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span class=&quot;time&quot;&gt;&lt;%= worker.started %&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;%= queues.split(',').map { |q| '&lt;a class=&quot;queue&quot; href=&quot;' + u(&quot;/queues/#{q}&quot;) + '&quot;&gt;' + q + '&lt;/a&gt;'}.join(', ') %&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;%= worker.processed %&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;%= worker.failed %&gt;&lt;/td&gt;
+      &lt;td&gt;
+        &lt;% data = worker.processing || {} %&gt;
+        &lt;% if data['queue'] %&gt;
+          &lt;code&gt;&lt;%= data['payload']['class'] %&gt;&lt;/code&gt;
+          &lt;small&gt;&lt;a class=&quot;queue time&quot; href=&quot;&lt;%=u &quot;/working/#{worker}&quot; %&gt;&quot;&gt;&lt;%= data['run_at'] %&gt;&lt;/a&gt;&lt;/small&gt;
+        &lt;% else %&gt;
+          Waiting for more
+        &lt;% end %&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+</pre>
+<p>
+<% elsif params[:id] %>
+</p>
+<p>
+<h1>Worker doesn&#8217;t exist</h1>
+</p>
+<p>
+<% else %>
+</p>
+<pre>
+  &lt;h1&gt;&lt;%= resque.workers.size %&gt; Workers&lt;/h1&gt;
+  &lt;table&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&amp;nbsp;&lt;/th&gt;
+      &lt;th&gt;Where&lt;/th&gt;
+      &lt;th&gt;Queues&lt;/th&gt;
+      &lt;th&gt;Processing&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;% for worker in resque.workers.sort_by { |w| w.to_s } %&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;&lt;%=u state = worker.state %&gt;.png&quot; alt=&quot;&lt;%= state %&gt;&quot; title=&quot;&lt;%= state %&gt;&quot;&gt;&lt;/td&gt;
+
+      &lt;% host, pid, queues = worker.to_s.split(':') %&gt;
+      &lt;td&gt;&lt;a href=&quot;/workers/&lt;%= worker %&gt;&quot;&gt;&lt;%= host %&gt;:&lt;%= pid %&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;%= queues.split(',').map { |q| '&lt;a class=&quot;queue&quot; href=&quot;' + u(&quot;/queues/#{q}&quot;) + '&quot;&gt;' + q + '&lt;/a&gt;'}.join(', ') %&gt;&lt;/td&gt;
+
+      &lt;td&gt;
+        &lt;% data = worker.processing || {} %&gt;
+        &lt;% if data['queue'] %&gt;
+          &lt;code&gt;&lt;%= data['payload']['class'] %&gt;&lt;/code&gt;
+          &lt;small&gt;&lt;a class=&quot;queue time&quot; href=&quot;&lt;%=u &quot;/working/#{worker}&quot; %&gt;&quot;&gt;&lt;%= data['run_at'] %&gt;&lt;/a&gt;&lt;/small&gt;
+        &lt;% else %&gt;
+          Waiting for more
+        &lt;% end %&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;% end %&gt;
+  &lt;/table&gt;
+</pre>
+<p>
+<% end %>
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+    </div>
+  </body>
+</html>
