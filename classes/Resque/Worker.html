@@ -108,7 +108,7 @@ master, and can react accordingly.
                 
                 <li><a href="#M000097">failed!</a>,</li>
                 
-                <li><a href="#M000058">find</a>,</li>
+                <li><a href="#M000060">find</a>,</li>
                 
                 <li><a href="#M000081">fork</a></li>
                 
@@ -179,7 +179,7 @@ master, and can react accordingly.
         <dd>
             <ul>
                 
-                <li><a href="#M000073">process</a>,</li>
+                <li><a href="#M000075">process</a>,</li>
                 
                 <li><a href="#M000094">processed</a>,</li>
                 
@@ -209,7 +209,7 @@ master, and can react accordingly.
                 
                 <li><a href="#M000090">register_worker</a>,</li>
                 
-                <li><a href="#M000077">reserve</a></li>
+                <li><a href="#M000079">reserve</a></li>
                 
             </ul>
         </dd>
@@ -453,9 +453,9 @@ exists
             </div>
             
             <div class="method">
-                <div class="title" id="M000058">
+                <div class="title" id="M000060">
                     
-                    <a name="M000058"></a><b>find</b>(worker_id)
+                    <a name="M000060"></a><b>find</b>(worker_id)
                     
                 </div>
                 
@@ -471,12 +471,12 @@ Returns a single worker object. Accepts a string id.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000058_source')" id="l_M000058_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000060_source')" id="l_M000060_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L42" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000058_source" class="dyn-source">
+                    <div id="M000060_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 42</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">worker_id</span>)
       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">exists?</span> <span class="ruby-identifier">worker_id</span>
@@ -1068,9 +1068,9 @@ Logs a very verbose message to STDOUT.
             </div>
             
             <div class="method">
-                <div class="title" id="M000073">
+                <div class="title" id="M000075">
                     
-                    <a name="M000073"></a><b>process</b>(job = nil)
+                    <a name="M000075"></a><b>process</b>(job = nil)
                     
                 </div>
                 
@@ -1086,12 +1086,12 @@ Processes a single job. If none is given, it will try to produce one.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000073_source')" id="l_M000073_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000075_source')" id="l_M000075_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L144" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000073_source" class="dyn-source">
+                    <div id="M000075_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 144</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">process</span>(<span class="ruby-identifier">job</span> = <span class="ruby-keyword kw">nil</span>)
       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">job</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">reserve</span>
@@ -1376,9 +1376,9 @@ startup.
             </div>
             
             <div class="method">
-                <div class="title" id="M000077">
+                <div class="title" id="M000079">
                     
-                    <a name="M000077"></a><b>reserve</b>()
+                    <a name="M000079"></a><b>reserve</b>()
                     
                 </div>
                 
@@ -1395,12 +1395,12 @@ job can be found.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000077_source')" id="l_M000077_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000079_source')" id="l_M000079_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/f808dfa27040a30c966a477182fa16b09ddba428/lib/resque/worker.rb#L164" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000077_source" class="dyn-source">
+                    <div id="M000079_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/worker.rb, line 164</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reserve</span>
       <span class="ruby-identifier">queues</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">queue</span><span class="ruby-operator">|</span>
@@ -1638,7 +1638,7 @@ Returns a symbol representing the current worker state, which can be either
                 <div class="description">
                   <p>
 The string representation is the same as the id for this worker instance.
-Can be used with `<a href="Worker.html#M000058">Worker.find</a>`.
+Can be used with `<a href="Worker.html#M000060">Worker.find</a>`.
 </p>
 
                 </div>

@@ -29,9 +29,9 @@
             
             <li><a href="../files/lib/resque/failure/redis_rb.html">lib/resque/failure/redis.rb</a></li>
             
-            <li><a href="../files/lib/resque/failure_rb.html">lib/resque/failure.rb</a></li>
-            
             <li><a href="../files/lib/resque/helpers_rb.html">lib/resque/helpers.rb</a></li>
+            
+            <li><a href="../files/lib/resque/failure_rb.html">lib/resque/failure.rb</a></li>
             
             <li><a href="../files/lib/resque/job_rb.html">lib/resque/job.rb</a></li>
             
@@ -65,7 +65,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000074">enqueue</a></li>
+                <li><a href="#M000073">enqueue</a></li>
                 
             </ul>
         </dd>
@@ -74,7 +74,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000079">info</a></li>
+                <li><a href="#M000078">info</a></li>
                 
             </ul>
         </dd>
@@ -123,11 +123,11 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000059">redis</a>,</li>
+                <li><a href="#M000058">redis</a>,</li>
                 
                 <li><a href="#M000055">redis=</a>,</li>
                 
-                <li><a href="#M000075">reserve</a></li>
+                <li><a href="#M000074">reserve</a></li>
                 
             </ul>
         </dd>
@@ -145,7 +145,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000060">to_s</a></li>
+                <li><a href="#M000059">to_s</a></li>
                 
             </ul>
         </dd>
@@ -158,7 +158,7 @@
                 
                 <li><a href="#M000076">workers</a>,</li>
                 
-                <li><a href="#M000078">working</a></li>
+                <li><a href="#M000077">working</a></li>
                 
             </ul>
         </dd>
@@ -212,7 +212,7 @@
         <tr valign='top'>
             <td class="attr-name">Version</td>
             <td>=</td>
-            <td class="attr-value">'0.0.1'</td>
+            <td class="attr-value">'0.1.0'</td>
         </tr>
         
         
@@ -225,9 +225,9 @@
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000074">
+                <div class="title" id="M000073">
                     
-                    <a name="M000074"></a><b>enqueue</b>(klass, *args)
+                    <a name="M000073"></a><b>enqueue</b>(klass, *args)
                     
                 </div>
                 
@@ -259,12 +259,12 @@ This method is considered part of the `stable` API.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000074_source')" id="l_M000074_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000073_source')" id="l_M000073_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/5916500c2fb806333417102992c6853f83274f85/lib/resque.rb#L129" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000074_source" class="dyn-source">
+                    <div id="M000073_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque.rb, line 129</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">enqueue</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
     <span class="ruby-identifier">queue</span> = <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">:@queue</span>)
@@ -277,16 +277,16 @@ This method is considered part of the `stable` API.
             </div>
             
             <div class="method">
-                <div class="title" id="M000079">
+                <div class="title" id="M000078">
                     
-                    <a name="M000079"></a><b>info</b>()
+                    <a name="M000078"></a><b>info</b>()
                     
                 </div>
                 
                 <div class="description">
                   <p>
 Returns a hash, similar to redis-rb&#8217;s <a
-href="Resque.html#M000079">info</a>, of interesting stats.
+href="Resque.html#M000078">info</a>, of interesting stats.
 </p>
 
                 </div>
@@ -296,12 +296,12 @@ href="Resque.html#M000079">info</a>, of interesting stats.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000079_source')" id="l_M000079_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000078_source')" id="l_M000078_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/5916500c2fb806333417102992c6853f83274f85/lib/resque.rb#L165" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000079_source" class="dyn-source">
+                    <div id="M000078_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque.rb, line 165</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">info</span>
     <span class="ruby-keyword kw">return</span> {
@@ -551,9 +551,9 @@ strings.
             </div>
             
             <div class="method">
-                <div class="title" id="M000059">
+                <div class="title" id="M000058">
                     
-                    <a name="M000059"></a><b>redis</b>()
+                    <a name="M000058"></a><b>redis</b>()
                     
                 </div>
                 
@@ -570,12 +570,12 @@ a new one.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000059_source')" id="l_M000059_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000058_source')" id="l_M000058_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/5916500c2fb806333417102992c6853f83274f85/lib/resque.rb#L39" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000059_source" class="dyn-source">
+                    <div id="M000058_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque.rb, line 39</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">redis</span>
     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@redis</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@redis</span>
@@ -631,9 +631,9 @@ Accepts a &#8216;hostname:port&#8217; string or a Redis server.
             </div>
             
             <div class="method">
-                <div class="title" id="M000075">
+                <div class="title" id="M000074">
                     
-                    <a name="M000075"></a><b>reserve</b>(queue)
+                    <a name="M000074"></a><b>reserve</b>(queue)
                     
                 </div>
                 
@@ -654,12 +654,12 @@ This method is considered part of the `stable` API.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000075_source')" id="l_M000075_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000074_source')" id="l_M000074_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/5916500c2fb806333417102992c6853f83274f85/lib/resque.rb#L140" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000075_source" class="dyn-source">
+                    <div id="M000074_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque.rb, line 140</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reserve</span>(<span class="ruby-identifier">queue</span>)
     <span class="ruby-constant">Job</span>.<span class="ruby-identifier">reserve</span>(<span class="ruby-identifier">queue</span>)
@@ -705,9 +705,9 @@ string.
             </div>
             
             <div class="method">
-                <div class="title" id="M000060">
+                <div class="title" id="M000059">
                     
-                    <a name="M000060"></a><b>to_s</b>()
+                    <a name="M000059"></a><b>to_s</b>()
                     
                 </div>
                 
@@ -716,12 +716,12 @@ string.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000060_source')" id="l_M000060_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000059_source')" id="l_M000059_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/5916500c2fb806333417102992c6853f83274f85/lib/resque.rb#L45" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000060_source" class="dyn-source">
+                    <div id="M000059_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque.rb, line 45</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
     <span class="ruby-node">&quot;Resque Client connected to #{redis.server}&quot;</span>
@@ -803,9 +803,9 @@ A shortcut to <a href="Resque/Worker.html#M000056">Worker.all</a>
             </div>
             
             <div class="method">
-                <div class="title" id="M000078">
+                <div class="title" id="M000077">
                     
-                    <a name="M000078"></a><b>working</b>()
+                    <a name="M000077"></a><b>working</b>()
                     
                 </div>
                 
@@ -821,12 +821,12 @@ A shortcut to <a href="Resque/Worker.html#M000057">Worker.working</a>
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000078_source')" id="l_M000078_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000077_source')" id="l_M000077_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/5916500c2fb806333417102992c6853f83274f85/lib/resque.rb#L155" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000078_source" class="dyn-source">
+                    <div id="M000077_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque.rb, line 155</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">working</span>
     <span class="ruby-constant">Worker</span>.<span class="ruby-identifier">working</span>

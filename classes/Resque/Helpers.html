@@ -50,9 +50,9 @@ Methods used by various classes in <a href="../Resque.html">Resque</a>.
         <dd>
             <ul>
                 
-                <li><a href="#M000022">classify</a>,</li>
+                <li><a href="#M000020">classify</a>,</li>
                 
-                <li><a href="#M000023">constantize</a></li>
+                <li><a href="#M000021">constantize</a></li>
                 
             </ul>
         </dd>
@@ -101,9 +101,9 @@ Methods used by various classes in <a href="../Resque.html">Resque</a>.
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000022">
+                <div class="title" id="M000020">
                     
-                    <a name="M000022"></a><b>classify</b>(dashed_word)
+                    <a name="M000020"></a><b>classify</b>(dashed_word)
                     
                 </div>
                 
@@ -122,12 +122,12 @@ classify(&#8216;job-name&#8217;) # => &#8216;JobName&#8217;
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000022_source')" id="l_M000022_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000020_source')" id="l_M000020_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/960b26fb53186f395820983b3963a6933165e0ed/lib/resque/helpers.rb#L33" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000022_source" class="dyn-source">
+                    <div id="M000020_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/helpers.rb, line 33</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">classify</span>(<span class="ruby-identifier">dashed_word</span>)
       <span class="ruby-identifier">dashed_word</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'-'</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span> <span class="ruby-identifier">part</span>[<span class="ruby-value">0</span>] = <span class="ruby-identifier">part</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">chr</span>.<span class="ruby-identifier">upcase</span> }.<span class="ruby-identifier">join</span>
@@ -138,9 +138,9 @@ classify(&#8216;job-name&#8217;) # => &#8216;JobName&#8217;
             </div>
             
             <div class="method">
-                <div class="title" id="M000023">
+                <div class="title" id="M000021">
                     
-                    <a name="M000023"></a><b>constantize</b>(camel_cased_word)
+                    <a name="M000021"></a><b>constantize</b>(camel_cased_word)
                     
                 </div>
                 
@@ -159,12 +159,12 @@ constantize(&#8216;JobName&#8217;) # => JobName
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000023_source')" id="l_M000023_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000021_source')" id="l_M000021_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/960b26fb53186f395820983b3963a6933165e0ed/lib/resque/helpers.rb#L40" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000023_source" class="dyn-source">
+                    <div id="M000021_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/helpers.rb, line 40</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">constantize</span>(<span class="ruby-identifier">camel_cased_word</span>)
       <span class="ruby-identifier">camel_cased_word</span> = <span class="ruby-identifier">camel_cased_word</span>.<span class="ruby-identifier">to_s</span>
