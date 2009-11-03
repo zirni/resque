@@ -72,9 +72,9 @@ information.
         <dd>
             <ul>
                 
-                <li><a href="#M000018">backend</a>,</li>
+                <li><a href="#M000021">backend</a>,</li>
                 
-                <li><a href="#M000017">backend=</a></li>
+                <li><a href="#M000020">backend=</a></li>
                 
             </ul>
         </dd>
@@ -94,7 +94,7 @@ information.
         <dd>
             <ul>
                 
-                <li><a href="#M000024">url</a></li>
+                <li><a href="#M000026">url</a></li>
                 
             </ul>
         </dd>
@@ -165,9 +165,9 @@ items to return.
             </div>
             
             <div class="method">
-                <div class="title" id="M000018">
+                <div class="title" id="M000021">
                     
-                    <a name="M000018"></a><b>backend</b>()
+                    <a name="M000021"></a><b>backend</b>()
                     
                 </div>
                 
@@ -184,12 +184,12 @@ Returns the current backend class. If none has been set, falls back to
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000018_source')" id="l_M000018_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000021_source')" id="l_M000021_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/ee4a17c59ebb7b463c75722ee0b20a8a3faea195/lib/resque/failure.rb#L33" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000018_source" class="dyn-source">
+                    <div id="M000021_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure.rb, line 33</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">backend</span>
       <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@backend</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@backend</span>
@@ -202,9 +202,9 @@ Returns the current backend class. If none has been set, falls back to
             </div>
             
             <div class="method">
-                <div class="title" id="M000017">
+                <div class="title" id="M000020">
                     
-                    <a name="M000017"></a><b>backend=</b>(backend)
+                    <a name="M000020"></a><b>backend=</b>(backend)
                     
                 </div>
                 
@@ -228,12 +228,12 @@ Example use:
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000017_source')" id="l_M000017_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000020_source')" id="l_M000020_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/ee4a17c59ebb7b463c75722ee0b20a8a3faea195/lib/resque/failure.rb#L27" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000017_source" class="dyn-source">
+                    <div id="M000020_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure.rb, line 27</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">backend=</span>(<span class="ruby-identifier">backend</span>)
       <span class="ruby-ivar">@backend</span> = <span class="ruby-identifier">backend</span>
@@ -321,9 +321,9 @@ Expects a hash with the following keys:
             </div>
             
             <div class="method">
-                <div class="title" id="M000024">
+                <div class="title" id="M000026">
                     
-                    <a name="M000024"></a><b>url</b>()
+                    <a name="M000026"></a><b>url</b>()
                     
                 </div>
                 
@@ -339,12 +339,12 @@ The string url of the backend&#8217;s web interface, if any.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000024_source')" id="l_M000024_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000026_source')" id="l_M000026_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/ee4a17c59ebb7b463c75722ee0b20a8a3faea195/lib/resque/failure.rb#L53" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000024_source" class="dyn-source">
+                    <div id="M000026_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure.rb, line 53</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">url</span>
       <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">url</span>
