@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>lib/resque/server/views/failed.erb</li>
-            <li>Last modified: Tue Nov 03 09:47:04 -0800 2009</li>
+            <li>Last modified: Wed Nov 04 10:01:59 -0800 2009</li>
         </ul>
     </div>
 
@@ -28,40 +28,56 @@
     
     <div class="description">
         <p>
-<h1><%= size = <a
-href="../../../../../classes/Resque/Failure.html#M000024">Resque::Failure.count</a>
-%> Jobs Failed</h1> <h2>Showing <%= start = params[:start].to_i %> to <%=
-start + 20 %></h2> <table>
+<%start = params[:start].to_i %> <%failed = <a
+href="../../../../../classes/Resque/Failure.html#M000022">Resque::Failure.all</a>(start,
+20)%>
+</p>
+<p>
+<h1>Failed Jobs</h1> <%unless failed.empty?%> <form
+method=&#8220;POST&#8221; action=&#8221;<%=u
+&#8216;failed/clear&#8217;%>&#8221; class=&#8217;clear-failed&#8217;>
 </p>
 <pre>
-  &lt;tr&gt;
-    &lt;th&gt;Queue&lt;/th&gt;
-    &lt;th&gt;Worker&lt;/th&gt;
-    &lt;th&gt;Failed&lt;/th&gt;
-    &lt;th&gt;Class&lt;/th&gt;
-    &lt;th&gt;Args&lt;/th&gt;
-    &lt;th&gt;Error&lt;/th&gt;
-  &lt;/tr&gt;
-  &lt;% for job in Resque::Failure.all(start, 20) %&gt;
-  &lt;tr&gt;
-    &lt;td&gt;&lt;%= job['queue'] %&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;a href=&quot;&lt;= url(:workers, job['worker']) %&gt;&quot;&gt;&lt;%= job['worker'].split(':')[0...2].join(':') %&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;span class=&quot;time&quot;&gt;&lt;%= job['failed_at'] %&gt;&lt;/span&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;%= job['payload']['class'] %&gt;&lt;/td&gt;
-    &lt;td&gt;
-      &lt;a href=&quot;#&quot; class=&quot;backtrace&quot;&gt;&lt;%= Array(job['payload']['args']).size %&gt;&lt;/a&gt;
-      &lt;pre style=&quot;display:none;&quot;&gt;&lt;%=h show_args(job['payload']['args']) %&gt;&lt;/pre&gt;
-    &lt;/td&gt;
-    &lt;td&gt;
-      &lt;a href=&quot;#&quot; class=&quot;backtrace&quot;&gt;&lt;%= h(job['error']) %&gt;&lt;/a&gt;
-      &lt;pre style=&quot;display:none;&quot;&gt;&lt;%=h job['backtrace'].join(&quot;\n&quot;) %&gt;&lt;/pre&gt;
-    &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;% end %&gt;
-  &lt;%= partial :next_more, :start =&gt; start, :size =&gt; size %&gt;
+  &lt;input type='submit' name='' value='Clear Failed Jobs' /&gt;
 </pre>
 <p>
-</table>
+</form> <%end%>
+</p>
+<p>
+<p class=&#8217;sub&#8217;>Showing <%=start%> to <%= start + 20 %> of
+<b><%= size = <a
+href="../../../../../classes/Resque/Failure.html#M000021">Resque::Failure.count</a>
+%></b> jobs</p>
+</p>
+<p>
+<ul class=&#8217;failed&#8217;>
+</p>
+<pre>
+  &lt;%for job in failed%&gt;
+    &lt;li&gt;
+      &lt;dl&gt;
+        &lt;dt&gt;Worker&lt;/dt&gt;
+        &lt;dd&gt;&lt;a href=&quot;&lt;%= url(:workers, job['worker']) %&gt;&quot;&gt;&lt;%= job['worker'].split(':')[0...2].join(':') %&gt;&lt;/a&gt; on &lt;b class='queue-tag'&gt;&lt;%= job['queue'] %&gt;&lt;/b &gt; at &lt;b&gt;&lt;span class=&quot;time&quot;&gt;&lt;%= job['failed_at'] %&gt;&lt;/span&gt;&lt;/b&gt;&lt;/dd&gt;
+        &lt;dt&gt;Class&lt;/dt&gt;
+        &lt;dd&gt;&lt;code&gt;&lt;%= job['payload']['class'] %&gt;&lt;/code&gt;&lt;/dd&gt;
+        &lt;dt&gt;Arguments&lt;/dt&gt;
+        &lt;dd&gt;&lt;pre&gt;&lt;%=h show_args(job['payload']['args']) %&gt;&lt;/pre&gt;&lt;/dd&gt;
+        &lt;dt&gt;Error&lt;/dt&gt;
+        &lt;dd class='error'&gt;
+          &lt;a href=&quot;#&quot; class=&quot;backtrace&quot;&gt;&lt;%= h(job['error']) %&gt;&lt;/a&gt;
+          &lt;pre style='display:none'&gt;&lt;%=h job['backtrace'].join(&quot;\n&quot;) %&gt;&lt;/pre&gt;
+        &lt;/dd&gt;
+      &lt;/dl&gt;
+      &lt;div class='r'&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+  &lt;%end%&gt;
+</pre>
+<p>
+</ul>
+</p>
+<p>
+<%= partial :next_more, :start => start, :size => size %>
 </p>
 
     </div>

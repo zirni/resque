@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>lib/resque/server/views/queues.erb</li>
-            <li>Last modified: Tue Nov 03 09:47:04 -0800 2009</li>
+            <li>Last modified: Wed Nov 04 10:01:59 -0800 2009</li>
         </ul>
     </div>
 
@@ -34,41 +34,47 @@
 <% if queue = params[:id] %>
 </p>
 <pre>
-  &lt;h1&gt;&lt;%= size = resque.size(queue) %&gt; Pending Jobs in '&lt;%= queue.upcase %&gt;'&lt;/h1&gt;
-  &lt;h2&gt;Showing &lt;%= start = params[:start].to_i %&gt; to &lt;%= start + 20 %&gt;&lt;/h2&gt;
-  &lt;table&gt;
+  &lt;h1&gt;Pending jobs on &lt;span class='hl'&gt;&lt;%= queue %&gt;&lt;/span&gt;&lt;/h1&gt;
+  &lt;p class='sub'&gt;Showing &lt;%= start = params[:start].to_i %&gt; to &lt;%= start + 20 %&gt; of &lt;b&gt;&lt;%=size = resque.size(queue)%&gt;&lt;/b&gt; jobs&lt;/p&gt;
+  &lt;table class='jobs'&gt;
     &lt;tr&gt;
       &lt;th&gt;Class&lt;/th&gt;
       &lt;th&gt;Args&lt;/th&gt;
     &lt;/tr&gt;
-    &lt;% for job in resque.peek(queue, start, 20) %&gt;
+    &lt;% for job in (jobs = resque.peek(queue, start, 20)) %&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;%= job['class'] %&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;%=h job['args'].inspect %&gt;&lt;/td&gt;
+      &lt;td class='class'&gt;&lt;%= job['class'] %&gt;&lt;/td&gt;
+      &lt;td class='args'&gt;&lt;%=h job['args'].inspect %&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;% end %&gt;
-    &lt;%= partial :next_more, :start =&gt; start, :size =&gt; size %&gt;
+    &lt;% if jobs.empty? %&gt;
+    &lt;tr&gt;
+      &lt;td class='no-data' colspan='2'&gt;There are no pending jobs in this queue&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;% end %&gt;
   &lt;/table&gt;
+  &lt;%= partial :next_more, :start =&gt; start, :size =&gt; size %&gt;
 </pre>
 <p>
 <% else %>
 </p>
 <pre>
-  &lt;h1&gt;Queues&lt;/h1&gt;
-  &lt;table&gt;
+  &lt;h1 class='wi'&gt;Queues&lt;/h1&gt;
+  &lt;p class='intro'&gt;The list below contains all the registered queues with the number of jobs currently in the queue. Select a queue from above to view all jobs currently pending on the queue.&lt;/p&gt;
+  &lt;table class='queues'&gt;
     &lt;tr&gt;
       &lt;th&gt;Name&lt;/th&gt;
-      &lt;th&gt;Pending&lt;/th&gt;
+      &lt;th&gt;Jobs&lt;/th&gt;
     &lt;/tr&gt;
     &lt;% for queue in resque.queues.sort_by { |q| q.to_s } %&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;a class=&quot;queue&quot; href=&quot;&lt;%= url &quot;queues/#{queue}&quot; %&gt;&quot;&gt;&lt;%= queue %&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;%= resque.size queue %&gt;&lt;/td&gt;
+      &lt;td class='queue'&gt;&lt;a class=&quot;queue&quot; href=&quot;&lt;%= url &quot;queues/#{queue}&quot; %&gt;&quot;&gt;&lt;%= queue %&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td class='size'&gt;&lt;%= resque.size queue %&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;% end %&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a class=&quot;queue&quot; href=&quot;&lt;%= url :failed %&gt;&quot;&gt;failed&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;%= Resque::Failure.count %&gt;&lt;/td&gt;
+    &lt;tr class='failed'&gt;
+      &lt;td class='queue failed'&gt;&lt;a class=&quot;queue&quot; href=&quot;&lt;%= url :failed %&gt;&quot;&gt;failed&lt;/a&gt;&lt;/td&gt;
+      &lt;td class='size'&gt;&lt;%= Resque::Failure.count %&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/table&gt;
 </pre>

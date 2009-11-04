@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>README.markdown</li>
-            <li>Last modified: Tue Nov 03 09:47:04 -0800 2009</li>
+            <li>Last modified: Wed Nov 04 10:01:59 -0800 2009</li>
         </ul>
     </div>
 
@@ -405,7 +405,7 @@ will continue as normal.</p>
 <p>Resque comes with a Sinatra-based front end for seeing what's up with
 your queue.</p>
 
-<p><img src="http://img.skitch.com/20091102-rpekt191w28xfhwyussru44nsw.png" alt="The Front End" /></p>
+<p><img src="http://img.skitch.com/20091104-tqh5pgkwgbskjbk7qbtmpesnyw.jpg" alt="The Front End" /></p>
 
 <h2>Standalone</h2>
 
@@ -673,6 +673,66 @@ processed in the background.</p>
 
 <p>Try it out by looking at the README, found at <code>examples/demo/README.markdown</code>.</p>
 
+<h2>Monitoring</h2>
+
+<p>If you're using god to monitor Resque, we have provided example
+configs in <code>examples/god/</code>. One is for starting / stopping workers,
+the other is for killing workers that have been running too long.</p>
+
+<h2>Development</h2>
+
+<p>Want to hack on Resque?</p>
+
+<p>First clone the repo and run the tests:</p>
+
+<pre><code>git clone git://github.com/defunkt/resque.git
+cd resque
+rake test
+</code></pre>
+
+<p>If the tests do not pass make sure you have Redis installed
+correctly (though we make an effort to tell you if we feel this is the
+case). The tests attempt to start an isolated instance of Redis to
+run against.</p>
+
+<p>Also make sure you've installed all the depenedencies correctly. For
+example, try loading the <code>redis-namespace</code> gem after you've installed
+it:</p>
+
+<pre><code>$ irb
+&gt;&gt; require 'rubygems'
+=&gt; true
+&gt;&gt; require 'redis/namespace'
+=&gt; true
+</code></pre>
+
+<p>If you get an error requiring any of the dependencies, you may have
+failed to install them or be seeing load path issues.</p>
+
+<p>Feel free to ping the mailing list with your problem and we'll try to
+sort it out.</p>
+
+<h2>Contributing</h2>
+
+<p>Once you've made your great commits:</p>
+
+<ol>
+<li><a href="fk">Fork</a> Resque</li>
+<li>Create a topic branch - <code>git checkout -b my_branch</code></li>
+<li>Push to your branch - <code>git push origin my_branch</code></li>
+<li>Create an <a href="is">Issue</a> with a link to your branch</li>
+<li>That's it!</li>
+</ol>
+
+
+<h2>Mailing List</h2>
+
+<p>To join the list simply send an email to <a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#x65;&#115;&#x71;&#117;&#x65;&#x40;&#x6c;&#x69;&#x62;&#x72;&#101;&#108;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#114;&#101;&#115;&#113;&#117;&#101;&#64;&#108;&#105;&#x62;&#114;&#101;&#108;&#x69;&#x73;&#116;&#46;&#99;&#x6f;&#109;</a>. This
+will subscribe you and send you information about your subscription,
+include unsubscribe information.</p>
+
+<p>The archive can be found at <a href="http://librelist.com/browser/">http://librelist.com/browser/</a>.</p>
+
 <h2>Meta</h2>
 
 <ul>
@@ -680,7 +740,7 @@ processed in the background.</p>
 <li>Home: <a href="http://github.com/defunkt/resque">http://github.com/defunkt/resque</a></li>
 <li>Docs: <a href="http://defunkt.github.com/resque/">http://defunkt.github.com/resque/</a></li>
 <li>Bugs: <a href="http://github.com/defunkt/resque/issues">http://github.com/defunkt/resque/issues</a></li>
-<li>List: <a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#58;&#114;&#101;&#115;&#113;&#117;&#101;&#64;&#108;&#x69;&#x62;&#x72;&#x65;&#x6c;&#x69;&#115;&#x74;&#x2e;&#99;&#x6f;&#109;">&#x72;&#101;&#115;&#113;&#x75;&#101;&#64;&#108;&#105;&#x62;&#x72;&#101;&#x6c;&#x69;&#115;&#x74;&#x2e;&#99;&#111;&#109;</a></li>
+<li>List: <a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#x65;&#x73;&#x71;&#x75;&#x65;&#x40;&#108;&#x69;&#98;&#114;&#101;&#108;&#x69;&#115;&#x74;&#x2e;&#x63;&#111;&#x6d;">&#114;&#x65;&#x73;&#113;&#117;&#x65;&#64;&#108;&#105;&#x62;&#x72;&#101;&#108;&#105;&#x73;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a></li>
 <li>Gems: <a href="http://gemcutter.org/gems/resque">http://gemcutter.org/gems/resque</a></li>
 </ul>
 

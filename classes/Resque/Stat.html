@@ -58,9 +58,9 @@ The stat subsystem. Used to keep track of integer counts.
                 
                 <li><a href="#M000047"><<</a>,</li>
                 
-                <li><a href="#M000052">>></a>,</li>
+                <li><a href="#M000049">>></a>,</li>
                 
-                <li><a href="#M000045">[]</a></li>
+                <li><a href="#M000041">[]</a></li>
                 
             </ul>
         </dd>
@@ -69,7 +69,7 @@ The stat subsystem. Used to keep track of integer counts.
         <dd>
             <ul>
                 
-                <li><a href="#M000053">clear</a></li>
+                <li><a href="#M000050">clear</a></li>
                 
             </ul>
         </dd>
@@ -78,7 +78,7 @@ The stat subsystem. Used to keep track of integer counts.
         <dd>
             <ul>
                 
-                <li><a href="#M000051">decr</a></li>
+                <li><a href="#M000048">decr</a></li>
                 
             </ul>
         </dd>
@@ -87,7 +87,7 @@ The stat subsystem. Used to keep track of integer counts.
         <dd>
             <ul>
                 
-                <li><a href="#M000044">get</a></li>
+                <li><a href="#M000040">get</a></li>
                 
             </ul>
         </dd>
@@ -152,9 +152,9 @@ Increments a stat by one.
             </div>
             
             <div class="method">
-                <div class="title" id="M000052">
+                <div class="title" id="M000049">
                     
-                    <a name="M000052"></a><b>&gt;&gt;</b>(stat)
+                    <a name="M000049"></a><b>&gt;&gt;</b>(stat)
                     
                 </div>
                 
@@ -170,12 +170,12 @@ Decrements a stat by one.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000052_source')" id="l_M000052_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000049_source')" id="l_M000049_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/70028d81daff8527443fbbac4a9edf62d14d9e36/lib/resque/stat.rb#L44" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000052_source" class="dyn-source">
+                    <div id="M000049_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/stat.rb, line 44</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&gt;&gt;</span>(<span class="ruby-identifier">stat</span>)
       <span class="ruby-identifier">decr</span> <span class="ruby-identifier">stat</span>
@@ -186,9 +186,9 @@ Decrements a stat by one.
             </div>
             
             <div class="method">
-                <div class="title" id="M000045">
+                <div class="title" id="M000041">
                     
-                    <a name="M000045"></a><b>[]</b>(stat)
+                    <a name="M000041"></a><b>[]</b>(stat)
                     
                 </div>
                 
@@ -204,12 +204,12 @@ Alias of `get`
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000045_source')" id="l_M000045_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000041_source')" id="l_M000041_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/70028d81daff8527443fbbac4a9edf62d14d9e36/lib/resque/stat.rb#L18" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000045_source" class="dyn-source">
+                    <div id="M000041_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/stat.rb, line 18</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">stat</span>)
       <span class="ruby-identifier">get</span>(<span class="ruby-identifier">stat</span>)
@@ -220,9 +220,9 @@ Alias of `get`
             </div>
             
             <div class="method">
-                <div class="title" id="M000053">
+                <div class="title" id="M000050">
                     
-                    <a name="M000053"></a><b>clear</b>(stat)
+                    <a name="M000050"></a><b>clear</b>(stat)
                     
                 </div>
                 
@@ -238,12 +238,12 @@ Removes a stat from Redis, effectively setting it to 0.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000053_source')" id="l_M000053_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000050_source')" id="l_M000050_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/70028d81daff8527443fbbac4a9edf62d14d9e36/lib/resque/stat.rb#L49" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000053_source" class="dyn-source">
+                    <div id="M000050_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/stat.rb, line 49</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clear</span>(<span class="ruby-identifier">stat</span>)
       <span class="ruby-identifier">redis</span>.<span class="ruby-identifier">del</span>(<span class="ruby-node">&quot;stat:#{stat}&quot;</span>)
@@ -254,9 +254,9 @@ Removes a stat from Redis, effectively setting it to 0.
             </div>
             
             <div class="method">
-                <div class="title" id="M000051">
+                <div class="title" id="M000048">
                     
-                    <a name="M000051"></a><b>decr</b>(stat, by = 1)
+                    <a name="M000048"></a><b>decr</b>(stat, by = 1)
                     
                 </div>
                 
@@ -276,12 +276,12 @@ by that amount.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000051_source')" id="l_M000051_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000048_source')" id="l_M000048_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/70028d81daff8527443fbbac4a9edf62d14d9e36/lib/resque/stat.rb#L39" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000051_source" class="dyn-source">
+                    <div id="M000048_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/stat.rb, line 39</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">decr</span>(<span class="ruby-identifier">stat</span>, <span class="ruby-identifier">by</span> = <span class="ruby-value">1</span>)
       <span class="ruby-identifier">redis</span>.<span class="ruby-identifier">decr</span>(<span class="ruby-node">&quot;stat:#{stat}&quot;</span>, <span class="ruby-identifier">by</span>)
@@ -292,9 +292,9 @@ by that amount.
             </div>
             
             <div class="method">
-                <div class="title" id="M000044">
+                <div class="title" id="M000040">
                     
-                    <a name="M000044"></a><b>get</b>(stat)
+                    <a name="M000040"></a><b>get</b>(stat)
                     
                 </div>
                 
@@ -310,12 +310,12 @@ Returns the int value of a stat, given a string stat name.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000044_source')" id="l_M000044_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000040_source')" id="l_M000040_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/70028d81daff8527443fbbac4a9edf62d14d9e36/lib/resque/stat.rb#L13" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000044_source" class="dyn-source">
+                    <div id="M000040_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/stat.rb, line 13</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">stat</span>)
       <span class="ruby-identifier">redis</span>.<span class="ruby-identifier">get</span>(<span class="ruby-node">&quot;stat:#{stat}&quot;</span>).<span class="ruby-identifier">to_i</span>

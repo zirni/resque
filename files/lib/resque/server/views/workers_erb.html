@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>lib/resque/server/views/workers.erb</li>
-            <li>Last modified: Tue Nov 03 09:47:04 -0800 2009</li>
+            <li>Last modified: Wed Nov 04 10:01:59 -0800 2009</li>
         </ul>
     </div>
 
@@ -29,12 +29,12 @@
     <div class="description">
         <p>
 <% if params[:id] &amp;&amp; worker = <a
-href="../../../../../classes/Resque/Worker.html#M000057">Resque::Worker.find</a>(params[:id])
+href="../../../../../classes/Resque/Worker.html#M000062">Resque::Worker.find</a>(params[:id])
 %>
 </p>
 <pre>
   &lt;h1&gt;Worker &lt;%= worker %&gt;&lt;/h1&gt;
-  &lt;table&gt;
+  &lt;table class='workers'&gt;
     &lt;tr&gt;
       &lt;th&gt;&amp;nbsp;&lt;/th&gt;
       &lt;th&gt;Host&lt;/th&gt;
@@ -46,22 +46,22 @@ href="../../../../../classes/Resque/Worker.html#M000057">Resque::Worker.find</a>
       &lt;th&gt;Processing&lt;/th&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;&lt;%=u state = worker.state %&gt;.png&quot; alt=&quot;&lt;%= state %&gt;&quot; title=&quot;&lt;%= state %&gt;&quot;&gt;&lt;/td&gt;
+      &lt;td class='icon'&gt;&lt;img src=&quot;&lt;%=u state = worker.state %&gt;.png&quot; alt=&quot;&lt;%= state %&gt;&quot; title=&quot;&lt;%= state %&gt;&quot;&gt;&lt;/td&gt;
 
       &lt;% host, pid, queues = worker.to_s.split(':') %&gt;
       &lt;td&gt;&lt;%= host %&gt;&lt;/td&gt;
       &lt;td&gt;&lt;%= pid %&gt;&lt;/td&gt;
       &lt;td&gt;&lt;span class=&quot;time&quot;&gt;&lt;%= worker.started %&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;%= queues.split(',').map { |q| '&lt;a class=&quot;queue&quot; href=&quot;' + u(&quot;/queues/#{q}&quot;) + '&quot;&gt;' + q + '&lt;/a&gt;'}.join(', ') %&gt;&lt;/td&gt;
+      &lt;td class='queues'&gt;&lt;%= queues.split(',').map { |q| '&lt;a class=&quot;queue-tag&quot; href=&quot;' + u(&quot;/queues/#{q}&quot;) + '&quot;&gt;' + q + '&lt;/a&gt;'}.join('') %&gt;&lt;/td&gt;
       &lt;td&gt;&lt;%= worker.processed %&gt;&lt;/td&gt;
       &lt;td&gt;&lt;%= worker.failed %&gt;&lt;/td&gt;
-      &lt;td&gt;
+      &lt;td class='process'&gt;
         &lt;% data = worker.processing || {} %&gt;
         &lt;% if data['queue'] %&gt;
           &lt;code&gt;&lt;%= data['payload']['class'] %&gt;&lt;/code&gt;
           &lt;small&gt;&lt;a class=&quot;queue time&quot; href=&quot;&lt;%=u &quot;/working/#{worker}&quot; %&gt;&quot;&gt;&lt;%= data['run_at'] %&gt;&lt;/a&gt;&lt;/small&gt;
         &lt;% else %&gt;
-          Waiting for more
+          &lt;span class='waiting'&gt;Waiting for a job...&lt;/span&gt;
         &lt;% end %&gt;
       &lt;/td&gt;
     &lt;/tr&gt;
@@ -77,34 +77,41 @@ href="../../../../../classes/Resque/Worker.html#M000057">Resque::Worker.find</a>
 <% else %>
 </p>
 <pre>
-  &lt;h1&gt;&lt;%= resque.workers.size %&gt; Workers&lt;/h1&gt;
-  &lt;table&gt;
+  &lt;h1 class='wi'&gt;&lt;%= resque.workers.size %&gt; Workers&lt;/h1&gt;
+  &lt;p class='intro'&gt;The workers listed below are all registered as active on your system.&lt;/p&gt;
+  &lt;table class='workers'&gt;
     &lt;tr&gt;
       &lt;th&gt;&amp;nbsp;&lt;/th&gt;
       &lt;th&gt;Where&lt;/th&gt;
       &lt;th&gt;Queues&lt;/th&gt;
       &lt;th&gt;Processing&lt;/th&gt;
     &lt;/tr&gt;
-    &lt;% for worker in resque.workers.sort_by { |w| w.to_s } %&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;&lt;%=u state = worker.state %&gt;.png&quot; alt=&quot;&lt;%= state %&gt;&quot; title=&quot;&lt;%= state %&gt;&quot;&gt;&lt;/td&gt;
+    &lt;% for worker in (workers = resque.workers.sort_by { |w| w.to_s }) %&gt;
+    &lt;tr class=&quot;&lt;%=state = worker.state%&gt;&quot;&gt;
+      &lt;td class='icon'&gt;&lt;img src=&quot;&lt;%=u state %&gt;.png&quot; alt=&quot;&lt;%= state %&gt;&quot; title=&quot;&lt;%= state %&gt;&quot;&gt;&lt;/td&gt;
 
       &lt;% host, pid, queues = worker.to_s.split(':') %&gt;
-      &lt;td&gt;&lt;a href=&quot;/workers/&lt;%= worker %&gt;&quot;&gt;&lt;%= host %&gt;:&lt;%= pid %&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;%= queues.split(',').map { |q| '&lt;a class=&quot;queue&quot; href=&quot;' + u(&quot;/queues/#{q}&quot;) + '&quot;&gt;' + q + '&lt;/a&gt;'}.join(', ') %&gt;&lt;/td&gt;
+      &lt;td class='where'&gt;&lt;a href=&quot;&lt;%=u &quot;workers/#{worker}&quot;%&gt;&quot;&gt;&lt;%= host %&gt;:&lt;%= pid %&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td class='queues'&gt;&lt;%= queues.split(',').map { |q| '&lt;a class=&quot;queue-tag&quot; href=&quot;' + u(&quot;/queues/#{q}&quot;) + '&quot;&gt;' + q + '&lt;/a&gt;'}.join('') %&gt;&lt;/td&gt;
 
-      &lt;td&gt;
+      &lt;td class='process'&gt;
         &lt;% data = worker.processing || {} %&gt;
         &lt;% if data['queue'] %&gt;
           &lt;code&gt;&lt;%= data['payload']['class'] %&gt;&lt;/code&gt;
           &lt;small&gt;&lt;a class=&quot;queue time&quot; href=&quot;&lt;%=u &quot;/working/#{worker}&quot; %&gt;&quot;&gt;&lt;%= data['run_at'] %&gt;&lt;/a&gt;&lt;/small&gt;
         &lt;% else %&gt;
-          Waiting for more
+          &lt;span class='waiting'&gt;Waiting for a job...&lt;/span&gt;
         &lt;% end %&gt;
       &lt;/td&gt;
     &lt;/tr&gt;
     &lt;% end %&gt;
+    &lt;% if workers.empty? %&gt;
+    &lt;tr&gt;
+      &lt;td colspan='4' class='no-data'&gt;There are no registered workers&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;% end %&gt;
   &lt;/table&gt;
+  &lt;%=poll%&gt;
 </pre>
 <p>
 <% end %>

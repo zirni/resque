@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>lib/resque/server/views/stats.erb</li>
-            <li>Last modified: Tue Nov 03 09:47:04 -0800 2009</li>
+            <li>Last modified: Wed Nov 04 10:01:59 -0800 2009</li>
         </ul>
     </div>
 
@@ -41,12 +41,12 @@
 </p>
 <pre>
   &lt;h1&gt;&lt;%= resque %&gt;&lt;/h1&gt;
-  &lt;table&gt;
+  &lt;table class='stats'&gt;
   &lt;% for key, value in resque.info.to_a.sort_by { |i| i[0].to_s } %&gt;
     &lt;tr&gt;
-      &lt;td&gt;
+      &lt;th&gt;
         &lt;%= key %&gt;
-      &lt;/td&gt;
+      &lt;/th&gt;
       &lt;td&gt;
         &lt;%= value %&gt;
       &lt;/td&gt;
@@ -58,13 +58,13 @@
 <% elsif params[:id] == &#8216;redis&#8217; %>
 </p>
 <pre>
-  &lt;h1&gt;&lt;%= resque.redis %&gt;&lt;/h1&gt;
-  &lt;table&gt;
+  &lt;h1&gt;&lt;%= resque.redis.server %&gt;&lt;/h1&gt;
+  &lt;table class='stats'&gt;
   &lt;% for key, value in resque.redis.info.to_a.sort_by { |i| i[0].to_s } %&gt;
     &lt;tr&gt;
-      &lt;td&gt;
+      &lt;th&gt;
         &lt;%= key %&gt;
-      &lt;/td&gt;
+      &lt;/th&gt;
       &lt;td&gt;
         &lt;%= value %&gt;
       &lt;/td&gt;
@@ -77,8 +77,8 @@
 </p>
 <pre>
   &lt;h1&gt;Keys owned by &lt;%= resque %&gt;&lt;/h1&gt;
-  &lt;h2&gt;(All keys are actually prefixed with &quot;resque:&quot;)&lt;/h2&gt;
-  &lt;table&gt;
+  &lt;p class='sub'&gt;(All keys are actually prefixed with &quot;resque:&quot;)&lt;/p&gt;
+  &lt;table class='stats'&gt;
     &lt;tr&gt;
       &lt;th&gt;key&lt;/th&gt;
       &lt;th&gt;type&lt;/th&gt;
@@ -86,9 +86,9 @@
     &lt;/tr&gt;
   &lt;% for key in resque.keys.sort %&gt;
     &lt;tr&gt;
-      &lt;td&gt;
+      &lt;th&gt;
         &lt;a href=&quot;/stats/keys/&lt;%= key %&gt;&quot;&gt;&lt;%= key %&gt;&lt;/a&gt;
-      &lt;/td&gt;
+      &lt;/th&gt;
       &lt;td&gt;&lt;%= resque.redis.type key %&gt;&lt;/td&gt;
       &lt;td&gt;&lt;%= redis_get_size key %&gt;&lt;/td&gt;
     &lt;/tr&gt;

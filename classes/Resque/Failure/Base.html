@@ -71,6 +71,8 @@ href="Base.html#M000001">save</a> is called.
         <dd>
             <ul>
                 
+                <li><a href="#M000005">clear</a>,</li>
+                
                 <li><a href="#M000002">count</a></li>
                 
             </ul>
@@ -80,7 +82,7 @@ href="Base.html#M000001">save</a> is called.
         <dd>
             <ul>
                 
-                <li><a href="#M000005">log</a></li>
+                <li><a href="#M000006">log</a></li>
                 
             </ul>
         </dd>
@@ -194,13 +196,46 @@ Returns a paginated array of failure objects.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000003_source')" id="l_M000003_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/20ad346c935724256567ab9b4488106ebdfe3790/lib/resque/failure/base.rb#L40" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/failure/base.rb#L40" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000003_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure/base.rb, line 40</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">start</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">count</span> = <span class="ruby-value">1</span>)
         []
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000005">
+                    
+                    <a name="M000005"></a><b>clear</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Clear all failure objects
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000005_source')" id="l_M000005_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/failure/base.rb#L49" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000005_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/base.rb, line 49</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">clear</span>
       <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
@@ -228,7 +263,7 @@ The number of failures.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000002_source')" id="l_M000002_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/20ad346c935724256567ab9b4488106ebdfe3790/lib/resque/failure/base.rb#L35" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/failure/base.rb#L35" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000002_source" class="dyn-source">
@@ -255,7 +290,7 @@ The number of failures.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000000_source')" id="l_M000000_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/20ad346c935724256567ab9b4488106ebdfe3790/lib/resque/failure/base.rb#L20" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/failure/base.rb#L20" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000000_source" class="dyn-source">
@@ -292,7 +327,7 @@ A URL where someone can go to view failures.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000004_source')" id="l_M000004_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/20ad346c935724256567ab9b4488106ebdfe3790/lib/resque/failure/base.rb#L45" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/failure/base.rb#L45" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000004_source" class="dyn-source">
@@ -307,9 +342,9 @@ A URL where someone can go to view failures.
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000005">
+                <div class="title" id="M000006">
                     
-                    <a name="M000005"></a><b>log</b>(message)
+                    <a name="M000006"></a><b>log</b>(message)
                     
                 </div>
                 
@@ -325,13 +360,13 @@ Logging!
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000005_source')" id="l_M000005_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000006_source')" id="l_M000006_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/20ad346c935724256567ab9b4488106ebdfe3790/lib/resque/failure/base.rb#L49" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/failure/base.rb#L53" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000005_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/base.rb, line 49</span>
+                    <div id="M000006_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/base.rb, line 53</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">log</span>(<span class="ruby-identifier">message</span>)
         <span class="ruby-ivar">@worker</span>.<span class="ruby-identifier">log</span>(<span class="ruby-identifier">message</span>)
       <span class="ruby-keyword kw">end</span></pre>
@@ -367,7 +402,7 @@ href="../Failure.html">Failure</a> service.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000001_source')" id="l_M000001_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/20ad346c935724256567ab9b4488106ebdfe3790/lib/resque/failure/base.rb#L31" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/failure/base.rb#L31" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000001_source" class="dyn-source">

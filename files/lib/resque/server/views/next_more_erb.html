@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>lib/resque/server/views/next_more.erb</li>
-            <li>Last modified: Tue Nov 03 09:47:04 -0800 2009</li>
+            <li>Last modified: Wed Nov 04 10:01:59 -0800 2009</li>
         </ul>
     </div>
 
@@ -28,22 +28,19 @@
     
     <div class="description">
         <p>
-<tr>
+<%if start - 20 >= 0 || start + 20 <= size%> <p
+class=&#8217;pagination&#8217;>
 </p>
 <pre>
-  &lt;td&gt;
-    &lt;% if start - 20 &gt;= 0 %&gt;
-      &lt;a href=&quot;/&lt;%= current_page %&gt;?start=&lt;%= start - 20 %&gt;&quot;&gt;&amp;laquo; less&lt;/a&gt;
-    &lt;% end %&gt;
-  &lt;/td&gt;
-  &lt;td&gt;
-    &lt;% if start + 20 &lt;= size %&gt;
-      &lt;a href=&quot;/&lt;%= current_page %&gt;?start=&lt;%= start + 20 %&gt;&quot;&gt;more &amp;raquo;&lt;/a&gt;
-    &lt;% end %&gt;
-  &lt;/td&gt;
+  &lt;% if start - 20 &gt;= 0 %&gt;
+    &lt;a href=&quot;&lt;%= current_page %&gt;?start=&lt;%= start - 20 %&gt;&quot; class='less'&gt;&amp;laquo; less&lt;/a&gt;
+  &lt;% end %&gt;
+  &lt;% if start + 20 &lt;= size %&gt;
+    &lt;a href=&quot;&lt;%= current_page %&gt;?start=&lt;%= start + 20 %&gt;&quot; class='more'&gt;more &amp;raquo;&lt;/a&gt;
+  &lt;% end %&gt;
 </pre>
 <p>
-</tr>
+</p> <%end%>
 </p>
 
     </div>
