@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>README.markdown</li>
-            <li>Last modified: Wed Nov 04 10:01:59 -0800 2009</li>
+            <li>Last modified: Wed Nov 25 11:26:49 -0800 2009</li>
         </ul>
     </div>
 
@@ -48,7 +48,7 @@ comprised of three parts:</p>
 
 
 <p>Resque workers can be distributed between multiple machines,
-support priorities, are resililent to memory bloat / "leaks," are
+support priorities, are resilient to memory bloat / "leaks," are
 optimized for REE (but work on MRI and JRuby), tell you what they're
 doing, and expect failure.</p>
 
@@ -187,12 +187,12 @@ repo.async_create_archive('masterbrew')
 <p>This is why our above example (and all the examples in <code>examples/</code>)
 uses object IDs instead of passing around the objects.</p>
 
-<p>While this is less convenient than just sticking a marshalled object
+<p>While this is less convenient than just sticking a marshaled object
 in the database, it gives you a slight advantage: your jobs will be
 run against the most recent version of an object because they need to
 pull from the DB or cache.</p>
 
-<p>If your jobs were run against marshalled objects, they could
+<p>If your jobs were run against marshaled objects, they could
 potentially be operating on a stale record with out-of-date information.</p>
 
 <h3>send_later / async</h3>
@@ -216,7 +216,7 @@ exceptions you would not normally throw in order to assist debugging.</p>
 
 <h2>Workers</h2>
 
-<p>Resque workers are rake tasks the run forever. They basically do this:</p>
+<p>Resque workers are rake tasks that run forever. They basically do this:</p>
 
 <pre><code>start
 loop do
@@ -261,7 +261,7 @@ end
 <p>We don't want the <code>git_timeout</code> as high as 10 minutes in our web app,
 but in the Resque workers it's fine.</p>
 
-<h2>Logging</h2>
+<h3>Logging</h3>
 
 <p>Workers support basic logging to STDOUT. If you start them with the
 <code>VERBOSE</code> env variable set, they will print basic debugging
@@ -396,9 +396,16 @@ waiting for work on:</p>
 <p>If you want to gracefully shutdown a Resque worker, use <code>QUIT</code>.</p>
 
 <p>If you want to kill a stale or stuck child, use <code>USR1</code>. Processing
-will continue as normal.</p>
+will continue as normal unless the child was not found. In that case
+Resque assumes the parent process is in a bad state and shuts down.</p>
 
 <p>If you want to kill a stale or stuck child and shutdown, use <code>TERM</code></p>
+
+<h3>Mysql::Error: MySQL server has gone away</h3>
+
+<p>If your workers remain idle for too long they may lose their MySQL
+connection. If that happens we recommend using <a href="http://gist.github.com/238999">this
+Gist</a>.</p>
 
 <h2>The Front End</h2>
 
@@ -407,7 +414,7 @@ your queue.</p>
 
 <p><img src="http://img.skitch.com/20091104-tqh5pgkwgbskjbk7qbtmpesnyw.jpg" alt="The Front End" /></p>
 
-<h2>Standalone</h2>
+<h3>Standalone</h3>
 
 <p>If you've installed Resque as a gem running the front end standalone is easy:</p>
 
@@ -462,7 +469,7 @@ over the other?</p>
 <li>Resque can only place JSONable Ruby objects on a queue as arguments</li>
 <li>DelayedJob can place <em>any</em> Ruby object on its queue as arguments</li>
 <li>Resque includes a Sinatra app for monitoring what's going on</li>
-<li>DelayedJob can be queryed from within your Rails app if you want to
+<li>DelayedJob can be queried from within your Rails app if you want to
 add an interface</li>
 </ul>
 
@@ -695,7 +702,7 @@ correctly (though we make an effort to tell you if we feel this is the
 case). The tests attempt to start an isolated instance of Redis to
 run against.</p>
 
-<p>Also make sure you've installed all the depenedencies correctly. For
+<p>Also make sure you've installed all the dependencies correctly. For
 example, try loading the <code>redis-namespace</code> gem after you've installed
 it:</p>
 
@@ -717,17 +724,17 @@ sort it out.</p>
 <p>Once you've made your great commits:</p>
 
 <ol>
-<li><a href="fk">Fork</a> Resque</li>
+<li><a href="http://help.github.com/forking/">Fork</a> Resque</li>
 <li>Create a topic branch - <code>git checkout -b my_branch</code></li>
 <li>Push to your branch - <code>git push origin my_branch</code></li>
-<li>Create an <a href="is">Issue</a> with a link to your branch</li>
+<li>Create an <a href="http://github.com/defunkt/resque/issues">Issue</a> with a link to your branch</li>
 <li>That's it!</li>
 </ol>
 
 
 <h2>Mailing List</h2>
 
-<p>To join the list simply send an email to <a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#x65;&#115;&#x71;&#117;&#x65;&#x40;&#x6c;&#x69;&#x62;&#x72;&#101;&#108;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#114;&#101;&#115;&#113;&#117;&#101;&#64;&#108;&#105;&#x62;&#114;&#101;&#108;&#x69;&#x73;&#116;&#46;&#99;&#x6f;&#109;</a>. This
+<p>To join the list simply send an email to <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#58;&#x72;&#x65;&#115;&#113;&#x75;&#101;&#x40;&#108;&#x69;&#98;&#114;&#101;&#x6c;&#x69;&#115;&#x74;&#46;&#x63;&#x6f;&#109;">&#114;&#101;&#x73;&#113;&#x75;&#101;&#x40;&#x6c;&#105;&#98;&#114;&#x65;&#108;&#105;&#x73;&#x74;&#46;&#x63;&#111;&#109;</a>. This
 will subscribe you and send you information about your subscription,
 include unsubscribe information.</p>
 
@@ -740,7 +747,8 @@ include unsubscribe information.</p>
 <li>Home: <a href="http://github.com/defunkt/resque">http://github.com/defunkt/resque</a></li>
 <li>Docs: <a href="http://defunkt.github.com/resque/">http://defunkt.github.com/resque/</a></li>
 <li>Bugs: <a href="http://github.com/defunkt/resque/issues">http://github.com/defunkt/resque/issues</a></li>
-<li>List: <a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#x65;&#x73;&#x71;&#x75;&#x65;&#x40;&#108;&#x69;&#98;&#114;&#101;&#108;&#x69;&#115;&#x74;&#x2e;&#x63;&#111;&#x6d;">&#114;&#x65;&#x73;&#113;&#117;&#x65;&#64;&#108;&#105;&#x62;&#x72;&#101;&#108;&#105;&#x73;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a></li>
+<li>List: <a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x72;&#101;&#115;&#x71;&#117;&#x65;&#64;&#108;&#105;&#x62;&#114;&#101;&#x6c;&#105;&#115;&#116;&#46;&#99;&#111;&#109;">&#114;&#x65;&#115;&#113;&#117;&#101;&#x40;&#108;&#x69;&#98;&#x72;&#101;&#108;&#x69;&#x73;&#116;&#46;&#x63;&#111;&#x6d;</a></li>
+<li>Chat: &lt;irc://irc.freenode.net/resque></li>
 <li>Gems: <a href="http://gemcutter.org/gems/resque">http://gemcutter.org/gems/resque</a></li>
 </ul>
 
