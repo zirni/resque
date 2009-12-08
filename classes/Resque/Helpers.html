@@ -124,7 +124,7 @@ classify(&#8216;job-name&#8217;) # => &#8216;JobName&#8217;
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000028_source')" id="l_M000028_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/960b26fb53186f395820983b3963a6933165e0ed/lib/resque/helpers.rb#L33" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/2b55f16d8983030a1f101d69a0be394911bfd2c6/lib/resque/helpers.rb#L33" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000028_source" class="dyn-source">
@@ -161,7 +161,7 @@ constantize(&#8216;JobName&#8217;) # => JobName
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000029_source')" id="l_M000029_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/960b26fb53186f395820983b3963a6933165e0ed/lib/resque/helpers.rb#L40" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/2b55f16d8983030a1f101d69a0be394911bfd2c6/lib/resque/helpers.rb#L40" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000029_source" class="dyn-source">
@@ -208,7 +208,7 @@ Given a string, returns a Ruby object.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000027_source')" id="l_M000027_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/960b26fb53186f395820983b3963a6933165e0ed/lib/resque/helpers.rb#L20" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/2b55f16d8983030a1f101d69a0be394911bfd2c6/lib/resque/helpers.rb#L20" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000027_source" class="dyn-source">
@@ -217,7 +217,7 @@ Given a string, returns a Ruby object.
       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">object</span>
 
       <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span> <span class="ruby-constant">Yajl</span>
-        <span class="ruby-constant">Yajl</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">object</span>)
+        <span class="ruby-constant">Yajl</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">:check_utf8</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>)
       <span class="ruby-keyword kw">else</span>
         <span class="ruby-constant">JSON</span>(<span class="ruby-identifier">object</span>)
       <span class="ruby-keyword kw">end</span>
@@ -248,7 +248,7 @@ Given a Ruby object, returns a string suitable for storage in a queue.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000026_source')" id="l_M000026_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/960b26fb53186f395820983b3963a6933165e0ed/lib/resque/helpers.rb#L11" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/2b55f16d8983030a1f101d69a0be394911bfd2c6/lib/resque/helpers.rb#L11" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000026_source" class="dyn-source">
@@ -286,7 +286,7 @@ Direct access to the Redis instance.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000025_source')" id="l_M000025_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/960b26fb53186f395820983b3963a6933165e0ed/lib/resque/helpers.rb#L5" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/2b55f16d8983030a1f101d69a0be394911bfd2c6/lib/resque/helpers.rb#L5" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000025_source" class="dyn-source">

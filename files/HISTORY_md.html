@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>HISTORY.md</li>
-            <li>Last modified: Wed Nov 25 16:56:02 -0800 2009</li>
+            <li>Last modified: Mon Dec 07 20:12:50 -0800 2009</li>
         </ul>
     </div>
 
@@ -27,7 +27,20 @@
         <div id="content">
     
     <div class="description">
-        <h2>1.2.0 (2009-11-25)</h2>
+        <h2>1.2.1 (2009-12-07)</h2>
+
+<ul>
+<li>Added <code>rake resque:workers</code> task for starting multiple workers.</li>
+<li>1.9.x compatibility</li>
+<li>Bugfix: Yajl decoder doesn't care about valid UTF-8</li>
+<li>config.ru loads RESQUECONFIG if the ENV variable is set.</li>
+<li><code>resque-web</code> now sets RESQUECONFIG</li>
+<li>Job objects know if they are equal.</li>
+<li>Jobs can be re-queued using <code>Job#recreate</code></li>
+</ul>
+
+
+<h2>1.2.0 (2009-11-25)</h2>
 
 <ul>
 <li>If USR1 is sent and no child is found, shutdown.</li>

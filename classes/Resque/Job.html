@@ -65,6 +65,15 @@ You can manually run a job using this code:
     <div class="sectiontitle">Methods</div>
     <dl class="methods">
     
+        <dt>#</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000039">==</a></li>
+                
+            </ul>
+        </dd>
+    
         <dt>A</dt>
         <dd>
             <ul>
@@ -96,7 +105,7 @@ You can manually run a job using this code:
         <dd>
             <ul>
                 
-                <li><a href="#M000037">inspect</a></li>
+                <li><a href="#M000038">inspect</a></li>
                 
             </ul>
         </dd>
@@ -124,6 +133,8 @@ You can manually run a job using this code:
         <dt>R</dt>
         <dd>
             <ul>
+                
+                <li><a href="#M000037">recreate</a>,</li>
                 
                 <li><a href="#M000032">reserve</a></li>
                 
@@ -219,7 +230,7 @@ Raises an exception if no queue or class is given.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000031_source')" id="l_M000031_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/05bcde28e3f072c7048c2b68ab688e0c5a9c0379/lib/resque/job.rb#L38" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L38" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000031_source" class="dyn-source">
@@ -254,7 +265,7 @@ Raises an exception if no queue or class is given.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000030_source')" id="l_M000030_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/05bcde28e3f072c7048c2b68ab688e0c5a9c0379/lib/resque/job.rb#L28" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L28" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000030_source" class="dyn-source">
@@ -291,7 +302,7 @@ nil.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000032_source')" id="l_M000032_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/05bcde28e3f072c7048c2b68ab688e0c5a9c0379/lib/resque/job.rb#L52" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L52" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000032_source" class="dyn-source">
@@ -306,6 +317,42 @@ nil.
             </div>
             
             <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000039">
+                    
+                    <a name="M000039"></a><b>==</b>(other)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Equality
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000039_source')" id="l_M000039_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L97" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000039_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 97</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
+      <span class="ruby-identifier">queue</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">queue</span> <span class="ruby-operator">&amp;&amp;</span>
+        <span class="ruby-identifier">payload_class</span> = <span class="ruby-identifier">other</span>.<span class="ruby-identifier">payload_class</span> <span class="ruby-operator">&amp;&amp;</span>
+        <span class="ruby-identifier">args</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">args</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
             
             <div class="method">
                 <div class="title" id="M000035">
@@ -328,7 +375,7 @@ Returns an array of args represented in this job&#8217;s payload.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000035_source')" id="l_M000035_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/05bcde28e3f072c7048c2b68ab688e0c5a9c0379/lib/resque/job.rb#L70" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L70" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000035_source" class="dyn-source">
@@ -363,7 +410,7 @@ href="Failure.html">Failure</a> module.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000036_source')" id="l_M000036_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/05bcde28e3f072c7048c2b68ab688e0c5a9c0379/lib/resque/job.rb#L76" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L76" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000036_source" class="dyn-source">
@@ -381,9 +428,9 @@ href="Failure.html">Failure</a> module.
             </div>
             
             <div class="method">
-                <div class="title" id="M000037">
+                <div class="title" id="M000038">
                     
-                    <a name="M000037"></a><b>inspect</b>()
+                    <a name="M000038"></a><b>inspect</b>()
                     
                 </div>
                 
@@ -399,13 +446,13 @@ String representation
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000037_source')" id="l_M000037_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000038_source')" id="l_M000038_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/05bcde28e3f072c7048c2b68ab688e0c5a9c0379/lib/resque/job.rb#L85" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L91" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000037_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 85</span>
+                    <div id="M000038_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 91</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inspect</span>
       <span class="ruby-identifier">obj</span> = <span class="ruby-ivar">@payload</span>
       <span class="ruby-value str">&quot;(Job{%s} | %s | %s)&quot;</span> <span class="ruby-operator">%</span> [ <span class="ruby-ivar">@queue</span>, <span class="ruby-identifier">obj</span>[<span class="ruby-value str">'class'</span>], <span class="ruby-identifier">obj</span>[<span class="ruby-value str">'args'</span>].<span class="ruby-identifier">inspect</span> ]
@@ -436,7 +483,7 @@ Returns the actual class constant represented in this job&#8217;s payload.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000034_source')" id="l_M000034_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/05bcde28e3f072c7048c2b68ab688e0c5a9c0379/lib/resque/job.rb#L65" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L65" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000034_source" class="dyn-source">
@@ -472,13 +519,47 @@ the arguments given in the payload.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000033_source')" id="l_M000033_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/05bcde28e3f072c7048c2b68ab688e0c5a9c0379/lib/resque/job.rb#L60" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L60" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000033_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 60</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">perform</span>
       <span class="ruby-identifier">args</span> <span class="ruby-value">? </span><span class="ruby-identifier">payload_class</span>.<span class="ruby-identifier">perform</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">payload_class</span>.<span class="ruby-identifier">perform</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000037">
+                    
+                    <a name="M000037"></a><b>recreate</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Creates an identical job, essentially placing this job back on the queue.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000037_source')" id="l_M000037_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L86" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000037_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 86</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">recreate</span>
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">queue</span>, <span class="ruby-identifier">payload_class</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
     <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
