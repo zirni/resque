@@ -230,7 +230,7 @@ Raises an exception if no queue or class is given.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000031_source')" id="l_M000031_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L38" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/e6b5f30c74a77fd0cf5a0cd7a659c61a4011a937/lib/resque/job.rb#L38" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000031_source" class="dyn-source">
@@ -265,7 +265,7 @@ Raises an exception if no queue or class is given.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000030_source')" id="l_M000030_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L28" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/e6b5f30c74a77fd0cf5a0cd7a659c61a4011a937/lib/resque/job.rb#L28" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000030_source" class="dyn-source">
@@ -302,7 +302,7 @@ nil.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000032_source')" id="l_M000032_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L52" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/e6b5f30c74a77fd0cf5a0cd7a659c61a4011a937/lib/resque/job.rb#L52" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000032_source" class="dyn-source">
@@ -339,14 +339,14 @@ Equality
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000039_source')" id="l_M000039_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L97" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/e6b5f30c74a77fd0cf5a0cd7a659c61a4011a937/lib/resque/job.rb#L97" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000039_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 97</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
       <span class="ruby-identifier">queue</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">queue</span> <span class="ruby-operator">&amp;&amp;</span>
-        <span class="ruby-identifier">payload_class</span> = <span class="ruby-identifier">other</span>.<span class="ruby-identifier">payload_class</span> <span class="ruby-operator">&amp;&amp;</span>
+        <span class="ruby-identifier">payload_class</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">payload_class</span> <span class="ruby-operator">&amp;&amp;</span>
         <span class="ruby-identifier">args</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">args</span>
     <span class="ruby-keyword kw">end</span></pre>
                     </div>
@@ -375,7 +375,7 @@ Returns an array of args represented in this job&#8217;s payload.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000035_source')" id="l_M000035_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L70" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/e6b5f30c74a77fd0cf5a0cd7a659c61a4011a937/lib/resque/job.rb#L70" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000035_source" class="dyn-source">
@@ -410,7 +410,7 @@ href="Failure.html">Failure</a> module.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000036_source')" id="l_M000036_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L76" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/e6b5f30c74a77fd0cf5a0cd7a659c61a4011a937/lib/resque/job.rb#L76" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000036_source" class="dyn-source">
@@ -448,7 +448,7 @@ String representation
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000038_source')" id="l_M000038_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L91" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/e6b5f30c74a77fd0cf5a0cd7a659c61a4011a937/lib/resque/job.rb#L91" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000038_source" class="dyn-source">
@@ -483,7 +483,7 @@ Returns the actual class constant represented in this job&#8217;s payload.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000034_source')" id="l_M000034_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L65" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/e6b5f30c74a77fd0cf5a0cd7a659c61a4011a937/lib/resque/job.rb#L65" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000034_source" class="dyn-source">
@@ -519,7 +519,7 @@ the arguments given in the payload.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000033_source')" id="l_M000033_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L60" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/e6b5f30c74a77fd0cf5a0cd7a659c61a4011a937/lib/resque/job.rb#L60" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000033_source" class="dyn-source">
@@ -553,7 +553,7 @@ Creates an identical job, essentially placing this job back on the queue.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000037_source')" id="l_M000037_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/77a19711acf54cc2d587dea885849ec0c5cfce95/lib/resque/job.rb#L86" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/e6b5f30c74a77fd0cf5a0cd7a659c61a4011a937/lib/resque/job.rb#L86" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000037_source" class="dyn-source">
