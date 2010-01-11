@@ -69,7 +69,7 @@ The stat subsystem. Used to keep track of integer counts.
         <dd>
             <ul>
                 
-                <li><a href="#M000062">clear</a></li>
+                <li><a href="#M000060">clear</a></li>
                 
             </ul>
         </dd>
@@ -220,9 +220,9 @@ Alias of `get`
             </div>
             
             <div class="method">
-                <div class="title" id="M000062">
+                <div class="title" id="M000060">
                     
-                    <a name="M000062"></a><b>clear</b>(stat)
+                    <a name="M000060"></a><b>clear</b>(stat)
                     
                 </div>
                 
@@ -238,12 +238,12 @@ Removes a stat from Redis, effectively setting it to 0.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000062_source')" id="l_M000062_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000060_source')" id="l_M000060_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/70028d81daff8527443fbbac4a9edf62d14d9e36/lib/resque/stat.rb#L49" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000062_source" class="dyn-source">
+                    <div id="M000060_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/stat.rb, line 49</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clear</span>(<span class="ruby-identifier">stat</span>)
       <span class="ruby-identifier">redis</span>.<span class="ruby-identifier">del</span>(<span class="ruby-node">&quot;stat:#{stat}&quot;</span>)
