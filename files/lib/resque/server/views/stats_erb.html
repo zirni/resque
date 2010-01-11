@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>lib/resque/server/views/stats.erb</li>
-            <li>Last modified: Tue Dec 15 11:01:21 -0800 2009</li>
+            <li>Last modified: Sun Dec 20 10:15:01 -0800 2009</li>
         </ul>
     </div>
 
@@ -87,7 +87,7 @@
   &lt;% for key in resque.keys.sort %&gt;
     &lt;tr&gt;
       &lt;th&gt;
-        &lt;a href=&quot;/stats/keys/&lt;%= key %&gt;&quot;&gt;&lt;%= key %&gt;&lt;/a&gt;
+        &lt;a href=&quot;&lt;%=u &quot;/stats/keys/#{key}&quot; %&gt;&quot;&gt;&lt;%= key %&gt;&lt;/a&gt;
       &lt;/th&gt;
       &lt;td&gt;&lt;%= resque.redis.type key %&gt;&lt;/td&gt;
       &lt;td&gt;&lt;%= redis_get_size key %&gt;&lt;/td&gt;

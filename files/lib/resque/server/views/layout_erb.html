@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>lib/resque/server/views/layout.erb</li>
-            <li>Last modified: Tue Dec 15 11:01:21 -0800 2009</li>
+            <li>Last modified: Sat Dec 26 11:45:30 -0800 2009</li>
         </ul>
     </div>
 
@@ -44,12 +44,9 @@
 <pre>
   &lt;div class=&quot;header&quot;&gt;
     &lt;ul class='nav'&gt;
-      &lt;%= tab &quot;Overview&quot; %&gt;
-      &lt;%= tab &quot;Working&quot; %&gt;
-      &lt;%= tab &quot;Failed&quot; %&gt;
-      &lt;%= tab &quot;Queues&quot; %&gt;
-      &lt;%= tab &quot;Workers&quot; %&gt;
-      &lt;%= tab &quot;Stats&quot; %&gt;
+      &lt;% tabs.each do |tab_name| %&gt;
+        &lt;%= tab tab_name %&gt;
+      &lt;% end %&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
 

@@ -62,13 +62,13 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000050">partial</a>,</li>
+                <li><a href="#M000051">partial</a>,</li>
                 
-                <li><a href="#M000049">partial?</a>,</li>
+                <li><a href="#M000050">partial?</a>,</li>
                 
                 <li><a href="#M000043">path_prefix</a>,</li>
                 
-                <li><a href="#M000051">poll</a></li>
+                <li><a href="#M000052">poll</a></li>
                 
             </ul>
         </dd>
@@ -77,9 +77,9 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000046">redis_get_size</a>,</li>
+                <li><a href="#M000047">redis_get_size</a>,</li>
                 
-                <li><a href="#M000047">redis_get_value_as_array</a>,</li>
+                <li><a href="#M000048">redis_get_value_as_array</a>,</li>
                 
                 <li><a href="#M000060">resque</a></li>
                 
@@ -90,9 +90,9 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000052">show</a>,</li>
+                <li><a href="#M000053">show</a>,</li>
                 
-                <li><a href="#M000048">show_args</a></li>
+                <li><a href="#M000049">show_args</a></li>
                 
             </ul>
         </dd>
@@ -101,7 +101,11 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000045">tab</a></li>
+                <li><a href="#M000045">tab</a>,</li>
+                
+                <li><a href="#M000046">tabs</a>,</li>
+                
+                <li><a href="#M000061">tabs</a></li>
                 
             </ul>
         </dd>
@@ -141,6 +145,35 @@
     
 
     
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000061">
+                    
+                    <a name="M000061"></a><b>tabs</b>()
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000061_source')" id="l_M000061_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L178" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000061_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 178</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">tabs</span>
+      <span class="ruby-ivar">@tabs</span> <span class="ruby-operator">||=</span> [<span class="ruby-value str">&quot;Overview&quot;</span>, <span class="ruby-value str">&quot;Working&quot;</span>, <span class="ruby-value str">&quot;Failed&quot;</span>, <span class="ruby-value str">&quot;Queues&quot;</span>, <span class="ruby-value str">&quot;Workers&quot;</span>, <span class="ruby-value str">&quot;Stats&quot;</span>]
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
@@ -157,7 +190,7 @@
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000044_source')" id="l_M000044_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/server.rb#L35" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L35" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000044_source" class="dyn-source">
@@ -184,7 +217,7 @@
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000041_source')" id="l_M000041_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/server.rb#L22" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L22" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000041_source" class="dyn-source">
@@ -211,7 +244,7 @@
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000040_source')" id="l_M000040_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/server.rb#L18" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L18" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000040_source" class="dyn-source">
@@ -225,9 +258,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000050">
+                <div class="title" id="M000051">
                     
-                    <a name="M000050"></a><b>partial</b>(template, local_vars = {})
+                    <a name="M000051"></a><b>partial</b>(template, local_vars = {})
                     
                 </div>
                 
@@ -236,13 +269,13 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000050_source')" id="l_M000050_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000051_source')" id="l_M000051_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/server.rb#L78" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L82" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000050_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 78</span>
+                    <div id="M000051_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 82</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">partial</span>(<span class="ruby-identifier">template</span>, <span class="ruby-identifier">local_vars</span> = {})
         <span class="ruby-ivar">@partial</span> = <span class="ruby-keyword kw">true</span>
         <span class="ruby-identifier">erb</span>(<span class="ruby-identifier">template</span>.<span class="ruby-identifier">to_sym</span>, {<span class="ruby-identifier">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>}, <span class="ruby-identifier">local_vars</span>)
@@ -255,9 +288,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000049">
+                <div class="title" id="M000050">
                     
-                    <a name="M000049"></a><b>partial?</b>()
+                    <a name="M000050"></a><b>partial?</b>()
                     
                 </div>
                 
@@ -266,13 +299,13 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000049_source')" id="l_M000049_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000050_source')" id="l_M000050_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/server.rb#L74" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L78" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000049_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 74</span>
+                    <div id="M000050_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 78</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">partial?</span>
         <span class="ruby-ivar">@partial</span>
       <span class="ruby-keyword kw">end</span></pre>
@@ -295,7 +328,7 @@
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000043_source')" id="l_M000043_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/server.rb#L31" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L31" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000043_source" class="dyn-source">
@@ -309,9 +342,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000051">
+                <div class="title" id="M000052">
                     
-                    <a name="M000051"></a><b>poll</b>()
+                    <a name="M000052"></a><b>poll</b>()
                     
                 </div>
                 
@@ -320,13 +353,13 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000051_source')" id="l_M000051_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000052_source')" id="l_M000052_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/server.rb#L85" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L89" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000051_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 85</span>
+                    <div id="M000052_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 89</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">poll</span>
         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@polling</span>
           <span class="ruby-identifier">text</span> = <span class="ruby-node">&quot;Last Updated: #{Time.now.strftime(&quot;%H:%M:%S&quot;)}&quot;</span>
@@ -341,9 +374,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000046">
+                <div class="title" id="M000047">
                     
-                    <a name="M000046"></a><b>redis_get_size</b>(key)
+                    <a name="M000047"></a><b>redis_get_size</b>(key)
                     
                 </div>
                 
@@ -352,13 +385,13 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000046_source')" id="l_M000046_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000047_source')" id="l_M000047_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/server.rb#L44" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L48" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000046_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 44</span>
+                    <div id="M000047_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 48</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">redis_get_size</span>(<span class="ruby-identifier">key</span>)
         <span class="ruby-keyword kw">case</span> <span class="ruby-constant">Resque</span>.<span class="ruby-identifier">redis</span>.<span class="ruby-identifier">type</span>(<span class="ruby-identifier">key</span>)
         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'none'</span>
@@ -377,9 +410,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000047">
+                <div class="title" id="M000048">
                     
-                    <a name="M000047"></a><b>redis_get_value_as_array</b>(key)
+                    <a name="M000048"></a><b>redis_get_value_as_array</b>(key)
                     
                 </div>
                 
@@ -388,13 +421,13 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000047_source')" id="l_M000047_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000048_source')" id="l_M000048_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/server.rb#L57" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L61" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000047_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 57</span>
+                    <div id="M000048_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 61</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">redis_get_value_as_array</span>(<span class="ruby-identifier">key</span>)
         <span class="ruby-keyword kw">case</span> <span class="ruby-constant">Resque</span>.<span class="ruby-identifier">redis</span>.<span class="ruby-identifier">type</span>(<span class="ruby-identifier">key</span>)
         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'none'</span>
@@ -426,11 +459,11 @@
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000060_source')" id="l_M000060_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/server.rb#L170" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L174" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000060_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 170</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 174</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">resque</span>
       <span class="ruby-constant">Resque</span>
     <span class="ruby-keyword kw">end</span></pre>
@@ -440,9 +473,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000052">
+                <div class="title" id="M000053">
                     
-                    <a name="M000052"></a><b>show</b>(page, layout = true)
+                    <a name="M000053"></a><b>show</b>(page, layout = true)
                     
                 </div>
                 
@@ -451,13 +484,13 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000052_source')" id="l_M000052_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000053_source')" id="l_M000053_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/server.rb#L96" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L100" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000052_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 96</span>
+                    <div id="M000053_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 100</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show</span>(<span class="ruby-identifier">page</span>, <span class="ruby-identifier">layout</span> = <span class="ruby-keyword kw">true</span>)
       <span class="ruby-keyword kw">begin</span>
         <span class="ruby-identifier">erb</span> <span class="ruby-identifier">page</span>.<span class="ruby-identifier">to_sym</span>, {<span class="ruby-identifier">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">layout</span>}, <span class="ruby-identifier">:resque</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Resque</span>
@@ -471,9 +504,9 @@
             </div>
             
             <div class="method">
-                <div class="title" id="M000048">
+                <div class="title" id="M000049">
                     
-                    <a name="M000048"></a><b>show_args</b>(args)
+                    <a name="M000049"></a><b>show_args</b>(args)
                     
                 </div>
                 
@@ -482,13 +515,13 @@
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000048_source')" id="l_M000048_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000049_source')" id="l_M000049_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/server.rb#L70" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L74" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000048_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 70</span>
+                    <div id="M000049_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 74</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show_args</span>(<span class="ruby-identifier">args</span>)
         <span class="ruby-constant">Array</span>(<span class="ruby-identifier">args</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">inspect</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
       <span class="ruby-keyword kw">end</span></pre>
@@ -511,7 +544,7 @@
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000045_source')" id="l_M000045_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/server.rb#L39" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L39" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000045_source" class="dyn-source">
@@ -519,6 +552,33 @@
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tab</span>(<span class="ruby-identifier">name</span>)
         <span class="ruby-identifier">dname</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>
         <span class="ruby-node">&quot;&lt;li #{class_if_current(dname)}&gt;&lt;a href='#{url dname}'&gt;#{name}&lt;/a&gt;&lt;/li&gt;&quot;</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000046">
+                    
+                    <a name="M000046"></a><b>tabs</b>()
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000046_source')" id="l_M000046_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L44" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000046_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/server.rb, line 44</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tabs</span>
+        <span class="ruby-constant">Resque</span><span class="ruby-operator">::</span><span class="ruby-constant">Server</span>.<span class="ruby-identifier">tabs</span>
       <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
@@ -539,7 +599,7 @@
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000042_source')" id="l_M000042_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/f341b0339ad5308b79955dc419fc4bda49399e34/lib/resque/server.rb#L26" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/c070baa04911f8d96cbd26fc28a463e4a7db4fde/lib/resque/server.rb#L26" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000042_source" class="dyn-source">
