@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>README.markdown</li>
-            <li>Last modified: Mon Jan 11 10:20:36 -0800 2010</li>
+            <li>Last modified: Tue Feb 09 00:03:03 -0800 2010</li>
         </ul>
     </div>
 
@@ -405,6 +405,8 @@ waiting for work on:</p>
 <li><code>QUIT</code> - Wait for child to finish processing then exit</li>
 <li><code>TERM</code> / <code>INT</code> - Immediately kill child then exit</li>
 <li><code>USR1</code> - Immediately kill child but don't exit</li>
+<li><code>USR2</code> - Don't start to process any new jobs</li>
+<li><code>CONT</code> - Start to process new jobs again after a USR2</li>
 </ul>
 
 
@@ -415,6 +417,10 @@ will continue as normal unless the child was not found. In that case
 Resque assumes the parent process is in a bad state and shuts down.</p>
 
 <p>If you want to kill a stale or stuck child and shutdown, use <code>TERM</code></p>
+
+<p>If you want to stop processing jobs, but want to leave the worker running
+(for example, to temporarily alleviate load), use <code>USR2</code> to stop processing,
+then <code>CONT</code> to start it again.</p>
 
 <h3>Mysql::Error: MySQL server has gone away</h3>
 
@@ -626,7 +632,7 @@ require 'resque'
 
 <p>That's it! You can now create Resque jobs from within your app.</p>
 
-<p>To start a worker, add this to your Rakefile in RAILS_ROOT:</p>
+<p>To start a worker, add this to your Rakefile in <code>RAILS_ROOT</code>:</p>
 
 <pre><code>require 'resque/tasks'
 </code></pre>
@@ -664,9 +670,9 @@ set various other options at startup.</p>
 object. This means if you're already using Redis in your app, Resque
 can re-use the existing connection.</p>
 
-<p>String: `Resque.redis = 'localhost:6379'</p>
+<p>String: <code>Resque.redis = 'localhost:6379'</code></p>
 
-<p>Redis: <code>Redus.redis = $redis</code></p>
+<p>Redis: <code>Resque.redis = $redis</code></p>
 
 <p>For our rails app we have a <code>config/initializers/resque.rb</code> file where
 we load <code>config/resque.yml</code> by hand and set the Redis information
@@ -693,9 +699,28 @@ Resque.redis = resque_config[rails_env]
 <p>Easy peasy! Why not just use <code>RAILS_ROOT</code> and <code>RAILS_ENV</code>? Because
 this way we can tell our Sinatra app about the config file:</p>
 
-<p>   $ RAILS_ENV=production resque-web rails_root/config/initializers/resque.rb</p>
+<pre><code>$ RAILS_ENV=production resque-web rails_root/config/initializers/resque.rb
+</code></pre>
 
 <p>Now everyone is on the same page.</p>
+
+<h2>Namespaces</h2>
+
+<p>If you're running multiple, separate instances of Resque you may want
+to namespace the keyspaces so they do not overlap. This is not unlike
+the approach taken by many memcached clients.</p>
+
+<p>This feature is provided by the <a href="http://github.com/defunkt/redis-namespace">redis-namespace</a> library, which
+Resque uses by default to separate the keys it manages from other keys
+in your Redis server.</p>
+
+<p>Simply use the <code>Resque.redis.namespace</code> accessor:</p>
+
+<pre><code>Resque.redis.namespace = "resque:GitHub"
+</code></pre>
+
+<p>We recommend sticking this in your initializer somewhere after Redis
+is configured.</p>
 
 <h2>Demo</h2>
 
@@ -758,7 +783,7 @@ sort it out.</p>
 
 <h2>Mailing List</h2>
 
-<p>To join the list simply send an email to <a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#58;&#114;&#x65;&#115;&#x71;&#x75;&#x65;&#x40;&#108;&#x69;&#x62;&#114;&#x65;&#x6c;&#x69;&#x73;&#x74;&#46;&#99;&#x6f;&#x6d;">&#114;&#101;&#x73;&#113;&#117;&#x65;&#64;&#108;&#x69;&#x62;&#114;&#x65;&#x6c;&#105;&#115;&#116;&#x2e;&#x63;&#111;&#109;</a>. This
+<p>To join the list simply send an email to <a href="&#109;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#x72;&#x65;&#115;&#113;&#117;&#101;&#x40;&#108;&#x69;&#x62;&#114;&#101;&#x6c;&#x69;&#x73;&#116;&#x2e;&#99;&#x6f;&#109;">&#114;&#x65;&#x73;&#113;&#x75;&#101;&#x40;&#x6c;&#105;&#x62;&#x72;&#x65;&#108;&#x69;&#115;&#116;&#46;&#x63;&#111;&#x6d;</a>. This
 will subscribe you and send you information about your subscription,
 include unsubscribe information.</p>
 
@@ -771,7 +796,7 @@ include unsubscribe information.</p>
 <li>Home: <a href="http://github.com/defunkt/resque">http://github.com/defunkt/resque</a></li>
 <li>Docs: <a href="http://defunkt.github.com/resque/">http://defunkt.github.com/resque/</a></li>
 <li>Bugs: <a href="http://github.com/defunkt/resque/issues">http://github.com/defunkt/resque/issues</a></li>
-<li>List: <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#x3a;&#x72;&#101;&#x73;&#113;&#117;&#x65;&#x40;&#108;&#x69;&#98;&#x72;&#x65;&#108;&#105;&#x73;&#x74;&#x2e;&#x63;&#111;&#109;">&#114;&#x65;&#115;&#x71;&#117;&#x65;&#64;&#108;&#105;&#x62;&#114;&#x65;&#x6c;&#x69;&#x73;&#116;&#46;&#x63;&#111;&#x6d;</a></li>
+<li>List: <a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x72;&#x65;&#x73;&#x71;&#x75;&#101;&#x40;&#108;&#x69;&#x62;&#x72;&#101;&#x6c;&#105;&#115;&#116;&#46;&#x63;&#111;&#x6d;">&#x72;&#x65;&#x73;&#x71;&#x75;&#101;&#x40;&#x6c;&#105;&#98;&#114;&#x65;&#x6c;&#x69;&#x73;&#x74;&#x2e;&#99;&#x6f;&#109;</a></li>
 <li>Chat: &lt;irc://irc.freenode.net/resque></li>
 <li>Gems: <a href="http://gemcutter.org/gems/resque">http://gemcutter.org/gems/resque</a></li>
 </ul>

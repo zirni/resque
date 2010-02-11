@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>HISTORY.md</li>
-            <li>Last modified: Mon Jan 11 11:37:53 -0800 2010</li>
+            <li>Last modified: Thu Feb 11 02:48:03 -0800 2010</li>
         </ul>
     </div>
 
@@ -27,7 +27,24 @@
         <div id="content">
     
     <div class="description">
-        <h2>1.3.1 (2010-01-11)</h2>
+        <h2>1.4.0 (2010-02-11)</h2>
+
+<ul>
+<li>Fallback when unable to bind QUIT and USR1 for Windows and JRuby.</li>
+<li>Fallback when no <code>Kernel.fork</code> is provided (for IronRuby).</li>
+<li>Web: Rounded corners in Firefox</li>
+<li>Cut down system calls in <code>Worker#prune_dead_workers</code></li>
+<li>Enable switching DB in a Redis server from config</li>
+<li>Support USR2 and CONT to stop and start job processing.</li>
+<li>Web: Add example failing job</li>
+<li>Bugfix: <code>Worker#unregister_worker</code> shouldn't call <code>done_working</code></li>
+<li>Bugfix: Example god config now restarts Resque properly.</li>
+<li>Multiple failure backends now permitted.</li>
+<li>Hoptoad failure backend updated to new API</li>
+</ul>
+
+
+<h2>1.3.1 (2010-01-11)</h2>
 
 <ul>
 <li>Vegas bugfix: Don't error without a config</li>
