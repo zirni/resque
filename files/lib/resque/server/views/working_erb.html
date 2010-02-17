@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>lib/resque/server/views/working.erb</li>
-            <li>Last modified: Mon Jan 11 11:38:20 -0800 2010</li>
+            <li>Last modified: Fri Feb 12 16:15:29 -0800 2010</li>
         </ul>
     </div>
 
@@ -29,7 +29,7 @@
     <div class="description">
         <p>
 <% if params[:id] &amp;&amp; (worker = <a
-href="../../../../../classes/Resque/Worker.html#M000074">Resque::Worker.find</a>(params[:id]))
+href="../../../../../classes/Resque/Worker.html#M000075">Resque::Worker.find</a>(params[:id]))
 &amp;&amp; worker.job %>
 </p>
 <pre>
@@ -81,6 +81,8 @@ href="../../../../../classes/Resque/Worker.html#M000074">Resque::Worker.find</a>
 
     &lt;% for worker in workers.sort_by { |w| w.job['run_at'] ? w.job['run_at'] : '' } %&gt;
       &lt;% job = worker.job %&gt;
+      &lt;% next if worker.idle? %&gt;
+
       &lt;tr&gt;
         &lt;td class='icon'&gt;&lt;img src=&quot;&lt;%=u state = worker.state %&gt;.png&quot; alt=&quot;&lt;%= state %&gt;&quot; title=&quot;&lt;%= state %&gt;&quot;&gt;&lt;/td&gt;
         &lt;% host, pid, queues = worker.to_s.split(':') %&gt;

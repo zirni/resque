@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>HISTORY.md</li>
-            <li>Last modified: Thu Feb 11 02:48:03 -0800 2010</li>
+            <li>Last modified: Wed Feb 17 14:47:58 -0800 2010</li>
         </ul>
     </div>
 
@@ -27,7 +27,17 @@
         <div id="content">
     
     <div class="description">
-        <h2>1.4.0 (2010-02-11)</h2>
+        <h2>1.5.0 (2010-02-17)</h2>
+
+<ul>
+<li>Version now included in procline, e.g. <code>resque-1.5.0: Message</code></li>
+<li>Web bugfix: Ignore idle works in the "working" page</li>
+<li>Added <code>Resque::Job.destroy(queue, klass, *args)</code></li>
+<li>Added <code>Resque.dequeue(klass, *args)</code></li>
+</ul>
+
+
+<h2>1.4.0 (2010-02-11)</h2>
 
 <ul>
 <li>Fallback when unable to bind QUIT and USR1 for Windows and JRuby.</li>
