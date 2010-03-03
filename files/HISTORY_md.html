@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>HISTORY.md</li>
-            <li>Last modified: Wed Feb 17 14:47:58 -0800 2010</li>
+            <li>Last modified: Wed Mar 03 13:17:43 -0800 2010</li>
         </ul>
     </div>
 
@@ -27,7 +27,23 @@
         <div id="content">
     
     <div class="description">
-        <h2>1.5.0 (2010-02-17)</h2>
+        <h2>1.5.1 (2010-03-03)</h2>
+
+<ul>
+<li><code>Job.destroy</code> and <code>Resque.dequeue</code> return the # of destroyed jobs.</li>
+<li>Hoptoad notifier improvements</li>
+<li>Specify the namespace with <code>resque-web</code> by passing <code>-N namespace</code></li>
+<li>Bugfix: Don't crash when trying to parse invalid JSON.</li>
+<li>Bugfix: Non-standard namespace support</li>
+<li>Web: Red backgound for queue "failed" only shown if there are failed jobs.</li>
+<li>Web bugfix: Tabs highlight properly now</li>
+<li>Web bugfix: ZSET partial support in stats</li>
+<li>Web bugfix: Deleting failed jobs works again</li>
+<li>Web bugfix: Sets (or zsets, lists, etc) now paginate.</li>
+</ul>
+
+
+<h2>1.5.0 (2010-02-17)</h2>
 
 <ul>
 <li>Version now included in procline, e.g. <code>resque-1.5.0: Message</code></li>

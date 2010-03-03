@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>lib/resque/server/views/stats.erb</li>
-            <li>Last modified: Thu Feb 11 02:48:54 -0800 2010</li>
+            <li>Last modified: Wed Mar 03 13:17:21 -0800 2010</li>
         </ul>
     </div>
 
@@ -34,7 +34,8 @@
 <% if params[:key] %>
 </p>
 <p>
-<%= partial :key %>
+<%= partial resque.redis.type(params[:key]).eql?(&#8220;string&#8221;) ?
+:key_string : :key_sets %>
 </p>
 <p>
 <% elsif params[:id] == &#8220;resque&#8221; %>

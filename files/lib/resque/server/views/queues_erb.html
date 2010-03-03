@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>lib/resque/server/views/queues.erb</li>
-            <li>Last modified: Thu Feb 11 02:48:54 -0800 2010</li>
+            <li>Last modified: Wed Mar 03 12:58:01 -0800 2010</li>
         </ul>
     </div>
 
@@ -72,7 +72,7 @@
       &lt;td class='size'&gt;&lt;%= resque.size queue %&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;% end %&gt;
-    &lt;tr class='failed'&gt;
+    &lt;tr class=&quot;&lt;%= Resque::Failure.count.zero? ? &quot;failed&quot; : &quot;failure&quot; %&gt;&quot;&gt;
       &lt;td class='queue failed'&gt;&lt;a class=&quot;queue&quot; href=&quot;&lt;%= url :failed %&gt;&quot;&gt;failed&lt;/a&gt;&lt;/td&gt;
       &lt;td class='size'&gt;&lt;%= Resque::Failure.count %&gt;&lt;/td&gt;
     &lt;/tr&gt;
