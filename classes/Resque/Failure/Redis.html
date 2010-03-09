@@ -58,7 +58,7 @@ with support in the <a href="../../Resque.html">Resque</a> web app.
         <dd>
             <ul>
                 
-                <li><a href="#M000023">all</a></li>
+                <li><a href="#M000024">all</a></li>
                 
             </ul>
         </dd>
@@ -67,9 +67,9 @@ with support in the <a href="../../Resque.html">Resque</a> web app.
         <dd>
             <ul>
                 
-                <li><a href="#M000024">clear</a>,</li>
+                <li><a href="#M000025">clear</a>,</li>
                 
-                <li><a href="#M000022">count</a></li>
+                <li><a href="#M000023">count</a></li>
                 
             </ul>
         </dd>
@@ -78,7 +78,7 @@ with support in the <a href="../../Resque.html">Resque</a> web app.
         <dd>
             <ul>
                 
-                <li><a href="#M000021">save</a></li>
+                <li><a href="#M000022">save</a></li>
                 
             </ul>
         </dd>
@@ -100,36 +100,9 @@ with support in the <a href="../../Resque.html">Resque</a> web app.
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000023">
-                    
-                    <a name="M000023"></a><b>all</b>(start = 0, count = 1)
-                    
-                </div>
-                
-                
-                
-                
-                <div class="sourcecode">
-                    <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000023_source')" id="l_M000023_source">show</a>
-                        
-                        | <a href="http://github.com/defunkt/resque/blob/9bd38ca5a1b6a5427305ee16a07039ab84532375/lib/resque/failure/redis.rb#L23" target="_blank" class="github_url">on GitHub</a>
-                        
-                    </p>
-                    <div id="M000023_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/redis.rb, line 23</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">start</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">count</span> = <span class="ruby-value">1</span>)
-        <span class="ruby-constant">Resque</span>.<span class="ruby-identifier">list_range</span>(<span class="ruby-identifier">:failed</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">count</span>)
-      <span class="ruby-keyword kw">end</span></pre>
-                    </div>
-                </div>
-                
-            </div>
-            
-            <div class="method">
                 <div class="title" id="M000024">
                     
-                    <a name="M000024"></a><b>clear</b>()
+                    <a name="M000024"></a><b>all</b>(start = 0, count = 1)
                     
                 </div>
                 
@@ -140,10 +113,37 @@ with support in the <a href="../../Resque.html">Resque</a> web app.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000024_source')" id="l_M000024_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/9bd38ca5a1b6a5427305ee16a07039ab84532375/lib/resque/failure/redis.rb#L27" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/9bd38ca5a1b6a5427305ee16a07039ab84532375/lib/resque/failure/redis.rb#L23" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000024_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/redis.rb, line 23</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">start</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">count</span> = <span class="ruby-value">1</span>)
+        <span class="ruby-constant">Resque</span>.<span class="ruby-identifier">list_range</span>(<span class="ruby-identifier">:failed</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">count</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000025">
+                    
+                    <a name="M000025"></a><b>clear</b>()
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000025_source')" id="l_M000025_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/9bd38ca5a1b6a5427305ee16a07039ab84532375/lib/resque/failure/redis.rb#L27" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000025_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure/redis.rb, line 27</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">clear</span>
         <span class="ruby-constant">Resque</span>.<span class="ruby-identifier">redis</span>.<span class="ruby-identifier">del</span>(<span class="ruby-identifier">:failed</span>)
@@ -154,9 +154,9 @@ with support in the <a href="../../Resque.html">Resque</a> web app.
             </div>
             
             <div class="method">
-                <div class="title" id="M000022">
+                <div class="title" id="M000023">
                     
-                    <a name="M000022"></a><b>count</b>()
+                    <a name="M000023"></a><b>count</b>()
                     
                 </div>
                 
@@ -165,12 +165,12 @@ with support in the <a href="../../Resque.html">Resque</a> web app.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000022_source')" id="l_M000022_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000023_source')" id="l_M000023_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/9bd38ca5a1b6a5427305ee16a07039ab84532375/lib/resque/failure/redis.rb#L19" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000022_source" class="dyn-source">
+                    <div id="M000023_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure/redis.rb, line 19</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">count</span>
         <span class="ruby-constant">Resque</span>.<span class="ruby-identifier">redis</span>.<span class="ruby-identifier">llen</span>(<span class="ruby-identifier">:failed</span>).<span class="ruby-identifier">to_i</span>
@@ -183,9 +183,9 @@ with support in the <a href="../../Resque.html">Resque</a> web app.
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000021">
+                <div class="title" id="M000022">
                     
-                    <a name="M000021"></a><b>save</b>()
+                    <a name="M000022"></a><b>save</b>()
                     
                 </div>
                 
@@ -194,12 +194,12 @@ with support in the <a href="../../Resque.html">Resque</a> web app.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000021_source')" id="l_M000021_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000022_source')" id="l_M000022_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/9bd38ca5a1b6a5427305ee16a07039ab84532375/lib/resque/failure/redis.rb#L6" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000021_source" class="dyn-source">
+                    <div id="M000022_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure/redis.rb, line 6</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">save</span>
         <span class="ruby-identifier">data</span> = {

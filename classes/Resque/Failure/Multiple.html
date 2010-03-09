@@ -57,7 +57,7 @@ delegates all queries to the first backend
         <dd>
             <ul>
                 
-                <li><a href="#M000018">all</a></li>
+                <li><a href="#M000019">all</a></li>
                 
             </ul>
         </dd>
@@ -66,11 +66,11 @@ delegates all queries to the first backend
         <dd>
             <ul>
                 
-                <li><a href="#M000020">clear</a>,</li>
+                <li><a href="#M000021">clear</a>,</li>
                 
-                <li><a href="#M000014">configure</a>,</li>
+                <li><a href="#M000015">configure</a>,</li>
                 
-                <li><a href="#M000017">count</a></li>
+                <li><a href="#M000018">count</a></li>
                 
             </ul>
         </dd>
@@ -79,7 +79,7 @@ delegates all queries to the first backend
         <dd>
             <ul>
                 
-                <li><a href="#M000015">new</a></li>
+                <li><a href="#M000016">new</a></li>
                 
             </ul>
         </dd>
@@ -88,7 +88,7 @@ delegates all queries to the first backend
         <dd>
             <ul>
                 
-                <li><a href="#M000016">save</a></li>
+                <li><a href="#M000017">save</a></li>
                 
             </ul>
         </dd>
@@ -97,7 +97,7 @@ delegates all queries to the first backend
         <dd>
             <ul>
                 
-                <li><a href="#M000019">url</a></li>
+                <li><a href="#M000020">url</a></li>
                 
             </ul>
         </dd>
@@ -132,9 +132,9 @@ delegates all queries to the first backend
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000018">
+                <div class="title" id="M000019">
                     
-                    <a name="M000018"></a><b>all</b>(start = 0, count = 1)
+                    <a name="M000019"></a><b>all</b>(start = 0, count = 1)
                     
                 </div>
                 
@@ -150,12 +150,12 @@ Returns a paginated array of failure objects.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000018_source')" id="l_M000018_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000019_source')" id="l_M000019_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/ba477f3c3a30e0f2decca890516368c071f1a62c/lib/resque/failure/multiple.rb#L29" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000018_source" class="dyn-source">
+                    <div id="M000019_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure/multiple.rb, line 29</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">start</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">count</span> = <span class="ruby-value">1</span>)
         <span class="ruby-identifier">classes</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">start</span>,<span class="ruby-identifier">count</span>)
@@ -166,9 +166,9 @@ Returns a paginated array of failure objects.
             </div>
             
             <div class="method">
-                <div class="title" id="M000020">
+                <div class="title" id="M000021">
                     
-                    <a name="M000020"></a><b>clear</b>()
+                    <a name="M000021"></a><b>clear</b>()
                     
                 </div>
                 
@@ -184,12 +184,12 @@ Clear all failure objects
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000020_source')" id="l_M000020_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000021_source')" id="l_M000021_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/ba477f3c3a30e0f2decca890516368c071f1a62c/lib/resque/failure/multiple.rb#L39" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000020_source" class="dyn-source">
+                    <div id="M000021_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure/multiple.rb, line 39</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">clear</span>
         <span class="ruby-identifier">classes</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">clear</span>
@@ -200,9 +200,9 @@ Clear all failure objects
             </div>
             
             <div class="method">
-                <div class="title" id="M000014">
+                <div class="title" id="M000015">
                     
-                    <a name="M000014"></a><b>configure</b>()
+                    <a name="M000015"></a><b>configure</b>()
                     
                 </div>
                 
@@ -211,12 +211,12 @@ Clear all failure objects
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000014_source')" id="l_M000014_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000015_source')" id="l_M000015_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/ba477f3c3a30e0f2decca890516368c071f1a62c/lib/resque/failure/multiple.rb#L11" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000014_source" class="dyn-source">
+                    <div id="M000015_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure/multiple.rb, line 11</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">configure</span>
         <span class="ruby-keyword kw">yield</span> <span class="ruby-keyword kw">self</span>
@@ -228,9 +228,9 @@ Clear all failure objects
             </div>
             
             <div class="method">
-                <div class="title" id="M000017">
+                <div class="title" id="M000018">
                     
-                    <a name="M000017"></a><b>count</b>()
+                    <a name="M000018"></a><b>count</b>()
                     
                 </div>
                 
@@ -246,12 +246,12 @@ The number of failures.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000017_source')" id="l_M000017_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000018_source')" id="l_M000018_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/ba477f3c3a30e0f2decca890516368c071f1a62c/lib/resque/failure/multiple.rb#L24" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000017_source" class="dyn-source">
+                    <div id="M000018_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure/multiple.rb, line 24</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">count</span>
         <span class="ruby-identifier">classes</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">count</span>
@@ -262,9 +262,9 @@ The number of failures.
             </div>
             
             <div class="method">
-                <div class="title" id="M000015">
+                <div class="title" id="M000016">
                     
-                    <a name="M000015"></a><b>new</b>(*args)
+                    <a name="M000016"></a><b>new</b>(*args)
                     
                 </div>
                 
@@ -273,12 +273,12 @@ The number of failures.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000015_source')" id="l_M000015_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000016_source')" id="l_M000016_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/ba477f3c3a30e0f2decca890516368c071f1a62c/lib/resque/failure/multiple.rb#L16" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000015_source" class="dyn-source">
+                    <div id="M000016_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure/multiple.rb, line 16</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
         <span class="ruby-ivar">@backends</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">classes</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">klass</span><span class="ruby-operator">|</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)}
@@ -289,9 +289,9 @@ The number of failures.
             </div>
             
             <div class="method">
-                <div class="title" id="M000019">
+                <div class="title" id="M000020">
                     
-                    <a name="M000019"></a><b>url</b>()
+                    <a name="M000020"></a><b>url</b>()
                     
                 </div>
                 
@@ -307,12 +307,12 @@ A URL where someone can go to view failures.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000019_source')" id="l_M000019_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000020_source')" id="l_M000020_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/ba477f3c3a30e0f2decca890516368c071f1a62c/lib/resque/failure/multiple.rb#L34" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000019_source" class="dyn-source">
+                    <div id="M000020_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure/multiple.rb, line 34</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">url</span>
         <span class="ruby-identifier">classes</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">url</span>
@@ -325,9 +325,9 @@ A URL where someone can go to view failures.
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000016">
+                <div class="title" id="M000017">
                     
-                    <a name="M000016"></a><b>save</b>()
+                    <a name="M000017"></a><b>save</b>()
                     
                 </div>
                 
@@ -336,12 +336,12 @@ A URL where someone can go to view failures.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000016_source')" id="l_M000016_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000017_source')" id="l_M000017_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/ba477f3c3a30e0f2decca890516368c071f1a62c/lib/resque/failure/multiple.rb#L19" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000016_source" class="dyn-source">
+                    <div id="M000017_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure/multiple.rb, line 19</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">save</span>
         <span class="ruby-ivar">@backends</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">:save</span>)

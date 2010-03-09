@@ -50,6 +50,9 @@ To use it, put this code in an initializer, Rake task, or wherever:
     # optional proxy support
     config.proxy_host = 'x.y.z.t'
     config.proxy_port = 8080
+
+    # server env support, defaults to RAILS_ENV or RACK_ENV
+    config.server_environment = &quot;test&quot;
   end
 </pre>
 
@@ -99,7 +102,9 @@ To use it, put this code in an initializer, Rake task, or wherever:
         <dd>
             <ul>
                 
-                <li><a href="#M000009">save</a></li>
+                <li><a href="#M000009">save</a>,</li>
+                
+                <li><a href="#M000014">server_environment</a></li>
                 
             </ul>
         </dd>
@@ -189,6 +194,14 @@ From the hoptoad plugin
             <td class='attr-desc'></td>
         </tr>
         
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>server_environment</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
     </table>
     
 
@@ -209,11 +222,11 @@ From the hoptoad plugin
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000008_source')" id="l_M000008_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/68debbca6ed055b7a61c9dbc21a87e85636f94ee/lib/resque/failure/hoptoad.rb#L33" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/8e99569d2c2042bb4a790140f59aee2b30ce3173/lib/resque/failure/hoptoad.rb#L37" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000008_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 33</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 37</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">configure</span>
         <span class="ruby-keyword kw">yield</span> <span class="ruby-keyword kw">self</span>
         <span class="ruby-constant">Resque</span><span class="ruby-operator">::</span><span class="ruby-constant">Failure</span>.<span class="ruby-identifier">backend</span> = <span class="ruby-keyword kw">self</span>
@@ -237,11 +250,11 @@ From the hoptoad plugin
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000007_source')" id="l_M000007_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/68debbca6ed055b7a61c9dbc21a87e85636f94ee/lib/resque/failure/hoptoad.rb#L27" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/8e99569d2c2042bb4a790140f59aee2b30ce3173/lib/resque/failure/hoptoad.rb#L31" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000007_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 27</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 31</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">count</span>
         <span class="ruby-comment cmt"># We can't get the total # of errors from Hoptoad so we fake it</span>
         <span class="ruby-comment cmt"># by asking Resque how many errors it has seen.</span>
@@ -268,11 +281,11 @@ From the hoptoad plugin
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000013_source')" id="l_M000013_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/68debbca6ed055b7a61c9dbc21a87e85636f94ee/lib/resque/failure/hoptoad.rb#L116" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/8e99569d2c2042bb4a790140f59aee2b30ce3173/lib/resque/failure/hoptoad.rb#L120" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000013_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 116</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 120</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">api_key</span>
         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">api_key</span>
       <span class="ruby-keyword kw">end</span></pre>
@@ -295,15 +308,15 @@ From the hoptoad plugin
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000011_source')" id="l_M000011_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/68debbca6ed055b7a61c9dbc21a87e85636f94ee/lib/resque/failure/hoptoad.rb#L105" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/8e99569d2c2042bb4a790140f59aee2b30ce3173/lib/resque/failure/hoptoad.rb#L109" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000011_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 105</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 109</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fill_in_backtrace_lines</span>(<span class="ruby-identifier">x</span>)
         <span class="ruby-identifier">exception</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">unparsed_line</span><span class="ruby-operator">|</span>
           <span class="ruby-identifier">_</span>, <span class="ruby-identifier">file</span>, <span class="ruby-identifier">number</span>, <span class="ruby-identifier">method</span> = <span class="ruby-identifier">unparsed_line</span>.<span class="ruby-identifier">match</span>(<span class="ruby-constant">INPUT_FORMAT</span>).<span class="ruby-identifier">to_a</span>
-          <span class="ruby-identifier">x</span>.<span class="ruby-identifier">line</span> <span class="ruby-identifier">:file=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">file</span>,<span class="ruby-identifier">:number=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">number</span>
+          <span class="ruby-identifier">x</span>.<span class="ruby-identifier">line</span> <span class="ruby-identifier">:file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">file</span>,<span class="ruby-identifier">:number</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">number</span>
         <span class="ruby-keyword kw">end</span>
       <span class="ruby-keyword kw">end</span></pre>
                     </div>
@@ -325,11 +338,11 @@ From the hoptoad plugin
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000009_source')" id="l_M000009_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/68debbca6ed055b7a61c9dbc21a87e85636f94ee/lib/resque/failure/hoptoad.rb#L38" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/8e99569d2c2042bb4a790140f59aee2b30ce3173/lib/resque/failure/hoptoad.rb#L42" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000009_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 38</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 42</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">save</span>
         <span class="ruby-identifier">http</span> = <span class="ruby-identifier">use_ssl?</span> <span class="ruby-value">? </span><span class="ruby-operator">:</span><span class="ruby-identifier">https</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">:http</span>
         <span class="ruby-identifier">url</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-node">&quot;#{http}://hoptoadapp.com/notifier_api/v2/notices&quot;</span>)
@@ -366,6 +379,34 @@ From the hoptoad plugin
             </div>
             
             <div class="method">
+                <div class="title" id="M000014">
+                    
+                    <a name="M000014"></a><b>server_environment</b>()
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000014_source')" id="l_M000014_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/8e99569d2c2042bb4a790140f59aee2b30ce3173/lib/resque/failure/hoptoad.rb#L124" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000014_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 124</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">server_environment</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">server_environment</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">server_environment</span>
+        <span class="ruby-keyword kw">defined?</span>(<span class="ruby-constant">RAILS_ENV</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">RAILS_ENV</span> <span class="ruby-operator">:</span> (<span class="ruby-constant">ENV</span>[<span class="ruby-value str">'RACK_ENV'</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">'development'</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
                 <div class="title" id="M000012">
                     
                     <a name="M000012"></a><b>use_ssl?</b>()
@@ -379,11 +420,11 @@ From the hoptoad plugin
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000012_source')" id="l_M000012_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/68debbca6ed055b7a61c9dbc21a87e85636f94ee/lib/resque/failure/hoptoad.rb#L112" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/8e99569d2c2042bb4a790140f59aee2b30ce3173/lib/resque/failure/hoptoad.rb#L116" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000012_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 112</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 116</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">use_ssl?</span>
         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">secure</span>
       <span class="ruby-keyword kw">end</span></pre>
@@ -406,11 +447,11 @@ From the hoptoad plugin
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000010_source')" id="l_M000010_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/68debbca6ed055b7a61c9dbc21a87e85636f94ee/lib/resque/failure/hoptoad.rb#L69" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/8e99569d2c2042bb4a790140f59aee2b30ce3173/lib/resque/failure/hoptoad.rb#L73" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000010_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 69</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 73</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">xml</span>
         <span class="ruby-identifier">x</span> = <span class="ruby-constant">Builder</span><span class="ruby-operator">::</span><span class="ruby-constant">XmlMarkup</span>.<span class="ruby-identifier">new</span>
         <span class="ruby-identifier">x</span>.<span class="ruby-identifier">instruct!</span>
@@ -441,7 +482,7 @@ From the hoptoad plugin
             <span class="ruby-keyword kw">end</span>
           <span class="ruby-keyword kw">end</span>
           <span class="ruby-identifier">x</span>.<span class="ruby-identifier">tag!</span>(<span class="ruby-value str">&quot;server-environment&quot;</span>) <span class="ruby-keyword kw">do</span>
-            <span class="ruby-identifier">x</span>.<span class="ruby-identifier">tag!</span>(<span class="ruby-value str">&quot;environment-name&quot;</span>,<span class="ruby-constant">RAILS_ENV</span>)
+            <span class="ruby-identifier">x</span>.<span class="ruby-identifier">tag!</span>(<span class="ruby-value str">&quot;environment-name&quot;</span>,<span class="ruby-identifier">server_environment</span>)
           <span class="ruby-keyword kw">end</span>
 
         <span class="ruby-keyword kw">end</span>

@@ -50,9 +50,9 @@ Methods used by various classes in <a href="../Resque.html">Resque</a>.
         <dd>
             <ul>
                 
-                <li><a href="#M000035">classify</a>,</li>
+                <li><a href="#M000036">classify</a>,</li>
                 
-                <li><a href="#M000036">constantize</a></li>
+                <li><a href="#M000037">constantize</a></li>
                 
             </ul>
         </dd>
@@ -61,7 +61,7 @@ Methods used by various classes in <a href="../Resque.html">Resque</a>.
         <dd>
             <ul>
                 
-                <li><a href="#M000034">decode</a></li>
+                <li><a href="#M000035">decode</a></li>
                 
             </ul>
         </dd>
@@ -70,7 +70,7 @@ Methods used by various classes in <a href="../Resque.html">Resque</a>.
         <dd>
             <ul>
                 
-                <li><a href="#M000033">encode</a></li>
+                <li><a href="#M000034">encode</a></li>
                 
             </ul>
         </dd>
@@ -79,7 +79,7 @@ Methods used by various classes in <a href="../Resque.html">Resque</a>.
         <dd>
             <ul>
                 
-                <li><a href="#M000032">redis</a></li>
+                <li><a href="#M000033">redis</a></li>
                 
             </ul>
         </dd>
@@ -101,9 +101,9 @@ Methods used by various classes in <a href="../Resque.html">Resque</a>.
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000035">
+                <div class="title" id="M000036">
                     
-                    <a name="M000035"></a><b>classify</b>(dashed_word)
+                    <a name="M000036"></a><b>classify</b>(dashed_word)
                     
                 </div>
                 
@@ -122,12 +122,12 @@ classify(&#8216;job-name&#8217;) # => &#8216;JobName&#8217;
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000035_source')" id="l_M000035_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000036_source')" id="l_M000036_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/f0eb333cb66be7a435e7c738d0a8c9daad31f5c0/lib/resque/helpers.rb#L39" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000035_source" class="dyn-source">
+                    <div id="M000036_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/helpers.rb, line 39</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">classify</span>(<span class="ruby-identifier">dashed_word</span>)
       <span class="ruby-identifier">dashed_word</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'-'</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span> <span class="ruby-identifier">part</span>[<span class="ruby-value">0</span>] = <span class="ruby-identifier">part</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">chr</span>.<span class="ruby-identifier">upcase</span> }.<span class="ruby-identifier">join</span>
@@ -138,9 +138,9 @@ classify(&#8216;job-name&#8217;) # => &#8216;JobName&#8217;
             </div>
             
             <div class="method">
-                <div class="title" id="M000036">
+                <div class="title" id="M000037">
                     
-                    <a name="M000036"></a><b>constantize</b>(camel_cased_word)
+                    <a name="M000037"></a><b>constantize</b>(camel_cased_word)
                     
                 </div>
                 
@@ -159,12 +159,12 @@ constantize(&#8216;JobName&#8217;) # => JobName
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000036_source')" id="l_M000036_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000037_source')" id="l_M000037_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/f0eb333cb66be7a435e7c738d0a8c9daad31f5c0/lib/resque/helpers.rb#L46" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000036_source" class="dyn-source">
+                    <div id="M000037_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/helpers.rb, line 46</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">constantize</span>(<span class="ruby-identifier">camel_cased_word</span>)
       <span class="ruby-identifier">camel_cased_word</span> = <span class="ruby-identifier">camel_cased_word</span>.<span class="ruby-identifier">to_s</span>
@@ -188,9 +188,9 @@ constantize(&#8216;JobName&#8217;) # => JobName
             </div>
             
             <div class="method">
-                <div class="title" id="M000034">
+                <div class="title" id="M000035">
                     
-                    <a name="M000034"></a><b>decode</b>(object)
+                    <a name="M000035"></a><b>decode</b>(object)
                     
                 </div>
                 
@@ -206,12 +206,12 @@ Given a string, returns a Ruby object.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000034_source')" id="l_M000034_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000035_source')" id="l_M000035_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/f0eb333cb66be7a435e7c738d0a8c9daad31f5c0/lib/resque/helpers.rb#L20" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000034_source" class="dyn-source">
+                    <div id="M000035_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/helpers.rb, line 20</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">decode</span>(<span class="ruby-identifier">object</span>)
       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">object</span>
@@ -234,9 +234,9 @@ Given a string, returns a Ruby object.
             </div>
             
             <div class="method">
-                <div class="title" id="M000033">
+                <div class="title" id="M000034">
                     
-                    <a name="M000033"></a><b>encode</b>(object)
+                    <a name="M000034"></a><b>encode</b>(object)
                     
                 </div>
                 
@@ -252,12 +252,12 @@ Given a Ruby object, returns a string suitable for storage in a queue.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000033_source')" id="l_M000033_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000034_source')" id="l_M000034_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/f0eb333cb66be7a435e7c738d0a8c9daad31f5c0/lib/resque/helpers.rb#L11" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000033_source" class="dyn-source">
+                    <div id="M000034_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/helpers.rb, line 11</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">encode</span>(<span class="ruby-identifier">object</span>)
       <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span> <span class="ruby-constant">Yajl</span>
@@ -272,9 +272,9 @@ Given a Ruby object, returns a string suitable for storage in a queue.
             </div>
             
             <div class="method">
-                <div class="title" id="M000032">
+                <div class="title" id="M000033">
                     
-                    <a name="M000032"></a><b>redis</b>()
+                    <a name="M000033"></a><b>redis</b>()
                     
                 </div>
                 
@@ -290,12 +290,12 @@ Direct access to the Redis instance.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000032_source')" id="l_M000032_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000033_source')" id="l_M000033_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/f0eb333cb66be7a435e7c738d0a8c9daad31f5c0/lib/resque/helpers.rb#L5" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000032_source" class="dyn-source">
+                    <div id="M000033_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/helpers.rb, line 5</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">redis</span>
       <span class="ruby-constant">Resque</span>.<span class="ruby-identifier">redis</span>
