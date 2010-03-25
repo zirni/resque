@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>lib/resque/server/views/layout.erb</li>
-            <li>Last modified: Wed Mar 03 14:35:43 -0800 2010</li>
+            <li>Last modified: Thu Mar 25 14:24:18 -0700 2010</li>
         </ul>
     </div>
 
@@ -28,14 +28,15 @@
     
     <div class="description">
         <p>
-<!DOCTYPE html> <html> <head>
+<!DOCTYPE html> <html lang=&#8220;en&#8221;> <head>
 </p>
 <pre>
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
   &lt;title&gt;Resque.&lt;/title&gt;
   &lt;link href=&quot;&lt;%=u 'reset.css' %&gt;&quot; media=&quot;screen&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
   &lt;link href=&quot;&lt;%=u 'style.css' %&gt;&quot; media=&quot;screen&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
-  &lt;script src=&quot;&lt;%=u 'jquery-1.3.2.min.js' %&gt;&quot; type=&quot;text/javascript&quot;&lt;/script&gt;
-  &lt;script src=&quot;&lt;%=u 'jquery.relatize_date.js' %&gt;&quot; type=&quot;text/javascript&quot;&lt;/script&gt;
+  &lt;script src=&quot;&lt;%=u 'jquery-1.3.2.min.js' %&gt;&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;&lt;%=u 'jquery.relatize_date.js' %&gt;&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
   &lt;script src=&quot;&lt;%=u 'ranger.js' %&gt;&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
 </pre>
 <p>
@@ -48,6 +49,11 @@
         &lt;%= tab tab_name %&gt;
       &lt;% end %&gt;
     &lt;/ul&gt;
+    &lt;% if Resque.redis.namespace != :resque %&gt;
+      &lt;abbr class=&quot;namespace&quot; title=&quot;Resque's Redis Namespace&quot;&gt;
+       &lt;%= Resque.redis.namespace %&gt;
+      &lt;/abbr&gt;
+    &lt;% end %&gt;
   &lt;/div&gt;
 
   &lt;% if @subtabs %&gt;
@@ -72,7 +78,7 @@
 </p>
 <pre>
   &lt;p&gt;Powered by &lt;a href=&quot;http://github.com/defunkt/resque&quot;&gt;Resque&lt;/a&gt; v&lt;%=Resque::Version%&gt;&lt;/p&gt;
-  &lt;p&gt;Connected to Redis on &lt;%=Resque.redis.server%&gt;&lt;/p&gt;
+  &lt;p&gt;Connected to Redis namespace &lt;%= Resque.redis.namespace %&gt; on &lt;%=Resque.redis.server%&gt;&lt;/p&gt;
 </pre>
 <p>
 </div>

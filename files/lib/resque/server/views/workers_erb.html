@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>lib/resque/server/views/workers.erb</li>
-            <li>Last modified: Wed Mar 03 14:35:43 -0800 2010</li>
+            <li>Last modified: Thu Mar 25 14:01:44 -0700 2010</li>
         </ul>
     </div>
 
@@ -29,7 +29,7 @@
     <div class="description">
         <p>
 <% if params[:id] &amp;&amp; worker = <a
-href="../../../../../classes/Resque/Worker.html#M000074">Resque::Worker.find</a>(params[:id])
+href="../../../../../classes/Resque/Worker.html#M000081">Resque::Worker.find</a>(params[:id])
 %>
 </p>
 <pre>
@@ -51,7 +51,7 @@ href="../../../../../classes/Resque/Worker.html#M000074">Resque::Worker.find</a>
       &lt;% host, pid, queues = worker.to_s.split(':') %&gt;
       &lt;td&gt;&lt;%= host %&gt;&lt;/td&gt;
       &lt;td&gt;&lt;%= pid %&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;span class=&quot;time&quot;&gt;&lt;%= worker.started %&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span class=&quot;time&quot;&gt;&lt;%= worker.started %&gt;&lt;/span&gt;&lt;/td&gt;
       &lt;td class='queues'&gt;&lt;%= queues.split(',').map { |q| '&lt;a class=&quot;queue-tag&quot; href=&quot;' + u(&quot;/queues/#{q}&quot;) + '&quot;&gt;' + q + '&lt;/a&gt;'}.join('') %&gt;&lt;/td&gt;
       &lt;td&gt;&lt;%= worker.processed %&gt;&lt;/td&gt;
       &lt;td&gt;&lt;%= worker.failed %&gt;&lt;/td&gt;

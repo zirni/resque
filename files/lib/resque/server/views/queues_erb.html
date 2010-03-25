@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>lib/resque/server/views/queues.erb</li>
-            <li>Last modified: Wed Mar 03 14:35:43 -0800 2010</li>
+            <li>Last modified: Thu Mar 25 14:52:13 -0700 2010</li>
         </ul>
     </div>
 
@@ -35,6 +35,9 @@
 </p>
 <pre>
   &lt;h1&gt;Pending jobs on &lt;span class='hl'&gt;&lt;%= queue %&gt;&lt;/span&gt;&lt;/h1&gt;
+  &lt;form method=&quot;POST&quot; action=&quot;&lt;%=u &quot;/queues/#{queue}/remove&quot; %&gt;&quot; class='remove-queue'&gt;
+    &lt;input type='submit' name='' value='Remove Queue' /&gt;
+  &lt;/form&gt;
   &lt;p class='sub'&gt;Showing &lt;%= start = params[:start].to_i %&gt; to &lt;%= start + 20 %&gt; of &lt;b&gt;&lt;%=size = resque.size(queue)%&gt;&lt;/b&gt; jobs&lt;/p&gt;
   &lt;table class='jobs'&gt;
     &lt;tr&gt;
