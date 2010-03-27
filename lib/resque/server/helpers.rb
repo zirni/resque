@@ -73,7 +73,7 @@ module Resque
         @partial
       end
 
-      def partial(template, local_vars = {})
+      def erb_partial(template, local_vars = {})
         @partial = true
         erb(template.to_sym, {:layout => false}, local_vars)
       ensure

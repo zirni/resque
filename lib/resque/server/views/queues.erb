@@ -24,7 +24,7 @@
     </tr>
     <% end %>
   </table>
-  <%= partial :next_more, :start => start, :size => size %>
+  <%= erb_partial :next_more, :start => start, :size => size %>
 <% else %>
 
   <h1 class='wi'>Queues</h1>

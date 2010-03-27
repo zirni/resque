@@ -2,7 +2,6 @@ module Resque
   module Views
     class Layout < Mustache
       include Server::Helpers
-      undef_method :partial
 
       attr_reader :params, :request
 
