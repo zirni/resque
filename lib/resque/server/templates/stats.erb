@@ -1,0 +1,24 @@
+<% elsif params[:id] == 'keys' %>
+
+  <h1>Keys owned by <%= resque %></h1>
+  <p class='sub'>(All keys are actually prefixed with "resque:")</p>
+  <table class='stats'>
+    <tr>
+      <th>key</th>
+      <th>type</th>
+      <th>size</th>
+    </tr>
+  <% for key in resque.keys.sort %>
+    <tr>
+      <th>
+        <a href="<%=u "/stats/keys/#{key}" %>"><%= key %></a>
+      </th>
+      <td><%= resque.redis.type key %></td>
+      <td><%= redis_get_size key %></td>
+    </tr>
+  <% end %>
+  </table>
+
+<% else %>
+
+<% end %>

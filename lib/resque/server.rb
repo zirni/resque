@@ -1,14 +1,17 @@
 require 'erb'
 
 require 'sinatra/base'
+require 'mustache/sinatra'
 
 require 'resque'
 require 'resque/version'
 
 require 'resque/server/helpers'
+require 'resque/server/views/layout'
 
 module Resque
   class Server < Sinatra::Base
+    register Mustache::Sinatra
     helpers Helpers
 
     dir = File.dirname(File.expand_path(__FILE__))
@@ -17,8 +20,20 @@ module Resque
     set :public, "#{dir}/server/public"
     set :static, true
 
+    set :mustache, {
+      :namespace => Resque,
+      :templates => "#{dir}/server/templates",
+      :views     => "#{dir}/server/views"
+    }
+
     def show(page, layout = true)
-      erb page.to_sym, {:layout => layout}, :resque => Resque
+      templates = settings.mustache[:templates]
+
+      if File.exists? "#{templates}/#{page}.mustache"
+        mustache page.to_sym
+      else
+        erb page.to_sym, {:layout => layout}, :resque => Resque
+      end
     rescue Errno::ECONNREFUSED
       erb :error, { :layout => false },
         :error => "Can't connect to Redis! (#{Resque.redis.server})"
