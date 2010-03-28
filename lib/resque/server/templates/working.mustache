@@ -57,27 +57,23 @@
         </td>
 
         <td class='queues queue'>
-          {{#worker}}
-            {{#job}}
-              <a class="queue-tag" href="{{queue_url}}">
-              {{queue}}
-            {{/job}}
-          {{/worker}}
+          {{#job}}
+            <a class="queue-tag" href="{{queue_url}}">
+            {{queue}}
+          {{/job}}
           </a>
         </td>
 
         <td class='process'>
-          {{#worker}}
-            {{#job}}
-              <code>{{#payload}}{{class}}{{/payload}}</code>
-              <small>
-                <a class="queue time" href="{{working_url}}">{{run_at}}</a>
-              </small>
-            {{/job}}
-            {{#no_job}}
-              <span class='waiting'>Waiting for a job...</span>
-            {{/no_job}}
-          {{/worker}}
+          {{#job}}
+            <code>{{#payload}}{{class}}{{/payload}}</code>
+            <small>
+              <a class="queue time" href="{{working_url}}">{{run_at}}</a>
+            </small>
+          {{/job}}
+          {{#no_job}}
+            <span class='waiting'>Waiting for a job...</span>
+          {{/no_job}}
         </td>
       </tr>
     {{/working}}
