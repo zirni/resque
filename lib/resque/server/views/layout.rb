@@ -5,6 +5,10 @@ module Resque
 
       attr_reader :params, :request
 
+      def subtabs
+        []
+      end
+
       def tabs
         super.map do |tab_name|
           { :tab => tab(tab_name) }
