@@ -1,6 +1,6 @@
 module Resque
   module Views
-    class Working < Layout
+    class Working < WorkerList
       # If we're only looking at a single worker, return it as the
       # context.
       def single_worker?
@@ -8,12 +8,6 @@ module Resque
         if id && (worker = Resque::Worker.find(id)) && worker.job
           worker
         end
-      end
-
-      # If we're not looking at a single worker, we're looking at all
-      # fo them.
-      def all_workers?
-        !params[:id]
       end
 
       # A sorted array of workers currently working.
@@ -43,32 +37,6 @@ module Resque
         Resque.workers.size
       end
 
-      # A full URL to the icon representing a worker's state.
-      def state_icon
-        u(self[:state]) + '.png'
-      end
-
-      # Host where the current worker lives.
-      def worker_host
-        worker_parts[0]
-      end
-
-      # PID of the current worker.
-      def worker_pid
-        worker_parts[1]
-      end
-
-      # Queues the current worker is concerned with.
-      def worker_queues
-        worker_parts[2..-1]
-      end
-
-      # The current worker's name split into three parts:
-      # [ host, pid, queues ]
-      def worker_parts
-        self[:to_s].split(':')
-      end
-
       # TODO: Mustache method_missing this guy
       def queue
         self[:queue]
@@ -77,16 +45,6 @@ module Resque
       # URL of the current job's queue
       def queue_url
         u "/queues/#{queue}"
-      end
-
-      # Worker URL of the current worker
-      def worker_url
-        u "/workers/#{self[:to_s]}"
-      end
-
-      # Working URL of the current working
-      def working_url
-        u "/working/#{self[:to_s]}"
       end
     end
   end

@@ -8,6 +8,7 @@ require 'resque/version'
 
 require 'resque/server/helpers'
 require 'resque/server/views/layout'
+require 'resque/server/views/worker_list'
 
 module Resque
   class Server < Sinatra::Base
