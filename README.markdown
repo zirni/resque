@@ -687,6 +687,9 @@ All hooks can also be set using a setter, e.g.
 
     Resque.after_fork = proc { puts "called" }
 
+To clear all hooks, set nil or false:
+
+    Resque.after_fork = nil
 
 Namespaces
 ----------

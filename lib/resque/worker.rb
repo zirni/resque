@@ -312,12 +312,13 @@ module Resque
 
     # Runs a named hook, passing along any arguments.
     def run_hook(name, *args)
-      return unless hook = Resque.send(name)
-      msg = "Running #{name} hook"
-      msg << " with #{args.inspect}" if args.any?
-      log msg
+      Resque.send(name).each do |hook|
+        msg = "Running #{name} hook"
+        msg << " with #{args.inspect}" if args.any?
+        log msg
 
-      args.any? ? hook.call(*args) : hook.call
+        args.any? ? hook.call(*args) : hook.call
+      end
     end
 
     # Unregisters ourself as a worker. Useful when shutting down.

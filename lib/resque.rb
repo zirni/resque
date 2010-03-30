@@ -56,13 +56,14 @@ module Resque
   # Call with a block to set the hook.
   # Call with no arguments to return the hook.
   def before_first_fork(&block)
-    block ? (@before_first_fork = block) : @before_first_fork
+    @before_first_fork ||= []
+    block ? (@before_first_fork << block) : @before_first_fork
   end
 
   # Set a proc that will be called in the parent process before the
   # worker forks for the first time.
-  def before_first_fork=(before_first_fork)
-    @before_first_fork = before_first_fork
+  def before_first_fork=(block)
+    block ? (before_first_fork << block) : before_first_fork.clear
   end
 
   # The `before_fork` hook will be run in the **parent** process
@@ -72,12 +73,13 @@ module Resque
   # Call with a block to set the hook.
   # Call with no arguments to return the hook.
   def before_fork(&block)
-    block ? (@before_fork = block) : @before_fork
+    @before_fork ||= []
+    block ? (@before_fork << block) : @before_fork
   end
 
   # Set the before_fork proc.
-  def before_fork=(before_fork)
-    @before_fork = before_fork
+  def before_fork=(block)
+    block ? (before_fork << block) : before_fork.clear
   end
 
   # The `after_fork` hook will be run in the child process and is passed
@@ -87,12 +89,13 @@ module Resque
   # Call with a block to set the hook.
   # Call with no arguments to return the hook.
   def after_fork(&block)
-    block ? (@after_fork = block) : @after_fork
+    @after_fork ||= []
+    block ? (@after_fork << block) : @after_fork
   end
 
   # Set the after_fork proc.
-  def after_fork=(after_fork)
-    @after_fork = after_fork
+  def after_fork=(block)
+    block ? (after_fork << block) : after_fork.clear
   end
 
   def to_s
