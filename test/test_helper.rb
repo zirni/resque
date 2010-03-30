@@ -5,6 +5,11 @@ require 'test/unit'
 require 'rubygems'
 require 'resque'
 
+begin
+  require 'redgreen'
+rescue LoadError
+end
+
 
 #
 # make sure we can run redis
