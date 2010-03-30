@@ -17,7 +17,7 @@ context "Resque::Worker" do
     @worker.work(0)
     assert_equal 1, Resque::Failure.count
   end
-  
+
   test "failed jobs report excpetion and message" do
     Resque::Job.create(:jobs, BadJobWithSyntaxError)
     @worker.work(0)
@@ -195,7 +195,7 @@ context "Resque::Worker" do
   test "knows when it started" do
     time = Time.now
     @worker.work(0) do
-      assert_equal time.to_s, @worker.started.to_s
+      assert_equal time.to_i, @worker.started.to_i
     end
   end
 
