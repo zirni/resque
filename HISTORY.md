@@ -1,3 +1,7 @@
+## 2.0.0 (2010-??-??)
+
+* Resque now uses Unix Epoch Timestamps exclusively.
+
 ## 1.6.1 (2010-03-25)
 
 * Bugfix: Workers may not be clearing their state correctly on
