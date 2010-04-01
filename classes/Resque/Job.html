@@ -172,6 +172,26 @@ You can manually run a job using this code:
     
 
     
+    <div class="sectiontitle">Constants</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class="attr-name">DontPerform</td>
+            <td>=</td>
+            <td class="attr-value">Class.new(StandardError)</td>
+        </tr>
+        
+        <tr valign='top'>
+            <td>&nbsp;</td>
+            <td colspan="2" class="attr-desc"><p>
+Raise Resque::Job::DontPerform from a before_perform hook to abort the job.
+</p>
+</td>
+        </tr>
+        
+        
+    </table>
+    
 
     
     <div class="sectiontitle">Attributes</div>
@@ -239,11 +259,11 @@ Raises an exception if no queue or class is given.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000042_source')" id="l_M000042_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/ae191099dd11db66d623ad85c16e05e947aeb7e1/lib/resque/job.rb#L38" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f136f131adccbf0794a02a5a6c7d19ac26438671/lib/resque/job.rb#L42" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000042_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 38</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 42</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">queue</span>, <span class="ruby-identifier">klass</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">queue</span>
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoQueueError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;Jobs must be placed onto a queue.&quot;</span>)
@@ -313,11 +333,11 @@ processing.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000043_source')" id="l_M000043_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/ae191099dd11db66d623ad85c16e05e947aeb7e1/lib/resque/job.rb#L74" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f136f131adccbf0794a02a5a6c7d19ac26438671/lib/resque/job.rb#L78" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000043_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 74</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 78</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">destroy</span>(<span class="ruby-identifier">queue</span>, <span class="ruby-identifier">klass</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
       <span class="ruby-identifier">klass</span> = <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">to_s</span>
       <span class="ruby-identifier">queue</span> = <span class="ruby-node">&quot;queue:#{queue}&quot;</span>
@@ -355,11 +375,11 @@ processing.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000041_source')" id="l_M000041_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/ae191099dd11db66d623ad85c16e05e947aeb7e1/lib/resque/job.rb#L28" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f136f131adccbf0794a02a5a6c7d19ac26438671/lib/resque/job.rb#L32" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000041_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 28</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 32</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">queue</span>, <span class="ruby-identifier">payload</span>)
       <span class="ruby-ivar">@queue</span> = <span class="ruby-identifier">queue</span>
       <span class="ruby-ivar">@payload</span> = <span class="ruby-identifier">payload</span>
@@ -392,11 +412,11 @@ nil.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000044_source')" id="l_M000044_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/ae191099dd11db66d623ad85c16e05e947aeb7e1/lib/resque/job.rb#L95" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f136f131adccbf0794a02a5a6c7d19ac26438671/lib/resque/job.rb#L99" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000044_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 95</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 99</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">reserve</span>(<span class="ruby-identifier">queue</span>)
       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">payload</span> = <span class="ruby-constant">Resque</span>.<span class="ruby-identifier">pop</span>(<span class="ruby-identifier">queue</span>)
       <span class="ruby-identifier">new</span>(<span class="ruby-identifier">queue</span>, <span class="ruby-identifier">payload</span>)
@@ -429,11 +449,11 @@ Equality
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000051_source')" id="l_M000051_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/ae191099dd11db66d623ad85c16e05e947aeb7e1/lib/resque/job.rb#L140" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f136f131adccbf0794a02a5a6c7d19ac26438671/lib/resque/job.rb#L201" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000051_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 140</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 201</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
       <span class="ruby-identifier">queue</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">queue</span> <span class="ruby-operator">&amp;&amp;</span>
         <span class="ruby-identifier">payload_class</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">payload_class</span> <span class="ruby-operator">&amp;&amp;</span>
@@ -465,11 +485,11 @@ Returns an array of args represented in this job&#8217;s payload.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000047_source')" id="l_M000047_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/ae191099dd11db66d623ad85c16e05e947aeb7e1/lib/resque/job.rb#L113" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f136f131adccbf0794a02a5a6c7d19ac26438671/lib/resque/job.rb#L174" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000047_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 113</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 174</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">args</span>
       <span class="ruby-ivar">@payload</span>[<span class="ruby-value str">'args'</span>]
     <span class="ruby-keyword kw">end</span></pre>
@@ -500,11 +520,11 @@ href="Failure.html">Failure</a> module.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000048_source')" id="l_M000048_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/ae191099dd11db66d623ad85c16e05e947aeb7e1/lib/resque/job.rb#L119" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f136f131adccbf0794a02a5a6c7d19ac26438671/lib/resque/job.rb#L180" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000048_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 119</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 180</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fail</span>(<span class="ruby-identifier">exception</span>)
       <span class="ruby-constant">Failure</span>.<span class="ruby-identifier">create</span> \
         <span class="ruby-identifier">:payload</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">payload</span>,
@@ -538,11 +558,11 @@ String representation
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000050_source')" id="l_M000050_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/ae191099dd11db66d623ad85c16e05e947aeb7e1/lib/resque/job.rb#L134" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f136f131adccbf0794a02a5a6c7d19ac26438671/lib/resque/job.rb#L195" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000050_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 134</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 195</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inspect</span>
       <span class="ruby-identifier">obj</span> = <span class="ruby-ivar">@payload</span>
       <span class="ruby-value str">&quot;(Job{%s} | %s | %s)&quot;</span> <span class="ruby-operator">%</span> [ <span class="ruby-ivar">@queue</span>, <span class="ruby-identifier">obj</span>[<span class="ruby-value str">'class'</span>], <span class="ruby-identifier">obj</span>[<span class="ruby-value str">'args'</span>].<span class="ruby-identifier">inspect</span> ]
@@ -573,11 +593,11 @@ Returns the actual class constant represented in this job&#8217;s payload.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000046_source')" id="l_M000046_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/ae191099dd11db66d623ad85c16e05e947aeb7e1/lib/resque/job.rb#L108" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f136f131adccbf0794a02a5a6c7d19ac26438671/lib/resque/job.rb#L169" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000046_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 108</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 169</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">payload_class</span>
       <span class="ruby-ivar">@payload_class</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">constantize</span>(<span class="ruby-ivar">@payload</span>[<span class="ruby-value str">'class'</span>])
     <span class="ruby-keyword kw">end</span></pre>
@@ -609,13 +629,70 @@ the arguments given in the payload.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000045_source')" id="l_M000045_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/ae191099dd11db66d623ad85c16e05e947aeb7e1/lib/resque/job.rb#L103" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f136f131adccbf0794a02a5a6c7d19ac26438671/lib/resque/job.rb#L107" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000045_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 103</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 107</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">perform</span>
-      <span class="ruby-identifier">args</span> <span class="ruby-value">? </span><span class="ruby-identifier">payload_class</span>.<span class="ruby-identifier">perform</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">payload_class</span>.<span class="ruby-identifier">perform</span>
+      <span class="ruby-identifier">job</span> = <span class="ruby-identifier">payload_class</span>
+      <span class="ruby-identifier">job_args</span> = <span class="ruby-identifier">args</span> <span class="ruby-operator">||</span> []
+      <span class="ruby-identifier">job_was_performed</span> = <span class="ruby-keyword kw">false</span>
+
+      <span class="ruby-identifier">before_hooks</span>  = <span class="ruby-identifier">job</span>.<span class="ruby-identifier">methods</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp re">/^before_perform/</span>)
+      <span class="ruby-identifier">around_hooks</span>  = <span class="ruby-identifier">job</span>.<span class="ruby-identifier">methods</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp re">/^around_perform/</span>)
+      <span class="ruby-identifier">after_hooks</span>   = <span class="ruby-identifier">job</span>.<span class="ruby-identifier">methods</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp re">/^after_perform/</span>)
+      <span class="ruby-identifier">failure_hooks</span> = <span class="ruby-identifier">job</span>.<span class="ruby-identifier">methods</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp re">/^on_failure/</span>)
+
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-comment cmt"># Execute before_perform hook. Abort the job gracefully if</span>
+        <span class="ruby-comment cmt"># Resque::DontPerform is raised.</span>
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-identifier">before_hooks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hook</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">job</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">hook</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">job_args</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">DontPerform</span>
+          <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-comment cmt"># Execute the job. Do it in an around_perform hook if available.</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">around_hooks</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-identifier">job</span>.<span class="ruby-identifier">perform</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">job_args</span>)
+          <span class="ruby-identifier">job_was_performed</span> = <span class="ruby-keyword kw">true</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-comment cmt"># We want to nest all around_perform plugins, with the last one</span>
+          <span class="ruby-comment cmt"># finally calling perform</span>
+          <span class="ruby-identifier">stack</span> = <span class="ruby-identifier">around_hooks</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-keyword kw">nil</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">last_hook</span>, <span class="ruby-identifier">hook</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">last_hook</span>
+              <span class="ruby-identifier">lambda</span> <span class="ruby-keyword kw">do</span>
+                <span class="ruby-identifier">job</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">hook</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">job_args</span>) { <span class="ruby-identifier">last_hook</span>.<span class="ruby-identifier">call</span> }
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-identifier">lambda</span> <span class="ruby-keyword kw">do</span>
+                <span class="ruby-identifier">job</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">hook</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">job_args</span>) <span class="ruby-keyword kw">do</span>
+                  <span class="ruby-identifier">job</span>.<span class="ruby-identifier">perform</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">job_args</span>)
+                  <span class="ruby-identifier">job_was_performed</span> = <span class="ruby-keyword kw">true</span>
+                <span class="ruby-keyword kw">end</span>
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">stack</span>.<span class="ruby-identifier">call</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-comment cmt"># Execute after_perform hook</span>
+        <span class="ruby-identifier">after_hooks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hook</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">job</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">hook</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">job_args</span>)
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-comment cmt"># Return true if the job was performed</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">job_was_performed</span>
+
+      <span class="ruby-comment cmt"># If an exception occurs during the job execution, look for an</span>
+      <span class="ruby-comment cmt"># on_failure hook then re-raise.</span>
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Object</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-identifier">failure_hooks</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">hook</span><span class="ruby-operator">|</span> <span class="ruby-identifier">job</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">hook</span>, <span class="ruby-identifier">e</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">job_args</span>) }
+        <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-keyword kw">end</span>
     <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
@@ -643,11 +720,11 @@ Creates an identical job, essentially placing this job back on the queue.
                     <p class="source-link">
                         Source: <a href="javascript:toggleSource('M000049_source')" id="l_M000049_source">show</a>
                         
-                        | <a href="http://github.com/defunkt/resque/blob/ae191099dd11db66d623ad85c16e05e947aeb7e1/lib/resque/job.rb#L129" target="_blank" class="github_url">on GitHub</a>
+                        | <a href="http://github.com/defunkt/resque/blob/f136f131adccbf0794a02a5a6c7d19ac26438671/lib/resque/job.rb#L190" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
                     <div id="M000049_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 129</span>
+                        <pre><span class="ruby-comment cmt"># File lib/resque/job.rb, line 190</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">recreate</span>
       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">queue</span>, <span class="ruby-identifier">payload_class</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
     <span class="ruby-keyword kw">end</span></pre>

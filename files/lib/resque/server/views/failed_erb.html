@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>lib/resque/server/views/failed.erb</li>
-            <li>Last modified: Thu Mar 25 14:52:13 -0700 2010</li>
+            <li>Last modified: Wed Mar 31 17:49:30 -0700 2010</li>
         </ul>
     </div>
 
@@ -46,7 +46,7 @@ method=&#8220;POST&#8221; action=&#8221;<%=u
 <p>
 <p class=&#8217;sub&#8217;>Showing <%=start%> to <%= start + 20 %> of
 <b><%= size = <a
-href="../../../../../classes/Resque/Failure.html#M000031">Resque::Failure.count</a>
+href="../../../../../classes/Resque/Failure.html#M000027">Resque::Failure.count</a>
 %></b> jobs</p>
 </p>
 <p>
@@ -64,7 +64,7 @@ href="../../../../../classes/Resque/Failure.html#M000031">Resque::Failure.count<
             &lt;% if job['retried_at'] %&gt;
               Retried &lt;b&gt;&lt;span class=&quot;time&quot;&gt;&lt;%= job['retried_at'] %&gt;&lt;/span&gt;&lt;/b&gt;
             &lt;% else %&gt;
-              &lt;a href=&quot;&lt;%= u &quot;failed/requeue/#{start + index - 1}&quot; %&gt;&quot;&gt;Retry&lt;/a&gt;
+              &lt;a href=&quot;&lt;%= u &quot;failed/requeue/#{start + index - 1}&quot; %&gt;&quot; rel=&quot;retry&quot;&gt;Retry&lt;/a&gt;
             &lt;% end %&gt;
           &lt;/div&gt;
         &lt;/dd&gt;

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>HOOKS.md</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+    <script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            HOOKS.md
+        </h1>
+        <ul class="files">
+            <li>HOOKS.md</li>
+            <li>Last modified: Wed Mar 31 20:44:42 -0700 2010</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <h1>Resque Hooks</h1>
+
+<p>You can customize Resque or write plugins using its hook API. In many
+cases you can use a hook rather than mess with Resque's internals.</p>
+
+<p>For a list of available plugins see
+<a href="http://wiki.github.com/defunkt/resque/plugins">http://wiki.github.com/defunkt/resque/plugins</a>.</p>
+
+<h2>Worker Hooks</h2>
+
+<p>If you wish to have a Proc called before the worker forks for the
+first time, you can add it in the initializer like so:</p>
+
+<pre><code>Resque.before_first_fork do
+  puts "Call me once before the worker forks the first time"
+end
+</code></pre>
+
+<p>You can also run a hook before <em>every</em> fork:</p>
+
+<pre><code>Resque.before_fork do |job|
+  puts "Call me before the worker forks"
+end
+</code></pre>
+
+<p>The <code>before_fork</code> hook will be run in the <strong>parent</strong> process. So, be
+careful - any changes you make will be permanent for the lifespan of
+the worker.</p>
+
+<p>And after forking:</p>
+
+<pre><code>Resque.after_fork do |job|
+  puts "Call me after the worker forks"
+end
+</code></pre>
+
+<p>The <code>after_fork</code> hook will be run in the child process and is passed
+the current job. Any changes you make, therefor, will only live as
+long as the job currently being processes.</p>
+
+<p>All worker hooks can also be set using a setter, e.g.</p>
+
+<pre><code>Resque.after_fork = proc { puts "called" }
+</code></pre>
+
+<h2>Job Hooks</h2>
+
+<p>Plugins can utilize job hooks to provide additional behavior. A job
+hook is a method name in the following format:</p>
+
+<pre><code>HOOKNAME_IDENTIFIER
+</code></pre>
+
+<p>For example, a <code>before_perform</code> hook which adds locking may be defined
+like this:</p>
+
+<pre><code>def before_perform_with_lock(*args)
+  set_lock!
+end
+</code></pre>
+
+<p>Once this hook is made available to your job (either by way of
+inheritence or <code>extend</code>), it will be run before the job's <code>perform</code>
+method is called.</p>
+
+<p>The available hooks are:</p>
+
+<ul>
+<li><p><code>before_perform</code>: Called with the job args before perform. If it raises
+<code>Resque::Job::DontPerform</code>, the job is aborted. If other exceptions
+are raised, they will be propagated up the the <code>Resque::Failure</code>
+backend.</p></li>
+<li><p><code>after_perform</code>: Called with the job args after it performs. Uncaught
+exceptions will propagate up to the <code>Resque::Failure</code> backend.</p></li>
+<li><p><code>around_perform</code>: Called with the job args. It is expected to yield in order
+to perform the job (but is not required to do so). It may handle exceptions
+thrown by <code>perform</code>, but any that are not caught will propagate up to the
+<code>Resque::Failure</code> backend.</p></li>
+<li><p><code>on_failure</code>: Called with the exception and job args if any exception occurs
+while performing the job (or hooks).</p></li>
+</ul>
+
+
+<p>Hooks are easily implemented with superclasses or modules. A superclass could
+look something like this.</p>
+
+<pre><code>class LoggedJob
+  def self.before_perform_log_job(*args)
+    Logger.info "About to perform #{self} with #{args.inspect}"
+  end
+end
+
+class MyJob &lt; LoggedJob
+  def self.perform(*args)
+    ...
+  end
+end
+</code></pre>
+
+<p>Modules are even better because jobs can use many of them.</p>
+
+<pre><code>module LoggedJob
+  def before_perform_log_job(*args)
+    Logger.info "About to perform #{self} with #{args.inspect}"
+  end
+end
+
+module RetriedJob
+  def on_failure_retry(e, *args)
+    Logger.info "Performing #{self} caused an exception (#{e}). Retrying..."
+    Resque.enqueue self, *args
+  end
+end
+
+class MyJob
+  extend LoggedJob
+  extend RetriedJob
+  def self.perform(*args)
+    ...
+  end
+end
+</code></pre>
+<script type="text/javascript">$(function() {
+  $('a').each(function() { $(this).attr('target', '_blank') })
+})</script>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+    </div>
+  </body>
+</html>

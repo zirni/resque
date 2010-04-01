@@ -27,9 +27,9 @@
             
             <li><a href="../../files/lib/resque/failure/multiple_rb.html">lib/resque/failure/multiple.rb</a></li>
             
-            <li><a href="../../files/lib/resque/failure_rb.html">lib/resque/failure.rb</a></li>
-            
             <li><a href="../../files/lib/resque/failure/redis_rb.html">lib/resque/failure/redis.rb</a></li>
+            
+            <li><a href="../../files/lib/resque/failure_rb.html">lib/resque/failure.rb</a></li>
             
         </ul>
     </div>
@@ -74,7 +74,7 @@ information.
         <dd>
             <ul>
                 
-                <li><a href="#M000030">backend</a>,</li>
+                <li><a href="#M000026">backend</a>,</li>
                 
                 <li><a href="#M000025">backend=</a></li>
                 
@@ -87,7 +87,7 @@ information.
                 
                 <li><a href="#M000034">clear</a>,</li>
                 
-                <li><a href="#M000031">count</a>,</li>
+                <li><a href="#M000027">count</a>,</li>
                 
                 <li><a href="#M000024">create</a></li>
                 
@@ -180,9 +180,9 @@ items to return.
             </div>
             
             <div class="method">
-                <div class="title" id="M000030">
+                <div class="title" id="M000026">
                     
-                    <a name="M000030"></a><b>backend</b>()
+                    <a name="M000026"></a><b>backend</b>()
                     
                 </div>
                 
@@ -199,12 +199,12 @@ Returns the current backend class. If none has been set, falls back to
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000030_source')" id="l_M000030_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000026_source')" id="l_M000026_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/2af831cdb81350fa14dadd0929f3e355b866c618/lib/resque/failure.rb#L33" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000030_source" class="dyn-source">
+                    <div id="M000026_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure.rb, line 33</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">backend</span>
       <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@backend</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@backend</span>
@@ -293,9 +293,9 @@ Clear all failure jobs
             </div>
             
             <div class="method">
-                <div class="title" id="M000031">
+                <div class="title" id="M000027">
                     
-                    <a name="M000031"></a><b>count</b>()
+                    <a name="M000027"></a><b>count</b>()
                     
                 </div>
                 
@@ -311,12 +311,12 @@ Returns the int count of how many failures we have seen.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000031_source')" id="l_M000031_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000027_source')" id="l_M000027_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/2af831cdb81350fa14dadd0929f3e355b866c618/lib/resque/failure.rb#L40" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000031_source" class="dyn-source">
+                    <div id="M000027_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure.rb, line 40</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">count</span>
       <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">count</span>

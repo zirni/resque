@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>README.markdown</li>
-            <li>Last modified: Thu Mar 25 14:52:19 -0700 2010</li>
+            <li>Last modified: Wed Mar 31 20:37:37 -0700 2010</li>
         </ul>
     </div>
 
@@ -535,6 +535,8 @@ tool that's best for your app.</p>
 
 <h2>Installing Redis</h2>
 
+<p>Resque requires Redis 0.900 or higher.</p>
+
 <p>Resque uses Redis' lists for its queues. It also stores worker state
 data in Redis.</p>
 
@@ -580,6 +582,9 @@ together. But, it's not that hard.</p>
 
 <p>If you cannot install <code>yajl-ruby</code> (JRuby?), you can install the <code>json</code>
 gem and Resque will use it instead.</p>
+
+<p>When problems arise, make sure you have the newest versions of the
+<code>redis</code> and <code>redis-namespace</code> gems.</p>
 
 <h2>Installing Resque</h2>
 
@@ -709,42 +714,14 @@ this way we can tell our Sinatra app about the config file:</p>
 
 <p>Now everyone is on the same page.</p>
 
-<h2>Worker Hooks</h2>
+<h2>Plugins and Hooks</h2>
 
-<p>If you wish to have a Proc called before the worker forks for the
-first time, you can add it in the initializer like so:</p>
+<p>For a list of available plugins see
+<a href="http://wiki.github.com/defunkt/resque/plugins">http://wiki.github.com/defunkt/resque/plugins</a>.</p>
 
-<pre><code>Resque.before_first_fork do
-  puts "CALL ME ONCE BEFORE THE WORKER FORKS THE FIRST TIME"
-end
-</code></pre>
-
-<p>You can also run a hook before <em>every</em> fork:</p>
-
-<pre><code>Resque.before_fork do |job|
-  puts "CALL ME BEFORE THE WORKER FORKS"
-end
-</code></pre>
-
-<p>The <code>before_fork</code> hook will be run in the <strong>parent</strong> process. So, be
-careful - any changes you make will be permanent for the lifespan of
-the worker.</p>
-
-<p>And after forking:</p>
-
-<pre><code>Resque.after_fork do |job|
-  puts "CALL ME AFTER THE WORKER FORKS"
-end
-</code></pre>
-
-<p>The <code>after_fork</code> hook will be run in the child process and is passed
-the current job. Any changes you make, therefor, will only live as
-long as the job currently being processes.</p>
-
-<p>All hooks can also be set using a setter, e.g.</p>
-
-<pre><code>Resque.after_fork = proc { puts "called" }
-</code></pre>
+<p>If you'd like to write your own plugin, or want to customize Resque
+using hooks (such as <code>Resque.after_fork</code>), see
+<a href="http://github.com/defunkt/resque/blob/master/HOOKS.md">HOOKS.md</a>.</p>
 
 <h2>Namespaces</h2>
 
@@ -773,9 +750,17 @@ processed in the background.</p>
 
 <h2>Monitoring</h2>
 
+<h3>god</h3>
+
 <p>If you're using god to monitor Resque, we have provided example
 configs in <code>examples/god/</code>. One is for starting / stopping workers,
 the other is for killing workers that have been running too long.</p>
+
+<h3>monit</h3>
+
+<p>If you're using monit, <code>examples/monit/resque.monit</code> is provided free
+of charge. This is <strong>not</strong> used by GitHub in production, so please
+send patches for any tweaks or improvements you can make to it.</p>
 
 <h2>Development</h2>
 
@@ -828,7 +813,7 @@ on coding standards, new features, etc.</p>
 
 <h2>Mailing List</h2>
 
-<p>To join the list simply send an email to <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#x72;&#101;&#x73;&#113;&#x75;&#101;&#64;&#108;&#105;&#98;&#x72;&#101;&#x6c;&#105;&#115;&#116;&#46;&#99;&#x6f;&#109;">&#x72;&#x65;&#x73;&#113;&#x75;&#x65;&#x40;&#108;&#105;&#x62;&#x72;&#x65;&#108;&#x69;&#115;&#x74;&#x2e;&#99;&#111;&#109;</a>. This
+<p>To join the list simply send an email to <a href="&#x6d;&#x61;&#105;&#108;&#x74;&#x6f;&#x3a;&#x72;&#x65;&#115;&#113;&#x75;&#x65;&#64;&#x6c;&#x69;&#x62;&#x72;&#x65;&#108;&#105;&#115;&#116;&#46;&#x63;&#x6f;&#x6d;">&#x72;&#101;&#x73;&#113;&#x75;&#101;&#64;&#x6c;&#x69;&#x62;&#x72;&#101;&#108;&#x69;&#x73;&#x74;&#46;&#x63;&#111;&#109;</a>. This
 will subscribe you and send you information about your subscription,
 include unsubscribe information.</p>
 
@@ -841,7 +826,7 @@ include unsubscribe information.</p>
 <li>Home: <a href="http://github.com/defunkt/resque">http://github.com/defunkt/resque</a></li>
 <li>Docs: <a href="http://defunkt.github.com/resque/">http://defunkt.github.com/resque/</a></li>
 <li>Bugs: <a href="http://github.com/defunkt/resque/issues">http://github.com/defunkt/resque/issues</a></li>
-<li>List: <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#114;&#x65;&#x73;&#113;&#117;&#x65;&#x40;&#108;&#105;&#98;&#x72;&#101;&#108;&#x69;&#x73;&#116;&#x2e;&#99;&#111;&#109;">&#114;&#101;&#115;&#113;&#x75;&#x65;&#64;&#108;&#x69;&#x62;&#114;&#x65;&#108;&#105;&#x73;&#116;&#x2e;&#99;&#x6f;&#x6d;</a></li>
+<li>List: <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#114;&#x65;&#x73;&#x71;&#117;&#x65;&#64;&#108;&#105;&#x62;&#114;&#101;&#108;&#105;&#x73;&#x74;&#46;&#99;&#111;&#109;">&#114;&#x65;&#115;&#113;&#117;&#101;&#64;&#108;&#105;&#98;&#114;&#101;&#x6c;&#x69;&#x73;&#x74;&#46;&#x63;&#111;&#109;</a></li>
 <li>Chat: &lt;irc://irc.freenode.net/resque></li>
 <li>Gems: <a href="http://gemcutter.org/gems/resque">http://gemcutter.org/gems/resque</a></li>
 </ul>
