@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Resque::Plugin</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+    <script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Module</span> 
+            Resque::Plugin 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/resque/plugin_rb.html">lib/resque/plugin.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>A</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000049">after_hooks</a>,</li>
+                
+                <li><a href="#M000048">around_hooks</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>B</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000047">before_hooks</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>F</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000050">failure_hooks</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>L</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000046">lint</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Constants</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class="attr-name">LintError</td>
+            <td>=</td>
+            <td class="attr-value">Class.new(RuntimeError)</td>
+        </tr>
+        
+        
+    </table>
+    
+
+    
+
+    
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000049">
+                    
+                    <a name="M000049"></a><b>after_hooks</b>(job)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Given an object, returns a list `after_perform` hook names.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000049_source')" id="l_M000049_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/d32566d372cd98479d1fbb806e63d855868947a1/lib/resque/plugin.rb#L37" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000049_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/plugin.rb, line 37</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">after_hooks</span>(<span class="ruby-identifier">job</span>)
+      <span class="ruby-identifier">job</span>.<span class="ruby-identifier">methods</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp re">/^after_perform/</span>).<span class="ruby-identifier">sort</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000048">
+                    
+                    <a name="M000048"></a><b>around_hooks</b>(job)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Given an object, returns a list `around_perform` hook names.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000048_source')" id="l_M000048_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/d32566d372cd98479d1fbb806e63d855868947a1/lib/resque/plugin.rb#L32" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000048_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/plugin.rb, line 32</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">around_hooks</span>(<span class="ruby-identifier">job</span>)
+      <span class="ruby-identifier">job</span>.<span class="ruby-identifier">methods</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp re">/^around_perform/</span>).<span class="ruby-identifier">sort</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000047">
+                    
+                    <a name="M000047"></a><b>before_hooks</b>(job)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Given an object, returns a list `before_perform` hook names.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000047_source')" id="l_M000047_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/d32566d372cd98479d1fbb806e63d855868947a1/lib/resque/plugin.rb#L27" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000047_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/plugin.rb, line 27</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">before_hooks</span>(<span class="ruby-identifier">job</span>)
+      <span class="ruby-identifier">job</span>.<span class="ruby-identifier">methods</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp re">/^before_perform/</span>).<span class="ruby-identifier">sort</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000050">
+                    
+                    <a name="M000050"></a><b>failure_hooks</b>(job)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Given an object, returns a list `on_failure` hook names.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000050_source')" id="l_M000050_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/d32566d372cd98479d1fbb806e63d855868947a1/lib/resque/plugin.rb#L42" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000050_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/plugin.rb, line 42</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">failure_hooks</span>(<span class="ruby-identifier">job</span>)
+      <span class="ruby-identifier">job</span>.<span class="ruby-identifier">methods</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp re">/^on_failure/</span>).<span class="ruby-identifier">sort</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000046">
+                    
+                    <a name="M000046"></a><b>lint</b>(plugin)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Ensure that your plugin conforms to good hook naming conventions.
+</p>
+<pre>
+  Resque::Plugin.lint(MyResquePlugin)
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000046_source')" id="l_M000046_source">show</a>
+                        
+                        | <a href="http://github.com/defunkt/resque/blob/d32566d372cd98479d1fbb806e63d855868947a1/lib/resque/plugin.rb#L10" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000046_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/resque/plugin.rb, line 10</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">lint</span>(<span class="ruby-identifier">plugin</span>)
+      <span class="ruby-identifier">hooks</span> = <span class="ruby-identifier">before_hooks</span>(<span class="ruby-identifier">plugin</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">around_hooks</span>(<span class="ruby-identifier">plugin</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">after_hooks</span>(<span class="ruby-identifier">plugin</span>)
+
+      <span class="ruby-identifier">hooks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hook</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hook</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/perform$/</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">LintError</span>, <span class="ruby-node">&quot;#{plugin}.#{hook} is not namespaced&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">failure_hooks</span>(<span class="ruby-identifier">plugin</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hook</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hook</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/failure$/</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">LintError</span>, <span class="ruby-node">&quot;#{plugin}.#{hook} is not namespaced&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    
