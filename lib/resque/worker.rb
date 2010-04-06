@@ -35,7 +35,7 @@ module Resque
       names.map! { |name| "worker:#{name}" }
       redis.mapped_mget(*names).keys.map do |key|
         find key.sub("worker:", '')
-      end
+      end.compact
     end
 
     # Returns a single worker object. Accepts a string id.
@@ -207,6 +207,10 @@ module Resque
       prune_dead_workers
       run_hook :before_first_fork
       register_worker
+
+      # Fix buffering so we can `rake resque:work > resque.log` and
+      # get output from the child in there.
+      $stdout.sync = true
     end
 
     # Enables GC Optimizations if you're running REE.
@@ -323,6 +327,16 @@ module Resque
 
     # Unregisters ourself as a worker. Useful when shutting down.
     def unregister_worker
+      # If we're still processing a job, make sure it gets logged as a
+      # failure.
+      if (hash = processing) && !hash.empty?
+        job = Job.new(hash['queue'], hash['payload'])
+        # Ensure the proper worker is attached to this job, even if
+        # it's not the precise instance that died.
+        job.worker = self
+        job.fail(DirtyExit.new)
+      end
+
       redis.srem(:workers, self)
       redis.del("worker:#{self}")
       redis.del("worker:#{self}:started")

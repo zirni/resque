@@ -17,6 +17,7 @@ require 'resque/helpers'
 require 'resque/stat'
 require 'resque/job'
 require 'resque/worker'
+require 'resque/plugin'
 
 module Resque
   include Helpers
@@ -25,7 +26,7 @@ module Resque
   # Accepts:
   #   1. A 'hostname:port' string
   #   2. A 'hostname:port:db' string (to select the Redis db)
-  #   3. An instance of `Redis`
+  #   3. An instance of `Redis`, `Redis::Client`, or `Redis::Namespace`.
   def redis=(server)
     case server
     when String
@@ -33,8 +34,10 @@ module Resque
       redis = Redis.new(:host => host, :port => port,
         :thread_safe => true, :db => db)
       @redis = Redis::Namespace.new(:resque, :redis => redis)
-    when Redis
+    when Redis, Redis::Client
       @redis = Redis::Namespace.new(:resque, :redis => server)
+    when Redis::Namespace
+      @redis = server
     else
       raise "I don't know what to do with #{server.inspect}"
     end
