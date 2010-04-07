@@ -65,7 +65,7 @@ information.
         <dd>
             <ul>
                 
-                <li><a href="#M000028">all</a></li>
+                <li><a href="#M000030">all</a></li>
                 
             </ul>
         </dd>
@@ -74,7 +74,7 @@ information.
         <dd>
             <ul>
                 
-                <li><a href="#M000026">backend</a>,</li>
+                <li><a href="#M000028">backend</a>,</li>
                 
                 <li><a href="#M000025">backend=</a></li>
                 
@@ -87,9 +87,9 @@ information.
                 
                 <li><a href="#M000034">clear</a>,</li>
                 
-                <li><a href="#M000027">count</a>,</li>
+                <li><a href="#M000029">count</a>,</li>
                 
-                <li><a href="#M000023">create</a></li>
+                <li><a href="#M000024">create</a></li>
                 
             </ul>
         </dd>
@@ -142,9 +142,9 @@ information.
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000028">
+                <div class="title" id="M000030">
                     
-                    <a name="M000028"></a><b>all</b>(start = 0, count = 1)
+                    <a name="M000030"></a><b>all</b>(start = 0, count = 1)
                     
                 </div>
                 
@@ -164,12 +164,12 @@ items to return.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000028_source')" id="l_M000028_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000030_source')" id="l_M000030_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/2af831cdb81350fa14dadd0929f3e355b866c618/lib/resque/failure.rb#L48" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000028_source" class="dyn-source">
+                    <div id="M000030_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure.rb, line 48</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">start</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">count</span> = <span class="ruby-value">1</span>)
       <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">start</span>, <span class="ruby-identifier">count</span>)
@@ -180,9 +180,9 @@ items to return.
             </div>
             
             <div class="method">
-                <div class="title" id="M000026">
+                <div class="title" id="M000028">
                     
-                    <a name="M000026"></a><b>backend</b>()
+                    <a name="M000028"></a><b>backend</b>()
                     
                 </div>
                 
@@ -199,12 +199,12 @@ Returns the current backend class. If none has been set, falls back to
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000026_source')" id="l_M000026_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000028_source')" id="l_M000028_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/2af831cdb81350fa14dadd0929f3e355b866c618/lib/resque/failure.rb#L33" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000026_source" class="dyn-source">
+                    <div id="M000028_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure.rb, line 33</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">backend</span>
       <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@backend</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@backend</span>
@@ -293,9 +293,9 @@ Clear all failure jobs
             </div>
             
             <div class="method">
-                <div class="title" id="M000027">
+                <div class="title" id="M000029">
                     
-                    <a name="M000027"></a><b>count</b>()
+                    <a name="M000029"></a><b>count</b>()
                     
                 </div>
                 
@@ -311,12 +311,12 @@ Returns the int count of how many failures we have seen.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000027_source')" id="l_M000027_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000029_source')" id="l_M000029_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/2af831cdb81350fa14dadd0929f3e355b866c618/lib/resque/failure.rb#L40" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000027_source" class="dyn-source">
+                    <div id="M000029_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure.rb, line 40</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">count</span>
       <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">count</span>
@@ -327,9 +327,9 @@ Returns the int count of how many failures we have seen.
             </div>
             
             <div class="method">
-                <div class="title" id="M000023">
+                <div class="title" id="M000024">
                     
-                    <a name="M000023"></a><b>create</b>(options = {})
+                    <a name="M000024"></a><b>create</b>(options = {})
                     
                 </div>
                 
@@ -354,12 +354,12 @@ Expects a hash with the following keys:
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000023_source')" id="l_M000023_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000024_source')" id="l_M000024_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/2af831cdb81350fa14dadd0929f3e355b866c618/lib/resque/failure.rb#L16" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000023_source" class="dyn-source">
+                    <div id="M000024_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure.rb, line 16</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">options</span> = {})
       <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">options</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-identifier">:exception</span>, <span class="ruby-identifier">:worker</span>, <span class="ruby-identifier">:queue</span>, <span class="ruby-identifier">:payload</span>)).<span class="ruby-identifier">save</span>

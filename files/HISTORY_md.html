@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>HISTORY.md</li>
-            <li>Last modified: Fri Apr 02 15:48:58 -0700 2010</li>
+            <li>Last modified: Wed Apr 07 12:51:36 -0700 2010</li>
         </ul>
     </div>
 
@@ -27,7 +27,20 @@
         <div id="content">
     
     <div class="description">
-        <h2>1.7.1 (2010-04-02)</h2>
+        <h2>1.8.0 (2010-04-07)</h2>
+
+<ul>
+<li>Jobs that never complete due to killed worker are now failed.</li>
+<li>Worker "working" state is now maintained by the parent, not the child.</li>
+<li>Stopped using deprecated redis.rb methods</li>
+<li><code>Worker.working</code> race condition fixed</li>
+<li><code>Worker#process</code> has been deprecated.</li>
+<li>Monit example fixed</li>
+<li>Redis::Client and Redis::Namespace can be passed to <code>Resque.redis=</code></li>
+</ul>
+
+
+<h2>1.7.1 (2010-04-02)</h2>
 
 <ul>
 <li>Bugfix: Make job hook execution order consistent</li>
