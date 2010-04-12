@@ -1,11 +1,18 @@
 # require 'resque/tasks'
 # will give you the resque tasks
 
+def initialization_tasks
+  tasks = []
+  tasks << :environment if Rake::Task.task_defined?(:environment)
+  tasks << :setup
+  tasks
+end
+
 namespace :resque do
   task :setup
 
   desc "Start a Resque worker"
-  task :work => :setup do
+  task :work => initialization_tasks do
     require 'resque'
 
     worker = nil
