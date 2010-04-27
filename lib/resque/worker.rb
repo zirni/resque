@@ -463,9 +463,9 @@ module Resque
 
     # Log a message to STDOUT if we are verbose or very_verbose.
     def log(message)
-      if verbose
+      if verbose?
         puts "*** #{message}"
-      elsif very_verbose
+      elsif very_verbose?
         time = Time.now.strftime('%I:%M:%S %Y-%m-%d')
         puts "** [#{time}] #$$: #{message}"
       end
@@ -473,7 +473,27 @@ module Resque
 
     # Logs a very verbose message to STDOUT.
     def log!(message)
-      log message if very_verbose
+      log message if very_verbose?
+    end
+
+    # Do we want to log?
+    #
+    # Returns a Boolean.
+    def verbose?
+      verbose && !negative_words.include?(verbose)
+    end
+
+    # Do we want to log a ton of stuff?
+    #
+    # Returns a Boolean.
+    def very_verbose?
+      very_verbose && !negative_words.include?(very_verbose)
+    end
+
+    # If `verbose` or `very_verbose` are set to any of these words, we
+    # want them disabled.
+    def negative_words
+      %w( 0 false off nil no )
     end
   end
 end
