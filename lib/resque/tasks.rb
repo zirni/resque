@@ -32,7 +32,7 @@ namespace :resque do
   end
 
   desc "Start multiple Resque workers. Should only be used in dev mode."
-  task :workers do
+  task "dev:workers" do
     threads = []
 
     ENV['COUNT'].to_i.times do
