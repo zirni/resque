@@ -43,7 +43,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000053">after_hooks</a>,</li>
+                <li><a href="#M000050">after_hooks</a>,</li>
                 
                 <li><a href="#M000049">around_hooks</a></li>
                 
@@ -63,7 +63,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000054">failure_hooks</a></li>
+                <li><a href="#M000051">failure_hooks</a></li>
                 
             </ul>
         </dd>
@@ -72,7 +72,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000046">lint</a></li>
+                <li><a href="#M000047">lint</a></li>
                 
             </ul>
         </dd>
@@ -106,9 +106,9 @@
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000053">
+                <div class="title" id="M000050">
                     
-                    <a name="M000053"></a><b>after_hooks</b>(job)
+                    <a name="M000050"></a><b>after_hooks</b>(job)
                     
                 </div>
                 
@@ -124,12 +124,12 @@ Given an object, returns a list `after_perform` hook names.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000053_source')" id="l_M000053_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000050_source')" id="l_M000050_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/d32566d372cd98479d1fbb806e63d855868947a1/lib/resque/plugin.rb#L37" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000053_source" class="dyn-source">
+                    <div id="M000050_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/plugin.rb, line 37</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">after_hooks</span>(<span class="ruby-identifier">job</span>)
       <span class="ruby-identifier">job</span>.<span class="ruby-identifier">methods</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp re">/^after_perform/</span>).<span class="ruby-identifier">sort</span>
@@ -208,9 +208,9 @@ Given an object, returns a list `before_perform` hook names.
             </div>
             
             <div class="method">
-                <div class="title" id="M000054">
+                <div class="title" id="M000051">
                     
-                    <a name="M000054"></a><b>failure_hooks</b>(job)
+                    <a name="M000051"></a><b>failure_hooks</b>(job)
                     
                 </div>
                 
@@ -226,12 +226,12 @@ Given an object, returns a list `on_failure` hook names.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000054_source')" id="l_M000054_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000051_source')" id="l_M000051_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/d32566d372cd98479d1fbb806e63d855868947a1/lib/resque/plugin.rb#L42" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000054_source" class="dyn-source">
+                    <div id="M000051_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/plugin.rb, line 42</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">failure_hooks</span>(<span class="ruby-identifier">job</span>)
       <span class="ruby-identifier">job</span>.<span class="ruby-identifier">methods</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-regexp re">/^on_failure/</span>).<span class="ruby-identifier">sort</span>
@@ -242,9 +242,9 @@ Given an object, returns a list `on_failure` hook names.
             </div>
             
             <div class="method">
-                <div class="title" id="M000046">
+                <div class="title" id="M000047">
                     
-                    <a name="M000046"></a><b>lint</b>(plugin)
+                    <a name="M000047"></a><b>lint</b>(plugin)
                     
                 </div>
                 
@@ -263,12 +263,12 @@ Ensure that your plugin conforms to good hook naming conventions.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000046_source')" id="l_M000046_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000047_source')" id="l_M000047_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/d32566d372cd98479d1fbb806e63d855868947a1/lib/resque/plugin.rb#L10" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000046_source" class="dyn-source">
+                    <div id="M000047_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/plugin.rb, line 10</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">lint</span>(<span class="ruby-identifier">plugin</span>)
       <span class="ruby-identifier">hooks</span> = <span class="ruby-identifier">before_hooks</span>(<span class="ruby-identifier">plugin</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">around_hooks</span>(<span class="ruby-identifier">plugin</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">after_hooks</span>(<span class="ruby-identifier">plugin</span>)

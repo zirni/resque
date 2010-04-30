@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>HISTORY.md</li>
-            <li>Last modified: Wed Apr 07 12:51:36 -0700 2010</li>
+            <li>Last modified: Thu Apr 29 18:20:56 -0700 2010</li>
         </ul>
     </div>
 
@@ -27,7 +27,16 @@
         <div id="content">
     
     <div class="description">
-        <h2>1.8.0 (2010-04-07)</h2>
+        <h2>1.8.1 (2010-04-29)</h2>
+
+<ul>
+<li>Bugfix: Multiple failure backend did not support requeue-ing failed jobs</li>
+<li>Bugfix: Fix /failed when error has no backtrace</li>
+<li>Bugfix: Add <code>Redis::DistRedis</code> as a valid client</li>
+</ul>
+
+
+<h2>1.8.0 (2010-04-07)</h2>
 
 <ul>
 <li>Jobs that never complete due to killed worker are now failed.</li>

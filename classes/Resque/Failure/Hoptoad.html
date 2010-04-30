@@ -75,7 +75,7 @@ To use it, put this code in an initializer, Rake task, or wherever:
         <dd>
             <ul>
                 
-                <li><a href="#M000020">api_key</a></li>
+                <li><a href="#M000022">api_key</a></li>
                 
             </ul>
         </dd>
@@ -95,7 +95,7 @@ To use it, put this code in an initializer, Rake task, or wherever:
         <dd>
             <ul>
                 
-                <li><a href="#M000014">fill_in_backtrace_lines</a></li>
+                <li><a href="#M000018">fill_in_backtrace_lines</a></li>
                 
             </ul>
         </dd>
@@ -106,7 +106,7 @@ To use it, put this code in an initializer, Rake task, or wherever:
                 
                 <li><a href="#M000010">save</a>,</li>
                 
-                <li><a href="#M000021">server_environment</a></li>
+                <li><a href="#M000023">server_environment</a></li>
                 
             </ul>
         </dd>
@@ -115,7 +115,7 @@ To use it, put this code in an initializer, Rake task, or wherever:
         <dd>
             <ul>
                 
-                <li><a href="#M000019">use_ssl?</a></li>
+                <li><a href="#M000021">use_ssl?</a></li>
                 
             </ul>
         </dd>
@@ -270,9 +270,9 @@ From the hoptoad plugin
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000020">
+                <div class="title" id="M000022">
                     
-                    <a name="M000020"></a><b>api_key</b>()
+                    <a name="M000022"></a><b>api_key</b>()
                     
                 </div>
                 
@@ -281,12 +281,12 @@ From the hoptoad plugin
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000020_source')" id="l_M000020_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000022_source')" id="l_M000022_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/ff7efcf35a62accc75efb2f364741cecae629980/lib/resque/failure/hoptoad.rb#L122" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000020_source" class="dyn-source">
+                    <div id="M000022_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 122</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">api_key</span>
         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">api_key</span>
@@ -297,9 +297,9 @@ From the hoptoad plugin
             </div>
             
             <div class="method">
-                <div class="title" id="M000014">
+                <div class="title" id="M000018">
                     
-                    <a name="M000014"></a><b>fill_in_backtrace_lines</b>(x)
+                    <a name="M000018"></a><b>fill_in_backtrace_lines</b>(x)
                     
                 </div>
                 
@@ -308,12 +308,12 @@ From the hoptoad plugin
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000014_source')" id="l_M000014_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000018_source')" id="l_M000018_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/ff7efcf35a62accc75efb2f364741cecae629980/lib/resque/failure/hoptoad.rb#L111" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000014_source" class="dyn-source">
+                    <div id="M000018_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 111</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fill_in_backtrace_lines</span>(<span class="ruby-identifier">x</span>)
         <span class="ruby-identifier">exception</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">unparsed_line</span><span class="ruby-operator">|</span>
@@ -381,9 +381,9 @@ From the hoptoad plugin
             </div>
             
             <div class="method">
-                <div class="title" id="M000021">
+                <div class="title" id="M000023">
                     
-                    <a name="M000021"></a><b>server_environment</b>()
+                    <a name="M000023"></a><b>server_environment</b>()
                     
                 </div>
                 
@@ -392,12 +392,12 @@ From the hoptoad plugin
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000021_source')" id="l_M000021_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000023_source')" id="l_M000023_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/ff7efcf35a62accc75efb2f364741cecae629980/lib/resque/failure/hoptoad.rb#L126" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000021_source" class="dyn-source">
+                    <div id="M000023_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 126</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">server_environment</span>
         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">server_environment</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">server_environment</span>
@@ -409,9 +409,9 @@ From the hoptoad plugin
             </div>
             
             <div class="method">
-                <div class="title" id="M000019">
+                <div class="title" id="M000021">
                     
-                    <a name="M000019"></a><b>use_ssl?</b>()
+                    <a name="M000021"></a><b>use_ssl?</b>()
                     
                 </div>
                 
@@ -420,12 +420,12 @@ From the hoptoad plugin
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000019_source')" id="l_M000019_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000021_source')" id="l_M000021_source">show</a>
                         
                         | <a href="http://github.com/defunkt/resque/blob/ff7efcf35a62accc75efb2f364741cecae629980/lib/resque/failure/hoptoad.rb#L118" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000019_source" class="dyn-source">
+                    <div id="M000021_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/resque/failure/hoptoad.rb, line 118</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">use_ssl?</span>
         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">secure</span>
