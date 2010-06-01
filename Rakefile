@@ -9,7 +9,7 @@ $LOAD_PATH.unshift 'lib'
 require 'resque/tasks'
 
 def command?(command)
-  system("type #{command} > /dev/null")
+  system("type #{command} > /dev/null 2>&1")
 end
 
 
@@ -37,18 +37,10 @@ end
 
 
 #
-# Gem
+# Install
 #
 
 task :install => [ 'redis:install', 'dtach:install' ]
-
-begin
-  require 'mg'
-  MG.new("resque.gemspec")
-rescue LoadError
-  warn "mg not available."
-  warn "Install it with: gem i mg"
-end
 
 
 #
@@ -58,7 +50,6 @@ end
 begin
   require 'sdoc_helpers'
 rescue LoadError
-  puts "sdoc support not enabled. Please gem install sdoc-helpers."
 end
 
 
@@ -67,9 +58,11 @@ end
 #
 
 desc "Push a new version to Gemcutter"
-task :publish => "gem:publish" do
+task :publish do
   require 'resque/version'
 
+  sh "gem build resque.gemspec"
+  sh "gem push resque-#{Resque::Version}.gem"
   sh "git tag v#{Resque::Version}"
   sh "git push origin v#{Resque::Version}"
   sh "git push origin master"

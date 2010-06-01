@@ -29,18 +29,15 @@ module Resque
   #   3. An instance of `Redis`, `Redis::Client`, `Redis::DistRedis`,
   #      or `Redis::Namespace`.
   def redis=(server)
-    case server
-    when String
+    if server.respond_to? :split
       host, port, db = server.split(':')
       redis = Redis.new(:host => host, :port => port,
         :thread_safe => true, :db => db)
       @redis = Redis::Namespace.new(:resque, :redis => redis)
-    when Redis, Redis::Client, Redis::DistRedis
-      @redis = Redis::Namespace.new(:resque, :redis => server)
-    when Redis::Namespace
-      @redis = server
+    elsif server.respond_to? :namespace=
+        @redis = server
     else
-      raise "I don't know what to do with #{server.inspect}"
+      @redis = Redis::Namespace.new(:resque, :redis => server)
     end
   end
 
@@ -87,8 +84,8 @@ module Resque
   end
 
   # The `after_fork` hook will be run in the child process and is passed
-  # the current job. Any changes you make, therefor, will only live as
-  # long as the job currently being processes.
+  # the current job. Any changes you make, therefore, will only live as
+  # long as the job currently being processed.
   #
   # Call with a block to set the hook.
   # Call with no arguments to return the hook.
@@ -125,7 +122,7 @@ module Resque
     decode redis.lpop("queue:#{queue}")
   end
 
-  # Returns an int representing the size of a queue.
+  # Returns an integer representing the size of a queue.
   # Queue name should be a string.
   def size(queue)
     redis.llen("queue:#{queue}").to_i
@@ -276,7 +273,8 @@ module Resque
       :workers   => workers.size.to_i,
       :working   => working.size,
       :failed    => Stat[:failed],
-      :servers   => [redis.server]
+      :servers   => [redis.server],
+      :environment  => defined?(RAILS_ENV) ? RAILS_ENV : (ENV['RACK_ENV'] || 'development')
     }
   end
 
