@@ -1,3 +1,3 @@
 module Resque
-  Version = '1.8.5'
+  Version = VERSION = '1.9.4'
 end
